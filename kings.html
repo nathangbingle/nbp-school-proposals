@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Nathan Bingle Photography — Kings Town Elementary Proposal</title>
+<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;600;700&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap" rel="stylesheet">
+<style>
+:root {
+  --p: #003087;
+  --s: #C8A951;
+  --light: color-mix(in srgb, #003087 10%, white);
+}
+*{ margin:0; padding:0; box-sizing:border-box; }
+body{ font-family:'Poppins',sans-serif; background:#F7F6F2; color:#333; }
+h1,h2,h3,.jf{ font-family:'Josefin Sans',sans-serif; }
+
+.site-header{
+  background:#fff; border-bottom:1px solid #E8E4DC;
+  padding:16px 36px; display:flex; justify-content:space-between; align-items:center;
+  position:sticky; top:0; z-index:100;
+}
+.nbp-mark{ font-family:'Josefin Sans',sans-serif; font-weight:700; letter-spacing:.14em; font-size:16px; text-transform:uppercase; color:#1a1a1a; }
+.nbp-sub{ font-size:9px; font-weight:500; letter-spacing:.3em; color:#bbb; text-transform:uppercase; margin-top:2px; }
+.header-right{ text-align:right; font-family:'Josefin Sans',sans-serif; font-size:11px; color:#ccc; font-weight:700; letter-spacing:.1em; text-transform:uppercase; }
+
+.tabs{ background:#fff; border-bottom:1px solid #E8E4DC; display:flex; overflow-x:auto; }
+.tab-btn{
+  flex:1 1 auto; padding:13px 16px; background:none; border:none;
+  border-bottom:2px solid transparent; font-family:'Josefin Sans',sans-serif;
+  font-weight:700; font-size:10px; letter-spacing:.18em; text-transform:uppercase;
+  cursor:pointer; white-space:nowrap; color:#aaa; transition:all .15s;
+}
+.tab-btn.active{ border-bottom-color:var(--p); color:var(--p); }
+
+.tab-panel{ display:none; }
+.tab-panel.active{ display:block; }
+
+/* Hero */
+.hero{ background:var(--p); padding:60px 40px; position:relative; overflow:hidden; }
+.hero-wm{
+  position:absolute; right:-10px; top:50%; transform:translateY(-50%);
+  font-family:'Josefin Sans',sans-serif; font-size:clamp(7rem,18vw,14rem);
+  font-weight:700; letter-spacing:.06em; color:rgba(255,255,255,.06);
+  line-height:1; pointer-events:none; text-transform:uppercase;
+}
+.hero-inner{ max-width:600px; position:relative; z-index:1; }
+.hero-kicker{ font-family:'Josefin Sans',sans-serif; font-size:10px; font-weight:700; letter-spacing:.35em; text-transform:uppercase; color:var(--s); margin-bottom:16px; opacity:.9; }
+.hero-title{ font-family:'Josefin Sans',sans-serif; font-size:clamp(1.8rem,5vw,3.2rem); font-weight:700; letter-spacing:.04em; text-transform:uppercase; color:#fff; line-height:1.1; margin-bottom:10px; }
+.hero-sub{ font-size:14px; color:rgba(255,255,255,.5); margin-bottom:24px; }
+.hero-pills{ display:flex; gap:10px; flex-wrap:wrap; }
+.hero-pill{ font-size:12px; color:#fff; background:rgba(255,255,255,.1); padding:8px 16px; border-radius:6px; }
+.hero-bar{ position:absolute; bottom:0; left:0; right:0; height:4px; background:var(--s); }
+
+/* Section */
+.section{ padding:52px 40px; }
+.section-inner{ max-width:760px; margin:0 auto; }
+.tag{
+  display:inline-block; font-family:'Josefin Sans',sans-serif; font-size:9px; font-weight:700;
+  letter-spacing:.28em; text-transform:uppercase; color:var(--p);
+  background:var(--light); padding:5px 12px; border-radius:40px; margin-bottom:12px;
+}
+.section-h2{ font-family:'Josefin Sans',sans-serif; font-size:clamp(1.4rem,3vw,1.9rem); font-weight:700; letter-spacing:.04em; color:#1a1a1a; margin-bottom:14px; line-height:1.15; }
+.section-h2 span{ color:var(--p); }
+.body-text{ font-size:13.5px; color:#555; line-height:1.8; margin-bottom:13px; }
+
+/* Grid layouts */
+.two-col{ display:grid; grid-template-columns:3fr 2fr; gap:52px; align-items:center; }
+.three-col{ display:grid; grid-template-columns:repeat(3,1fr); gap:12px; }
+.two-col-eq{ display:grid; grid-template-columns:1fr 1fr; gap:1px; background:#F0EDE6; border-radius:8px; overflow:hidden; }
+.fund-grid{ display:grid; grid-template-columns:3fr 2fr; gap:44px; align-items:start; }
+.contact-grid{ display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-bottom:32px; }
+
+/* Components */
+.about-img{ background:var(--light); border-radius:8px; aspect-ratio:4/3; display:flex; align-items:center; justify-content:center; flex-direction:column; gap:8px; }
+.about-img svg{ opacity:.3; }
+.about-img-lbl{ font-family:'Josefin Sans',sans-serif; font-size:9px; letter-spacing:.2em; text-transform:uppercase; color:var(--p); opacity:.4; }
+
+.pillar{ background:#fff; padding:22px 18px; border-radius:8px; border-top:3px solid var(--p); }
+.pillar-title{ font-family:'Josefin Sans',sans-serif; font-size:10px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:var(--p); margin-bottom:8px; }
+.pillar p{ font-size:12.5px; color:#666; line-height:1.65; }
+
+.quote-band{ background:var(--p); padding:48px 40px; text-align:center; }
+.quote-band blockquote{ font-size:clamp(1.1rem,2.5vw,1.55rem); font-weight:300; font-style:italic; color:#fff; max-width:540px; margin:0 auto; line-height:1.6; }
+.quote-band cite{ font-family:'Josefin Sans',sans-serif; display:block; margin-top:16px; font-size:9px; font-weight:700; letter-spacing:.3em; text-transform:uppercase; color:var(--s); font-style:normal; opacity:.85; }
+
+.svc-item{ background:#fff; padding:24px; }
+.svc-bar{ width:22px; height:3px; background:var(--p); border-radius:2px; margin-bottom:11px; }
+.svc-title{ font-family:'Josefin Sans',sans-serif; font-size:11px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:#1a1a1a; margin-bottom:7px; }
+.svc-desc{ font-size:12.5px; color:#777; line-height:1.7; }
+
+.note-box{ background:var(--light); border-radius:8px; padding:22px 26px; margin-top:28px; }
+.note-title{ font-family:'Josefin Sans',sans-serif; font-size:9px; font-weight:700; letter-spacing:.18em; text-transform:uppercase; color:var(--p); margin-bottom:6px; }
+
+.price-table{ width:100%; border-collapse:collapse; min-width:560px; font-size:12px; }
+.price-table th{ font-family:'Josefin Sans',sans-serif; padding:11px 9px; font-weight:700; font-size:9px; letter-spacing:.18em; text-transform:uppercase; background:var(--p); color:#fff; white-space:nowrap; text-align:center; }
+.price-table th:nth-child(2){ text-align:left; }
+.price-table td{ padding:10px 9px; border-bottom:1px solid #F0EDE6; color:#666; text-align:center; }
+.price-table td:first-child{ font-family:'Josefin Sans',sans-serif; font-weight:700; color:var(--p); font-size:13px; }
+.price-table td:nth-child(2){ text-align:left; color:#333; }
+.price-table td:nth-child(3){ font-weight:600; color:#1a1a1a; }
+.price-table tr:nth-child(even){ background:#FAFAF7; }
+.price-table tr:nth-child(odd){ background:#fff; }
+.price-div td{ font-family:'Josefin Sans',sans-serif !important; background:var(--light) !important; color:var(--p) !important; font-weight:700 !important; font-size:9px !important; letter-spacing:.18em; text-transform:uppercase; text-align:center !important; padding:9px !important; }
+.table-wrap{ overflow-x:auto; }
+
+.stat-card{ background:#fff; border-radius:8px; padding:20px 18px; margin-bottom:12px; border-left:4px solid var(--p); }
+.stat-num{ font-family:'Josefin Sans',sans-serif; font-size:28px; font-weight:700; color:var(--p); line-height:1; margin-bottom:6px; }
+.stat-lbl{ font-size:12px; color:#777; line-height:1.5; }
+
+/* Contact form */
+.contact-item{ background:var(--light); border-radius:8px; padding:16px 18px; }
+.contact-label{ font-family:'Josefin Sans',sans-serif; font-size:9px; font-weight:700; letter-spacing:.25em; text-transform:uppercase; color:var(--p); margin-bottom:5px; }
+.contact-val{ font-size:13px; color:#333; font-weight:500; }
+
+.form-card{ background:#fff; border-radius:10px; padding:36px; border:1px solid #EAE6DE; margin-bottom:24px; }
+.form-title{ font-family:'Josefin Sans',sans-serif; font-size:12px; font-weight:700; letter-spacing:.15em; text-transform:uppercase; color:var(--p); margin-bottom:24px; padding-bottom:14px; border-bottom:1px solid #F0EDE6; }
+.form-row{ display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-bottom:16px; }
+.form-group{ margin-bottom:16px; }
+.form-label{ font-family:'Josefin Sans',sans-serif; font-size:9px; font-weight:700; letter-spacing:.2em; text-transform:uppercase; color:#999; margin-bottom:6px; display:block; }
+.form-input{
+  width:100%; padding:11px 14px; border:1px solid #E0DDD6; border-radius:6px;
+  font-family:'Poppins',sans-serif; font-size:13px; color:#333; background:#FAFAF7;
+  outline:none; transition:border-color .2s;
+}
+.form-input:focus{ border-color:var(--p); background:#fff; }
+.form-textarea{ min-height:100px; resize:vertical; }
+.submit-btn{
+  width:100%; padding:14px; background:var(--p); color:#fff; border:none;
+  border-radius:6px; font-family:'Josefin Sans',sans-serif; font-weight:700;
+  font-size:11px; letter-spacing:.2em; text-transform:uppercase; cursor:pointer;
+  transition:opacity .2s; margin-top:8px;
+}
+.submit-btn:hover{ opacity:.88; }
+.submit-btn:disabled{ opacity:.5; cursor:not-allowed; }
+.form-success{
+  display:none; background:var(--light); border:1px solid var(--p);
+  border-radius:8px; padding:24px; text-align:center; margin-top:16px;
+}
+.form-success-title{ font-family:'Josefin Sans',sans-serif; font-size:14px; font-weight:700; letter-spacing:.08em; color:var(--p); margin-bottom:6px; text-transform:uppercase; }
+.form-success p{ font-size:13px; color:#666; line-height:1.65; }
+.form-note{ font-size:11px; color:#bbb; text-align:center; margin-top:10px; line-height:1.6; }
+
+.cta-box{ background:var(--p); border-radius:8px; padding:32px 36px; text-align:center; }
+.cta-tagline{ font-size:1rem; font-weight:300; font-style:italic; color:#fff; margin-bottom:8px; }
+.cta-sub{ font-size:13px; color:rgba(255,255,255,.55); margin-bottom:0; }
+
+.prop-footer{ padding:20px 0; border-top:1px solid #F0EDE6; text-align:center; margin-top:36px; }
+.prop-footer-name{ font-family:'Josefin Sans',sans-serif; font-weight:700; letter-spacing:.14em; font-size:13px; text-transform:uppercase; color:#1a1a1a; margin-bottom:4px; }
+.prop-footer-sub{ font-size:11px; color:#bbb; }
+
+@media(max-width:640px){
+  .two-col,.fund-grid,.contact-grid,.form-row{ grid-template-columns:1fr; }
+  .three-col{ grid-template-columns:1fr 1fr; }
+  .two-col-eq{ grid-template-columns:1fr; }
+  .hero,.section{ padding-left:20px; padding-right:20px; }
+  .site-header{ padding-left:16px; padding-right:16px; }
+}
+</style>
+</head>
+<body>
+
+<!-- Header -->
+<header class="site-header">
+  <div>
+    <div class="nbp-mark">Nathan Bingle</div>
+    <div class="nbp-sub">Photography</div>
+  </div>
+  <div class="header-right">KTES · School Photography Proposal</div>
+</header>
+
+<!-- Tabs -->
+<div class="tabs">
+  <button class="tab-btn active" onclick="showTab(0,this)">Overview</button>
+  <button class="tab-btn" onclick="showTab(1,this)">Services</button>
+  <button class="tab-btn" onclick="showTab(2,this)">Pricing & Fundraising</button>
+  <button class="tab-btn" onclick="showTab(3,this)">Contact Us</button>
+</div>
+
+<!-- ── OVERVIEW ─────────────────────────────────────────── -->
+<div class="tab-panel active" id="tab-0">
+  <div class="hero">
+    <div class="hero-wm">KTES</div>
+    <div class="hero-inner">
+      <div class="hero-kicker">School Photography Proposal</div>
+      <h1 class="hero-title">Kings Town Elementary</h1>
+      <div class="hero-sub">Knights · Grades K–5</div>
+      <div class="hero-pills">
+        <div class="hero-pill">803-396-3400</div>
+        <div class="hero-pill">1774 Mason Bend Dr, Fort Mill, SC 29708</div>
+      </div>
+    </div>
+    <div class="hero-bar"></div>
+  </div>
+
+  <div class="section" style="background:#fff">
+    <div class="section-inner two-col">
+      <div>
+        <div class="tag">About Us</div>
+        <h2 class="section-h2">Local. <span>Professional.</span> Community-First.</h2>
+        <p class="body-text">We've been professional photographers for over five years, specializing in high-volume programs for schools, sports leagues, and events across the Carolinas — earning an excellent reputation for quality, value, and service.</p>
+        <p class="body-text">We are a Member of the <strong>Professional Photographers of America</strong> and the only local high-volume photography company based right here in Fort Mill.</p>
+        <p class="body-text">We're proud to serve the <strong style="color:#003087">Knights</strong> and the entire Kings Town Elementary community.</p>
+      </div>
+      <div class="about-img">
+        <svg width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="#003087" stroke-width="1.5"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+        <div class="about-img-lbl">Studio Photo</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section" style="background:var(--light)">
+    <div class="section-inner">
+      <div class="tag">Why KTES Wins</div>
+      <h2 class="section-h2">How <span>Kings Town Elementary</span> benefits</h2>
+      <div class="three-col">
+        <div class="pillar"><div class="pillar-title">Local & Invested</div><p>We live right here in Fort Mill. Our reputation is on the line every single shoot — we work harder because of it.</p></div>
+        <div class="pillar"><div class="pillar-title">PPA-Trained</div><p>Member of the Professional Photographers of America with specialized training in portraiture and studio management.</p></div>
+        <div class="pillar"><div class="pillar-title">Maximum Fundraising</div><p>The highest commission rates available with zero hidden exclusions. Every dollar you expect, you receive.</p></div>
+        <div class="pillar"><div class="pillar-title">Zero Hassle</div><p>We handle everything — parent notices, online ordering, delivery, and even direct-to-home shipping.</p></div>
+        <div class="pillar"><div class="pillar-title">Full Transparency</div><p>Complete itemized financial report after every event. Every student, every transaction, every commission dollar.</p></div>
+        <div class="pillar"><div class="pillar-title">Background-Checked</div><p>Every team member is background-checked before they ever set foot in your school.</p></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="quote-band">
+    <blockquote>"We don't just develop photos. We develop relationships."</blockquote>
+    <cite>— Nathan Bingle, Owner · Fort Mill, SC</cite>
+  </div>
+</div>
+
+<!-- ── SERVICES ──────────────────────────────────────────── -->
+<div class="tab-panel" id="tab-1">
+  <div class="section" style="background:#fff">
+    <div class="section-inner">
+      <div class="tag">What We Offer</div>
+      <h2 class="section-h2">Everything <span>Kings Town Elementary</span> needs — and then some</h2>
+      <p class="body-text" style="max-width:520px;margin-bottom:28px">We customize every package around your school's specific needs — from records and yearbooks to special events and administrative software.</p>
+      <div class="two-col-eq">
+        <div class="svc-item"><div class="svc-bar"></div><div class="svc-title">School Portraits</div><p class="svc-desc">Organized, hassle-free picture day done before lunch. We handle parent notifications, online ordering, and delivery — your staff doesn't lift a finger.</p></div>
+        <div class="svc-item"><div class="svc-bar"></div><div class="svc-title">Yearbook Exports</div><p class="svc-desc">PSPA-compliant photo exports compatible with all yearbook companies, ready to drop in immediately.</p></div>
+        <div class="svc-item"><div class="svc-bar"></div><div class="svc-title">Admin Software Exports</div><p class="svc-desc">Exports for food services, attendance, media center, security, or student database systems.</p></div>
+        <div class="svc-item"><div class="svc-bar"></div><div class="svc-title">Service Photo Strips</div><p class="svc-desc">Identified and sorted by student or class, with adhesive backs for easy permanent record filing.</p></div>
+        <div class="svc-item"><div class="svc-bar"></div><div class="svc-title">Group Photos &amp; Composites</div><p class="svc-desc">Classrooms, clubs, or the whole school — stacked, composite, or virtual styles with custom school graphics.</p></div>
+        <div class="svc-item"><div class="svc-bar"></div><div class="svc-title">Staff Photos</div><p class="svc-desc">Every teacher receives a FREE retouched individual photo download plus a FREE class group photo or composite.</p></div>
+        <div class="svc-item"><div class="svc-bar"></div><div class="svc-title">Spring Portraits</div><p class="svc-desc">Casual, personality-forward portraits. Opt-in or opt-out. Fresh themes and backgrounds every year.</p></div>
+        <div class="svc-item"><div class="svc-bar"></div><div class="svc-title">PRIDE Wall Composites</div><p class="svc-desc">All-school composites for your hall or lobby — traditional or photo-mosaic styles.</p></div>
+        <div class="svc-item"><div class="svc-bar"></div><div class="svc-title">ID Cards &amp; Badges</div><p class="svc-desc">Student and staff IDs in school colors with mascot, emblem, and barcoding as required.</p></div>
+        <div class="svc-item"><div class="svc-bar"></div><div class="svc-title">Child Safe-T Cards</div><p class="svc-desc">Wallet-size emergency cards to help law enforcement quickly identify a missing child.</p></div>
+        <div class="svc-item"><div class="svc-bar"></div><div class="svc-title">"Little Grads" Portraits</div><p class="svc-desc">Caps and gowns for Pre-K/K transitions, with a complimentary certificate for every child.</p></div>
+        <div class="svc-item"><div class="svc-bar"></div><div class="svc-title">Yearbooks &amp; Memory Books</div><p class="svc-desc">Soft and hard cover. Fast turnaround. Free web-based design software. No deadlines or late fees.</p></div>
+      </div>
+      <div class="note-box">
+        <div class="note-title">A note on complimentary services</div>
+        <p class="body-text" style="margin:0">Many school services are included at no additional cost. A small number may require a minor pricing or rebate adjustment — we'll walk you through everything upfront with no surprises.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── PRICING & FUNDRAISING ─────────────────────────────── -->
+<div class="tab-panel" id="tab-2">
+  <div class="section" style="background:#fff">
+    <div class="section-inner">
+      <div class="tag">Portrait Packages</div>
+      <h2 class="section-h2">Pricing that works for <span>Kings Town Elementary</span></h2>
+      <p class="body-text">The commission percentage your school selects determines the retail price families pay. Dial up for fundraising, dial down to lower costs for families.</p>
+      <div class="table-wrap">
+        <table class="price-table">
+          <thead><tr><th>Pkg</th><th>Contents</th><th>Net</th><th>10%</th><th>15%</th><th>20%</th><th>25%</th><th>30%</th><th>40%</th></tr></thead>
+          <tbody>
+            <tr><td>G</td><td>2-3x5 + 8 Small Wallets</td><td>$9</td><td>$10</td><td>$10.50</td><td>$11</td><td>$12</td><td>$13</td><td>$14</td></tr>
+            <tr><td>F</td><td>2-3x5's, 4 Lg Wallets + 8 Small</td><td>$12</td><td>$14</td><td>$14.50</td><td>$15</td><td>$16</td><td>$18</td><td>$20</td></tr>
+            <tr><td>E</td><td>1-5x7, 2-3x5, 4 Jumbo + 8 Small</td><td>$15</td><td>$17</td><td>$18</td><td>$19</td><td>$20</td><td>$22</td><td>$25</td></tr>
+            <tr><td>D</td><td>Digital Download — High Res Single</td><td>$16</td><td>$18</td><td>$19</td><td>$20</td><td>$22</td><td>$23</td><td>$27</td></tr>
+            <tr><td>C</td><td>1-8x10, 2-3x5's, 4 Jumbo, 8 Small</td><td>$21</td><td>$24</td><td>$25</td><td>$27</td><td>$28</td><td>$30</td><td>$35</td></tr>
+            <tr><td>B</td><td>1-8x10, 2-5x7's, 8 Jumbo + Digital</td><td>$26</td><td>$29</td><td>$31</td><td>$33</td><td>$35</td><td>$38</td><td>$44</td></tr>
+            <tr><td>A</td><td>Double Pack + Digital Download</td><td>$35</td><td>$39</td><td>$41</td><td>$44</td><td>$47</td><td>$50</td><td>$59</td></tr>
+            <tr class="price-div"><td colspan="9">Bonus Add-Ons — Added to Packages Only</td></tr>
+            <tr><td>H</td><td>8x10" Class Photo</td><td>$8</td><td>$9</td><td>$9.50</td><td>$10</td><td>$11</td><td>$12</td><td>$14</td></tr>
+            <tr><td>I–L</td><td>1-8x10, Wallets, Jumbo Wallets</td><td>$7</td><td>$8</td><td>$8.50</td><td>$9</td><td>$10</td><td>$10</td><td>$12</td></tr>
+            <tr><td>M</td><td>Retouching (Blemishes Only)</td><td>$7</td><td>$8</td><td>$8.50</td><td>$9</td><td>$10</td><td>$10</td><td>$12</td></tr>
+            <tr><td>N</td><td>Wallet Personalization</td><td>$7</td><td>$8</td><td>$8.50</td><td>$9</td><td>$10</td><td>$10</td><td>$12</td></tr>
+            <tr><td>O</td><td>Digital Download — 1 Image</td><td>$8</td><td>$9</td><td>$9.50</td><td>$10</td><td>$11</td><td>$12</td><td>$14</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="font-size:11px;color:#bbb;margin-top:10px;font-style:italic">Sales tax may apply. Happy to revise any package to meet KTES's needs.</p>
+    </div>
+  </div>
+
+  <div class="section" style="background:var(--light)">
+    <div class="section-inner">
+      <div class="tag">Fundraising</div>
+      <h2 class="section-h2">Full transparency. <span>Maximum returns.</span></h2>
+      <div class="fund-grid">
+        <div>
+          <p class="body-text">We pay commissions on every dollar collected, less only state sales tax and shipping. There are <strong>no other exclusions</strong> — unlike competitors who quietly exclude certain products or deadlines from commission calculations.</p>
+          <p class="body-text">After every event, we provide a complete itemized spreadsheet — every student's name, purchase amount, and commission earned — so you can verify every dollar.</p>
+          <p class="body-text">Our exclusive <strong>Net Pricing Program</strong> lets you increase commissions for fundraising or lower them to pass savings to families — your choice, your control.</p>
+        </div>
+        <div>
+          <div class="stat-card"><div class="stat-num">100%</div><div class="stat-lbl">Of every expected commission — no hidden exclusions</div></div>
+          <div class="stat-card"><div class="stat-num">$0</div><div class="stat-lbl">In hidden fees or surprise deductions</div></div>
+          <div class="stat-card"><div class="stat-num">5+</div><div class="stat-lbl">Years serving Fort Mill area schools</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── CONTACT US ────────────────────────────────────────── -->
+<div class="tab-panel" id="tab-3">
+  <div class="section" style="background:#fff">
+    <div class="section-inner">
+      <div class="tag">Get In Touch</div>
+      <h2 class="section-h2">Let's talk about what's right for <span>Kings Town Elementary</span></h2>
+      <p class="body-text" style="max-width:480px;margin-bottom:36px">Fill out the form below and Nathan will follow up within 1 business day. No pressure — just a conversation about what your school needs.</p>
+
+      <!-- Contact form -->
+      <div class="form-card">
+        <div class="form-title">Send Nathan a Message</div>
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">Your Name *</label>
+            <input class="form-input" id="f-name" type="text" placeholder="Jane Smith">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Your Title *</label>
+            <input class="form-input" id="f-title" type="text" placeholder="Principal">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">Email Address *</label>
+            <input class="form-input" id="f-email" type="email" placeholder="jsmith@fortmillschools.org">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Phone Number</label>
+            <input class="form-input" id="f-phone" type="tel" placeholder="803-555-0000">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Best Time to Call</label>
+          <input class="form-input" id="f-time" type="text" placeholder="e.g. Weekday mornings before 10am">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Message</label>
+          <textarea class="form-input form-textarea" id="f-msg" placeholder="Tell Nathan anything specific you'd like to discuss about your school's photography program..."></textarea>
+        </div>
+        <button class="submit-btn" id="submit-btn" onclick="submitForm()">Send Message to Nathan</button>
+        <p class="form-note">Your information is only shared with Nathan Bingle Photography and will never be sold or shared with third parties.</p>
+
+        <div class="form-success" id="form-success">
+          <div class="form-success-title">Message Sent!</div>
+          <p>Nathan received your message and will follow up within 1 business day. You can also reach him directly at <strong>704-558-6566</strong>.</p>
+        </div>
+      </div>
+
+      <!-- Contact info -->
+      <div class="contact-grid">
+        <div class="contact-item"><div class="contact-label">Owner</div><div class="contact-val">Nathan Bingle</div></div>
+        <div class="contact-item"><div class="contact-label">Email</div><div class="contact-val">contact@nathanbinglephotography.com</div></div>
+        <div class="contact-item"><div class="contact-label">Cell</div><div class="contact-val">704-558-6566</div></div>
+        <div class="contact-item"><div class="contact-label">Website</div><div class="contact-val">nathanbinglephotography.com</div></div>
+        <div class="contact-item"><div class="contact-label">Address</div><div class="contact-val">375 Starlight Dr, Fort Mill, SC 29715</div></div>
+        <div class="contact-item"><div class="contact-label">Member</div><div class="contact-val">Professional Photographers of America</div></div>
+      </div>
+
+      <div class="cta-box">
+        <p class="cta-tagline">Prefer to reach out directly?</p>
+        <p class="cta-sub" style="margin-top:4px">Call or text Nathan at <strong style="color:#fff">704-558-6566</strong> — or email <strong style="color:#fff">contact@nathanbinglephotography.com</strong></p>
+      </div>
+
+      <div class="prop-footer">
+        <div class="prop-footer-name">Nathan Bingle Photography</div>
+        <div class="prop-footer-sub">Fort Mill, SC · Serving the Carolinas</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+const FORM_ENDPOINT = "YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL_HERE";
+const SCHOOL_NAME   = "Kings Town Elementary";
+
+function showTab(idx, btn) {
+  document.querySelectorAll('.tab-panel').forEach((p,i) => p.classList.toggle('active', i===idx));
+  document.querySelectorAll('.tab-btn').forEach((b,i) => b.classList.toggle('active', i===idx));
+  window.scrollTo(0, 0);
+}
+
+async function submitForm() {
+  const name  = document.getElementById('f-name').value.trim();
+  const title = document.getElementById('f-title').value.trim();
+  const email = document.getElementById('f-email').value.trim();
+  const phone = document.getElementById('f-phone').value.trim();
+  const time  = document.getElementById('f-time').value.trim();
+  const msg   = document.getElementById('f-msg').value.trim();
+
+  if (!name)  { alert('Please enter your name.'); return; }
+  if (!title) { alert('Please enter your title.'); return; }
+  if (!email) { alert('Please enter your email address.'); return; }
+
+  const btn = document.getElementById('submit-btn');
+  btn.disabled = true;
+  btn.textContent = 'Sending…';
+
+  try {
+    await fetch(FORM_ENDPOINT, {
+      method: 'POST',
+      body: JSON.stringify({ school: SCHOOL_NAME, name, title, email, phone, bestTime: time, message: msg }),
+    });
+  } catch(e) {
+    // Apps Script can throw CORS on redirect — submission still goes through
+  }
+
+  btn.style.display = 'none';
+  document.getElementById('form-success').style.display = 'block';
+}
+</script>
+</body>
+</html>
