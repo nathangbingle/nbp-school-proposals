@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Nathan Bingle Photography — Cabarrus Virtual Academy Partnership</title>
+<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;600;700&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap" rel="stylesheet">
+<style>
+:root {
+  --p: #0A2540;          /* CVA navy (slightly lifted for screen contrast) */
+  --p-deep: #002030;     /* CVA exact navy */
+  --s: #F0A818;          /* CVA gold */
+  --light: #F2F0EA;      /* warm off-white */
+  --tint: color-mix(in srgb, #0A2540 6%, white);
+  --gold-tint: color-mix(in srgb, #F0A818 12%, white);
+}
+*{ margin:0; padding:0; box-sizing:border-box; }
+body{ font-family:'Poppins',sans-serif; background:#F7F6F2; color:#333; }
+h1,h2,h3,.jf{ font-family:'Josefin Sans',sans-serif; }
+
+.site-header{
+  background:#fff; border-bottom:1px solid #E8E4DC;
+  padding:16px 36px; display:flex; justify-content:space-between; align-items:center;
+  position:sticky; top:0; z-index:100;
+}
+.nbp-mark{ font-family:'Josefin Sans',sans-serif; font-weight:700; letter-spacing:.14em; font-size:16px; text-transform:uppercase; color:#1a1a1a; }
+.nbp-sub{ font-size:9px; font-weight:500; letter-spacing:.3em; color:#bbb; text-transform:uppercase; margin-top:2px; }
+.header-right{ text-align:right; font-family:'Josefin Sans',sans-serif; font-size:11px; color:#ccc; font-weight:700; letter-spacing:.1em; text-transform:uppercase; }
+
+.tabs{ background:#fff; border-bottom:1px solid #E8E4DC; display:flex; overflow-x:auto; }
+.tab-btn{
+  flex:1 1 auto; padding:13px 16px; background:none; border:none;
+  border-bottom:2px solid transparent; font-family:'Josefin Sans',sans-serif;
+  font-weight:700; font-size:10px; letter-spacing:.18em; text-transform:uppercase;
+  cursor:pointer; white-space:nowrap; color:#aaa; transition:all .15s;
+}
+.tab-btn.active{ border-bottom-color:var(--p); color:var(--p); }
+
+.tab-panel{ display:none; }
+.tab-panel.active{ display:block; }
+
+/* Hero */
+.hero{ background:var(--p-deep); padding:60px 40px; position:relative; overflow:hidden; }
+.hero-wm{
+  position:absolute; right:-10px; top:50%; transform:translateY(-50%);
+  font-family:'Josefin Sans',sans-serif; font-size:clamp(7rem,18vw,14rem);
+  font-weight:700; letter-spacing:.06em; color:rgba(240,168,24,.07);
+  line-height:1; pointer-events:none; text-transform:uppercase;
+}
+.hero-inner{ max-width:600px; position:relative; z-index:1; }
+.hero-kicker{ font-family:'Josefin Sans',sans-serif; font-size:10px; font-weight:700; letter-spacing:.35em; text-transform:uppercase; color:var(--s); margin-bottom:16px; opacity:.95; }
+.hero-title{ font-family:'Josefin Sans',sans-serif; font-size:clamp(1.8rem,5vw,3.2rem); font-weight:700; letter-spacing:.04em; text-transform:uppercase; color:#fff; line-height:1.1; margin-bottom:10px; }
+.hero-sub{ font-size:14px; color:rgba(255,255,255,.55); margin-bottom:24px; }
+.hero-pills{ display:flex; gap:10px; flex-wrap:wrap; }
+.hero-pill{ font-size:12px; color:#fff; background:rgba(240,168,24,.14); padding:8px 16px; border-radius:6px; border:1px solid rgba(240,168,24,.25); }
+.hero-bar{ position:absolute; bottom:0; left:0; right:0; height:4px; background:var(--s); }
+
+/* Section */
+.section{ padding:52px 40px; }
+.section-inner{ max-width:760px; margin:0 auto; }
+.tag{
+  display:inline-block; font-family:'Josefin Sans',sans-serif; font-size:9px; font-weight:700;
+  letter-spacing:.28em; text-transform:uppercase; color:var(--p);
+  background:var(--tint); padding:5px 12px; border-radius:40px; margin-bottom:12px;
+}
+.section-h2{ font-family:'Josefin Sans',sans-serif; font-size:clamp(1.4rem,3vw,1.9rem); font-weight:700; letter-spacing:.04em; color:#1a1a1a; margin-bottom:14px; line-height:1.15; }
+.section-h2 span{ color:var(--p); }
+.body-text{ font-size:13.5px; color:#555; line-height:1.8; margin-bottom:13px; }
+
+/* Grid layouts */
+.two-col{ display:grid; grid-template-columns:3fr 2fr; gap:52px; align-items:center; }
+.three-col{ display:grid; grid-template-columns:repeat(3,1fr); gap:12px; }
+.two-col-eq{ display:grid; grid-template-columns:1fr 1fr; gap:1px; background:#F0EDE6; border-radius:8px; overflow:hidden; }
+.fund-grid{ display:grid; grid-template-columns:3fr 2fr; gap:44px; align-items:start; }
+.contact-grid{ display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-bottom:32px; }
+
+/* About / Differentiator */
+.about-img{
+  background:linear-gradient(135deg,var(--p-deep),var(--p));
+  border-radius:8px; aspect-ratio:4/3;
+  display:flex; align-items:center; justify-content:center; flex-direction:column; gap:10px;
+  position:relative; overflow:hidden;
+}
+.about-img::after{
+  content:""; position:absolute; inset:0;
+  background:radial-gradient(circle at 70% 30%, rgba(240,168,24,.18), transparent 60%);
+}
+.about-img-shield{ position:relative; z-index:1; }
+.about-img-lbl{ position:relative; z-index:1; font-family:'Josefin Sans',sans-serif; font-size:10px; letter-spacing:.25em; text-transform:uppercase; color:var(--s); font-weight:700; }
+
+/* Pillar grid */
+.pillar{ background:#fff; padding:22px 18px; border-radius:8px; border-top:3px solid var(--s); }
+.pillar-title{ font-family:'Josefin Sans',sans-serif; font-size:10px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:var(--p); margin-bottom:8px; }
+.pillar p{ font-size:12.5px; color:#666; line-height:1.65; }
+
+/* Quote */
+.quote-band{ background:var(--p-deep); padding:48px 40px; text-align:center; position:relative; overflow:hidden; }
+.quote-band::before{
+  content:"\201C"; position:absolute; left:50%; top:-20px; transform:translateX(-50%);
+  font-family:'Josefin Sans',serif; font-size:160px; color:rgba(240,168,24,.12); line-height:1;
+}
+.quote-band blockquote{ font-size:clamp(1.1rem,2.5vw,1.55rem); font-weight:300; font-style:italic; color:#fff; max-width:540px; margin:0 auto; line-height:1.6; position:relative; z-index:1; }
+.quote-band cite{ font-family:'Josefin Sans',sans-serif; display:block; margin-top:16px; font-size:9px; font-weight:700; letter-spacing:.3em; text-transform:uppercase; color:var(--s); font-style:normal; opacity:.95; }
+
+/* Services */
+.svc-item{ background:#fff; padding:24px; }
+.svc-bar{ width:22px; height:3px; background:var(--s); border-radius:2px; margin-bottom:11px; }
+.svc-title{ font-family:'Josefin Sans',sans-serif; font-size:11px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:#1a1a1a; margin-bottom:7px; }
+.svc-desc{ font-size:12.5px; color:#777; line-height:1.7; }
+
+.note-box{ background:var(--gold-tint); border-radius:8px; padding:22px 26px; margin-top:28px; border-left:3px solid var(--s); }
+.note-title{ font-family:'Josefin Sans',sans-serif; font-size:9px; font-weight:700; letter-spacing:.18em; text-transform:uppercase; color:var(--p); margin-bottom:6px; }
+
+/* Picture day timeline */
+.timeline{ display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:#F0EDE6; border-radius:8px; overflow:hidden; margin-top:24px; }
+.tl-step{ background:#fff; padding:22px 18px; position:relative; }
+.tl-num{ font-family:'Josefin Sans',sans-serif; font-size:32px; font-weight:700; color:var(--s); line-height:1; margin-bottom:10px; }
+.tl-title{ font-family:'Josefin Sans',sans-serif; font-size:10px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:var(--p); margin-bottom:6px; }
+.tl-desc{ font-size:12px; color:#777; line-height:1.6; }
+
+/* Commission table */
+.comm-table{ width:100%; border-collapse:collapse; min-width:480px; font-size:13px; margin-top:6px; }
+.comm-table th{ font-family:'Josefin Sans',sans-serif; padding:13px 14px; font-weight:700; font-size:9px; letter-spacing:.2em; text-transform:uppercase; background:var(--p-deep); color:#fff; text-align:left; }
+.comm-table th:nth-child(2){ text-align:center; }
+.comm-table th:nth-child(3){ text-align:right; }
+.comm-table td{ padding:14px; border-bottom:1px solid #F0EDE6; color:#444; }
+.comm-table td:nth-child(1){ font-weight:600; color:var(--p); }
+.comm-table td:nth-child(2){ text-align:center; font-family:'Josefin Sans',sans-serif; font-size:18px; font-weight:700; color:var(--s); }
+.comm-table td:nth-child(3){ text-align:right; color:#666; font-size:12.5px; }
+.comm-table tr:last-child td{ border-bottom:none; }
+.comm-table tr.highlight td{ background:var(--gold-tint); }
+.table-wrap{ overflow-x:auto; background:#fff; border-radius:8px; padding:6px; }
+
+/* Stat / numbers cards */
+.stat-card{ background:#fff; border-radius:8px; padding:20px 18px; margin-bottom:12px; border-left:4px solid var(--s); }
+.stat-num{ font-family:'Josefin Sans',sans-serif; font-size:28px; font-weight:700; color:var(--p); line-height:1; margin-bottom:6px; }
+.stat-lbl{ font-size:12px; color:#777; line-height:1.5; }
+
+/* Contract summary "spec sheet" */
+.spec-grid{ display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-top:18px; }
+.spec-row{ background:#fff; padding:14px 18px; border-radius:6px; border-left:3px solid var(--p); }
+.spec-label{ font-family:'Josefin Sans',sans-serif; font-size:9px; font-weight:700; letter-spacing:.22em; text-transform:uppercase; color:#999; margin-bottom:4px; }
+.spec-val{ font-size:13px; color:#1a1a1a; font-weight:500; line-height:1.4; }
+
+/* Board-question handling */
+.fa{ background:#fff; border-radius:8px; padding:18px 22px; margin-bottom:10px; border-left:3px solid var(--s); }
+.fa-q{ font-family:'Josefin Sans',sans-serif; font-size:12px; font-weight:700; letter-spacing:.05em; color:var(--p); margin-bottom:6px; }
+.fa-a{ font-size:13px; color:#555; line-height:1.7; }
+
+/* Download / CTA */
+.download-card{
+  background:linear-gradient(135deg, var(--p-deep), var(--p));
+  border-radius:10px; padding:30px 32px; margin-top:22px;
+  display:flex; gap:24px; align-items:center; flex-wrap:wrap;
+}
+.dl-icon{
+  width:54px; height:54px; flex-shrink:0;
+  background:var(--s); border-radius:8px;
+  display:flex; align-items:center; justify-content:center;
+}
+.dl-text{ flex:1; min-width:200px; color:#fff; }
+.dl-title{ font-family:'Josefin Sans',sans-serif; font-size:13px; font-weight:700; letter-spacing:.05em; margin-bottom:4px; }
+.dl-sub{ font-size:12px; color:rgba(255,255,255,.65); line-height:1.5; }
+.dl-btn{
+  background:var(--s); color:var(--p-deep);
+  font-family:'Josefin Sans',sans-serif; font-weight:700; font-size:11px;
+  letter-spacing:.18em; text-transform:uppercase;
+  padding:12px 22px; border-radius:6px; text-decoration:none; transition:opacity .2s;
+  white-space:nowrap;
+}
+.dl-btn:hover{ opacity:.85; }
+
+/* Next steps */
+.steps-list{ counter-reset:step; list-style:none; padding:0; margin-top:18px; }
+.steps-list li{
+  counter-increment:step; padding:18px 22px 18px 60px; background:#fff;
+  border-radius:8px; margin-bottom:10px; position:relative;
+}
+.steps-list li::before{
+  content:counter(step); position:absolute; left:18px; top:50%; transform:translateY(-50%);
+  width:30px; height:30px; background:var(--p); color:var(--s);
+  font-family:'Josefin Sans',sans-serif; font-weight:700; font-size:14px;
+  border-radius:50%; display:flex; align-items:center; justify-content:center;
+}
+.step-title{ font-family:'Josefin Sans',sans-serif; font-size:11px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:var(--p); margin-bottom:4px; }
+.step-desc{ font-size:12.5px; color:#666; line-height:1.6; }
+
+/* Contact form (kept consistent with other proposal pages) */
+.contact-item{ background:var(--tint); border-radius:8px; padding:16px 18px; }
+.contact-label{ font-family:'Josefin Sans',sans-serif; font-size:9px; font-weight:700; letter-spacing:.25em; text-transform:uppercase; color:var(--p); margin-bottom:5px; }
+.contact-val{ font-size:13px; color:#333; font-weight:500; }
+
+.cta-box{ background:var(--p-deep); border-radius:8px; padding:32px 36px; text-align:center; }
+.cta-tagline{ font-size:1rem; font-weight:300; font-style:italic; color:#fff; margin-bottom:8px; }
+.cta-sub{ font-size:13px; color:rgba(255,255,255,.65); margin-bottom:0; }
+
+.prop-footer{ padding:20px 0; border-top:1px solid #F0EDE6; text-align:center; margin-top:36px; }
+.prop-footer-name{ font-family:'Josefin Sans',sans-serif; font-weight:700; letter-spacing:.14em; font-size:13px; text-transform:uppercase; color:#1a1a1a; margin-bottom:4px; }
+.prop-footer-sub{ font-size:11px; color:#bbb; }
+
+@media(max-width:640px){
+  .two-col,.fund-grid,.contact-grid,.spec-grid{ grid-template-columns:1fr; }
+  .three-col{ grid-template-columns:1fr 1fr; }
+  .two-col-eq{ grid-template-columns:1fr; }
+  .timeline{ grid-template-columns:1fr 1fr; }
+  .hero,.section{ padding-left:20px; padding-right:20px; }
+  .site-header{ padding-left:16px; padding-right:16px; }
+}
+</style>
+</head>
+<body>
+
+<!-- Header -->
+<header class="site-header">
+  <div>
+    <div class="nbp-mark">Nathan Bingle</div>
+    <div class="nbp-sub">Photography</div>
+  </div>
+  <div class="header-right">Cabarrus Virtual Academy · Partnership Brief</div>
+</header>
+
+<!-- Tabs -->
+<div class="tabs">
+  <button class="tab-btn active" onclick="showTab(0,this)">Overview</button>
+  <button class="tab-btn" onclick="showTab(1,this)">The Photo Program</button>
+  <button class="tab-btn" onclick="showTab(2,this)">What CVA Earns</button>
+  <button class="tab-btn" onclick="showTab(3,this)">The Agreement</button>
+  <button class="tab-btn" onclick="showTab(4,this)">Contact</button>
+</div>
+
+<!-- ── OVERVIEW ─────────────────────────────────────────── -->
+<div class="tab-panel active" id="tab-0">
+  <div class="hero">
+    <div class="hero-wm">Hornets</div>
+    <div class="hero-inner">
+      <div class="hero-kicker">School Photography Partnership</div>
+      <h1 class="hero-title">Cabarrus Virtual Academy</h1>
+      <div class="hero-sub">Hornets · Grades 6–12 · Concord, NC</div>
+      <div class="hero-pills">
+        <div class="hero-pill">2026–27 School Year</div>
+        <div class="hero-pill">Zero school cost</div>
+        <div class="hero-pill">Built for virtual</div>
+      </div>
+    </div>
+    <div class="hero-bar"></div>
+  </div>
+
+  <div class="section" style="background:#fff">
+    <div class="section-inner two-col">
+      <div>
+        <div class="tag">About This Brief</div>
+        <h2 class="section-h2">A photography program <span>built around the Hive</span></h2>
+        <p class="body-text">This page is for CVA leadership and board members reviewing the proposed photography partnership with Nathan Bingle Photography for the 2026–27 school year. It summarizes what CVA gets, what the school earns, and what the formal agreement covers.</p>
+        <p class="body-text">Nathan Bingle Photography is a Charlotte-based, high-volume school and youth sports photography company serving the greater Carolinas. We're a <strong>Member of the Professional Photographers of America</strong> and operate a streamlined picture-day workflow specifically designed for schools — including non-traditional environments like virtual academies.</p>
+        <p class="body-text">CVA's blended model means picture day works differently than a traditional school. We've structured this partnership around how the Hive actually operates: in-person Thursdays, voluntary participation, and a parent-facing experience that doesn't put any work on Mrs. Rotan or her staff.</p>
+      </div>
+      <div class="about-img">
+        <svg class="about-img-shield" width="58" height="58" viewBox="0 0 24 24" fill="none" stroke="#F0A818" stroke-width="1.4">
+          <path d="M12 2 L4 6 V12 C4 17 7.5 21 12 22 C16.5 21 20 17 20 12 V6 Z"/>
+          <path d="M9 12 l2 2 4-4" stroke-width="1.6"/>
+        </svg>
+        <div class="about-img-lbl">Built For Schools</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section" style="background:var(--light)">
+    <div class="section-inner">
+      <div class="tag">Why This Works for CVA</div>
+      <h2 class="section-h2">Designed for <span>the way CVA actually works</span></h2>
+      <div class="three-col">
+        <div class="pillar"><div class="pillar-title">Built for Virtual</div><p>Most school photographers aren't set up for blended schools. We schedule around your in-person Thursday, with appointment-based slots and a January make-up day for new enrollees.</p></div>
+        <div class="pillar"><div class="pillar-title">Zero School Cost</div><p>No fees, no upfront spend, no minimums. Parents pay only if they choose to buy. CVA never invoices a family or handles a transaction.</p></div>
+        <div class="pillar"><div class="pillar-title">Revenue to CVA</div><p>Tiered commission of 10–15% on annual net portrait sales — paid directly to the school with a full itemized report.</p></div>
+        <div class="pillar"><div class="pillar-title">Background-Checked</div><p>Every NBP photographer maintains current background checks before stepping on the Weddington Road campus.</p></div>
+        <div class="pillar"><div class="pillar-title">$2M Insured</div><p>$2,000,000 in commercial general liability coverage. Certificate of Insurance provided to CVA on request.</p></div>
+        <div class="pillar"><div class="pillar-title">FERPA-Aligned</div><p>Student data used only to fulfill the program. Deleted within 30 days of agreement end. No third-party sharing, ever.</p></div>
+        <div class="pillar"><div class="pillar-title">Senior Support</div><p>Dedicated cap-and-gown sessions for the senior class with a small $25 booking deposit — the rest of the senior portrait experience runs through the same gallery flow.</p></div>
+        <div class="pillar"><div class="pillar-title">Hornets in the Yearbook</div><p>Web-resolution images delivered to CVA after each session for use on the school website, in recognition materials, internal records, and yearbook publication.</p></div>
+        <div class="pillar"><div class="pillar-title">Parent-Facing</div><p>NBP handles every parent question, gallery issue, shipping concern, and refund request — directly. Your team never gets a "where are my photos?" email.</p></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="quote-band">
+    <blockquote>A photography partner shouldn't add work to a school's plate — it should take it off.</blockquote>
+    <cite>— Nathan Bingle, Owner · Charlotte, NC</cite>
+  </div>
+</div>
+
+<!-- ── THE PHOTO PROGRAM ─────────────────────────────────── -->
+<div class="tab-panel" id="tab-1">
+  <div class="section" style="background:#fff">
+    <div class="section-inner">
+      <div class="tag">What CVA Gets</div>
+      <h2 class="section-h2">A complete photo program <span>tailored to virtual</span></h2>
+      <p class="body-text" style="max-width:540px;margin-bottom:6px">Three core sessions per school year, each running through NBP's secure online gallery and ordering platform. Everything from intake to fulfillment is handled by NBP.</p>
+
+      <div class="two-col-eq" style="margin-top:24px">
+        <div class="svc-item"><div class="svc-bar"></div><div class="svc-title">Underclassmen Portraits</div><p class="svc-desc">No cost to take the photo. Several poses captured, parents only pay for what they choose to order from the online gallery.</p></div>
+        <div class="svc-item"><div class="svc-bar"></div><div class="svc-title">Senior Portrait Sessions</div><p class="svc-desc">Cap-and-gown headshot, traditional senior headshot, 2–3 additional poses, one outfit change. $25 non-refundable booking deposit holds the appointment.</p></div>
+        <div class="svc-item"><div class="svc-bar"></div><div class="svc-title">Make-Up Day (January)</div><p class="svc-desc">A second session catches absences, reshoots, and any students who enrolled at CVA after the fall picture day.</p></div>
+        <div class="svc-item"><div class="svc-bar"></div><div class="svc-title">Optional Add-Ons</div><p class="svc-desc">Class composites, sibling sessions, spring sessions, and event coverage available as mutually agreed.</p></div>
+        <div class="svc-item"><div class="svc-bar"></div><div class="svc-title">Online Gallery & Ordering</div><p class="svc-desc">Galleries delivered via email and text within ~2 weeks of the session. Open ~30 days before archiving. Direct-to-home shipping.</p></div>
+        <div class="svc-item"><div class="svc-bar"></div><div class="svc-title">School Image Delivery</div><p class="svc-desc">Web-resolution copies of student portraits delivered to CVA after each session for school website, recognition materials, internal records, and yearbook.</p></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section" style="background:var(--light)">
+    <div class="section-inner">
+      <div class="tag">How Picture Day Works</div>
+      <h2 class="section-h2">Light lift for CVA. <span>Heavy lift for us.</span></h2>
+      <p class="body-text" style="max-width:540px">A picture day at a virtual school looks different — and that's the point. Here's the four-step rhythm:</p>
+
+      <div class="timeline">
+        <div class="tl-step">
+          <div class="tl-num">1</div>
+          <div class="tl-title">Schedule</div>
+          <div class="tl-desc">CVA shares student data and the in-person Thursday date 2–3 weeks ahead. NBP builds an appointment-based schedule.</div>
+        </div>
+        <div class="tl-step">
+          <div class="tl-num">2</div>
+          <div class="tl-title">Notify</div>
+          <div class="tl-desc">NBP supplies pre-written email and text templates. CVA sends through ParentSquare, "The Hive," and existing channels.</div>
+        </div>
+        <div class="tl-step">
+          <div class="tl-num">3</div>
+          <div class="tl-title">Shoot</div>
+          <div class="tl-desc">NBP arrives with photographers and full setup. Sessions run on the Weddington Road campus during the in-person day.</div>
+        </div>
+        <div class="tl-step">
+          <div class="tl-num">4</div>
+          <div class="tl-title">Deliver</div>
+          <div class="tl-desc">Galleries go out within ~2 weeks. Parents order, NBP fulfills and ships. CVA receives commission report and school-use images.</div>
+        </div>
+      </div>
+
+      <div class="note-box">
+        <div class="note-title">What CVA Staff Actually Has To Do</div>
+        <p class="body-text" style="margin:0">Provide student/parent contact data, share the appointment schedule with families, give NBP access to space on picture day. That's it. No order collection, no money handling, no parent service issues, no fulfillment.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── WHAT CVA EARNS ────────────────────────────────────── -->
+<div class="tab-panel" id="tab-2">
+  <div class="section" style="background:#fff">
+    <div class="section-inner">
+      <div class="tag">Commission Structure</div>
+      <h2 class="section-h2">Tiered commission, <span>paid annually</span></h2>
+      <p class="body-text">CVA earns commission on aggregate net portrait sales across all sessions in the school year (fall, winter, and spring combined). The more participation, the higher the tier — giving CVA an active stake in promotion.</p>
+
+      <div class="table-wrap">
+        <table class="comm-table">
+          <thead>
+            <tr><th>Annual Net Sales</th><th>Rate</th><th>What that pays</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>$15,000 and above</td><td>15%</td><td>$2,250+ to CVA</td></tr>
+            <tr class="highlight"><td>$10,000 – $14,999</td><td>12%</td><td>$1,200 – $1,800 to CVA</td></tr>
+            <tr><td>Below $10,000</td><td>10%</td><td>Up to $1,000 to CVA</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p class="body-text" style="margin-top:18px;font-size:12px;color:#888">Net sales = gross sales minus taxes, shipping, processing fees, refunds, and production costs. Commissions paid within 60 days of the final session archive, with a full itemized sales report.</p>
+
+      <div class="note-box" style="margin-top:24px">
+        <div class="note-title">A Note on Senior Sitting Fees</div>
+        <p class="body-text" style="margin:0">The $25 senior booking deposit is an operational fee — it covers session time and scheduling overhead, similar to how a doctor's office handles appointment holds. It's not a portrait sale, so it isn't part of commission. <strong>All senior portrait orders</strong> placed through the online gallery <strong>are</strong> commissioned at the same rates above.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="section" style="background:var(--light)">
+    <div class="section-inner">
+      <div class="tag">Realistic Range</div>
+      <h2 class="section-h2">What CVA can <span>realistically expect</span></h2>
+      <div class="fund-grid">
+        <div>
+          <p class="body-text">For a virtual academy of CVA's size (~175 students, grades 6–12), realistic annual commission ranges between roughly $1,500 and $2,500+ depending on participation and how senior families engage.</p>
+          <p class="body-text">Stronger participation drives the school into the higher tier — which is part of why parent communication support is built into the program. NBP supplies the messaging, CVA distributes through ParentSquare and "The Hive."</p>
+          <p class="body-text">Commission is delivered with a full itemized report so CVA can verify every figure: net sales by session, deductions, and the resulting tier calculation.</p>
+        </div>
+        <div>
+          <div class="stat-card"><div class="stat-num">~$1,500–$2,500</div><div class="stat-lbl">Realistic annual commission to CVA at typical participation</div></div>
+          <div class="stat-card"><div class="stat-num">$0</div><div class="stat-lbl">Out-of-pocket cost to the school — ever</div></div>
+          <div class="stat-card"><div class="stat-num">100%</div><div class="stat-lbl">Of expected commission paid — no hidden exclusions</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── THE AGREEMENT ─────────────────────────────────────── -->
+<div class="tab-panel" id="tab-3">
+  <div class="section" style="background:#fff">
+    <div class="section-inner">
+      <div class="tag">Contract at a Glance</div>
+      <h2 class="section-h2">The full agreement, <span>summarized</span></h2>
+      <p class="body-text">Below is the spec sheet from the formal agreement drafted for CVA. The full Word document is available for download at the bottom of this section for board review.</p>
+
+      <div class="spec-grid">
+        <div class="spec-row"><div class="spec-label">Initial Term</div><div class="spec-val">April 22, 2026 → May 31, 2027</div></div>
+        <div class="spec-row"><div class="spec-label">Renewal</div><div class="spec-val">Auto-renews 1 yr; 60-day notice to opt out</div></div>
+        <div class="spec-row"><div class="spec-label">Termination</div><div class="spec-val">30-day for convenience, either side</div></div>
+        <div class="spec-row"><div class="spec-label">Exclusivity</div><div class="spec-val">NBP is exclusive school-portrait provider</div></div>
+        <div class="spec-row"><div class="spec-label">Cost to CVA</div><div class="spec-val">$0 — parents pay only if they order</div></div>
+        <div class="spec-row"><div class="spec-label">Commission</div><div class="spec-val">10% / 12% / 15% tiered, annual aggregate</div></div>
+        <div class="spec-row"><div class="spec-label">Insurance</div><div class="spec-val">$2,000,000 commercial general liability</div></div>
+        <div class="spec-row"><div class="spec-label">Indemnification</div><div class="spec-val">Mutual — each party covers its own conduct</div></div>
+        <div class="spec-row"><div class="spec-label">Background Checks</div><div class="spec-val">Current on all on-site staff</div></div>
+        <div class="spec-row"><div class="spec-label">Student Data</div><div class="spec-val">Used only to fulfill agreement; deleted within 30 days of end</div></div>
+        <div class="spec-row"><div class="spec-label">Image Copyright</div><div class="spec-val">Held by NBP; CVA receives web-res for school use</div></div>
+        <div class="spec-row"><div class="spec-label">Governing Law</div><div class="spec-val">State of North Carolina</div></div>
+      </div>
+
+      <div class="download-card">
+        <div class="dl-icon">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#002030" stroke-width="2">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+            <polyline points="7 10 12 15 17 10"/>
+            <line x1="12" y1="15" x2="12" y2="3"/>
+          </svg>
+        </div>
+        <div class="dl-text">
+          <div class="dl-title">Full Agreement (Word Document)</div>
+          <div class="dl-sub">15 sections, ~7 pages. Drafted specifically for CVA. Review-ready for legal counsel or board sign-off.</div>
+        </div>
+        <a class="dl-btn" href="cva-agreement.docx" download>Download</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="section" style="background:var(--light)">
+    <div class="section-inner">
+      <div class="tag">Likely Board Questions</div>
+      <h2 class="section-h2">Answered <span>before they're asked</span></h2>
+
+      <div class="fa">
+        <div class="fa-q">Is CVA on the hook for any cost?</div>
+        <div class="fa-a">No. There is no fee, retainer, or minimum spend. The school is never invoiced. Parents pay only for portraits they choose to order, directly through NBP's gallery.</div>
+      </div>
+      <div class="fa">
+        <div class="fa-q">What happens if participation is low?</div>
+        <div class="fa-a">Commission scales with sales — there's no penalty to CVA if a season is light. Both parties agree in good faith to reschedule sessions disrupted by weather, illness, or low turnout under the force majeure section.</div>
+      </div>
+      <div class="fa">
+        <div class="fa-q">How is student data protected?</div>
+        <div class="fa-a">Student data CVA provides (names, parent contact) is used solely to fulfill the photography program. NBP does not sell, lease, or share it for unrelated marketing. All school-provided data is deleted or returned within 30 days of agreement termination, except as needed to fulfill open parent orders or as required by law.</div>
+      </div>
+      <div class="fa">
+        <div class="fa-q">Can NBP use student photos in its marketing?</div>
+        <div class="fa-a">Industry-standard release: NBP may use images for its own marketing and portfolio only when a signed parent release is on file for the depicted student. Both CVA and individual parents may flag opt-outs at any time, and those are honored.</div>
+      </div>
+      <div class="fa">
+        <div class="fa-q">What if CVA wants to exit the agreement?</div>
+        <div class="fa-a">Either party can terminate for convenience with 30 days' written notice. Material breach can be terminated immediately if not cured within 15 days. Commission earned on completed sales prior to termination is paid out per the standard payment schedule.</div>
+      </div>
+      <div class="fa">
+        <div class="fa-q">How does NBP handle the "virtual" reality of CVA?</div>
+        <div class="fa-a">Sessions are scheduled on a designated in-person Thursday on the Weddington Road campus, with appointment-based slots so families can plan around their day. The January make-up date catches new enrollments and absences — a structure built specifically for the way CVA operates.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── CONTACT ───────────────────────────────────────────── -->
+<div class="tab-panel" id="tab-4">
+  <div class="section" style="background:#fff">
+    <div class="section-inner">
+      <div class="tag">Next Steps</div>
+      <h2 class="section-h2">From here to <span>picture day</span></h2>
+
+      <ol class="steps-list">
+        <li>
+          <div class="step-title">Internal review</div>
+          <div class="step-desc">Share this brief with admin and board. Download the full agreement for legal sign-off if required.</div>
+        </li>
+        <li>
+          <div class="step-title">Questions</div>
+          <div class="step-desc">Reach out directly with anything CVA wants clarified or adjusted before signing — Nathan handles every conversation personally.</div>
+        </li>
+        <li>
+          <div class="step-title">Sign and return</div>
+          <div class="step-desc">CVA signs the agreement and returns. NBP countersigns and sends the executed copy back.</div>
+        </li>
+        <li>
+          <div class="step-title">Schedule fall picture day</div>
+          <div class="step-desc">NBP and CVA pick the in-person Thursday for the fall session and start the parent communication rollout.</div>
+        </li>
+      </ol>
+
+      <div style="height:40px"></div>
+
+      <div class="tag">Direct Contact</div>
+      <h2 class="section-h2">Reach <span>Nathan directly</span></h2>
+      <p class="body-text" style="max-width:480px;margin-bottom:24px">Anyone reviewing this brief — Mrs. Rotan, admin, board, legal — should feel free to reach out with questions. Nathan responds personally within one business day.</p>
+
+      <div class="contact-grid">
+        <div class="contact-item"><div class="contact-label">Owner</div><div class="contact-val">Nathan Bingle</div></div>
+        <div class="contact-item"><div class="contact-label">Email</div><div class="contact-val">contact@nathanbinglephotography.com</div></div>
+        <div class="contact-item"><div class="contact-label">Cell</div><div class="contact-val">704-558-6566</div></div>
+        <div class="contact-item"><div class="contact-label">Website</div><div class="contact-val">nathanbinglephotography.com</div></div>
+        <div class="contact-item"><div class="contact-label">Office</div><div class="contact-val">422 Crompton St, Charlotte, NC 28273</div></div>
+        <div class="contact-item"><div class="contact-label">Member</div><div class="contact-val">Professional Photographers of America</div></div>
+      </div>
+
+      <div class="cta-box">
+        <p class="cta-tagline">Prefer to talk it through?</p>
+        <p class="cta-sub" style="margin-top:4px">Call or text Nathan at <strong style="color:#fff">704-558-6566</strong> — or email <strong style="color:#fff">contact@nathanbinglephotography.com</strong></p>
+      </div>
+
+      <div class="prop-footer">
+        <div class="prop-footer-name">Nathan Bingle Photography</div>
+        <div class="prop-footer-sub">Charlotte, NC · Serving the Carolinas</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+function showTab(idx, btn) {
+  document.querySelectorAll('.tab-panel').forEach((p,i) => p.classList.toggle('active', i===idx));
+  document.querySelectorAll('.tab-btn').forEach((b,i) => b.classList.toggle('active', i===idx));
+  window.scrollTo(0, 0);
+}
+</script>
+</body>
+</html>
