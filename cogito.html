@@ -242,6 +242,50 @@ h1,h2,h3,.jf{ font-family:'Josefin Sans',sans-serif; }
 .step-title{ font-family:'Josefin Sans',sans-serif; font-size:11px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:var(--p); margin-bottom:4px; }
 .step-desc{ font-size:12.5px; color:#666; line-height:1.6; }
 
+/* Action buttons — Download Proposal / Request Agreement */
+.action-band{
+  background:linear-gradient(135deg, var(--p), var(--p-deep));
+  border-radius:10px; padding:36px 40px; margin-top:28px;
+  position:relative; overflow:hidden;
+}
+.action-band::after{
+  content:""; position:absolute; right:-60px; top:-60px;
+  width:240px; height:240px; border-radius:50%;
+  background:radial-gradient(circle, rgba(200,16,46,.18), transparent 70%);
+  pointer-events:none;
+}
+.action-heading{ font-family:'Josefin Sans',sans-serif; font-size:9px; font-weight:700; letter-spacing:.22em; text-transform:uppercase; color:var(--s); margin-bottom:8px; position:relative; z-index:1; }
+.action-title{ font-family:'Josefin Sans',sans-serif; font-size:22px; font-weight:700; color:#fff; margin-bottom:10px; position:relative; z-index:1; line-height:1.2; }
+.action-sub{ font-size:13px; color:rgba(255,255,255,.7); margin-bottom:22px; max-width:520px; line-height:1.6; position:relative; z-index:1; }
+.action-buttons{ display:flex; gap:12px; flex-wrap:wrap; position:relative; z-index:1; }
+.act-btn{
+  display:inline-flex; align-items:center; gap:10px;
+  padding:14px 24px; border-radius:6px; text-decoration:none;
+  font-family:'Josefin Sans',sans-serif; font-weight:700; font-size:11px;
+  letter-spacing:.18em; text-transform:uppercase; cursor:pointer;
+  border:none; transition:transform .15s, opacity .15s;
+}
+.act-btn:hover{ transform:translateY(-1px); }
+.act-btn-primary{ background:var(--s); color:#fff; }
+.act-btn-secondary{ background:rgba(255,255,255,.1); color:#fff; border:1px solid rgba(255,255,255,.3); }
+.act-btn svg{ width:16px; height:16px; flex-shrink:0; }
+
+/* Print styles — for Download Proposal (browser's Save as PDF) */
+@media print{
+  .site-header, .tabs, .action-band{ display:none !important; }
+  .tab-panel{ display:block !important; page-break-after:always; }
+  .tab-panel:last-child{ page-break-after:auto; }
+  body{ background:#fff !important; }
+  .hero{ padding:30px 40px; }
+  .section{ padding:24px 40px; break-inside:avoid; }
+  .pkg-card, .fa, .steps-list li, .pillar{ break-inside:avoid; }
+  .timeline{ break-inside:avoid; }
+  .flex-box, .action-band, .cta-box{ break-inside:avoid; }
+  .trust-strip{ page-break-after:avoid; }
+  .quote-band{ break-inside:avoid; }
+  @page{ margin:0.5in; }
+}
+
 .contact-item{ background:var(--tint); border-radius:8px; padding:16px 18px; }
 .contact-label{ font-family:'Josefin Sans',sans-serif; font-size:9px; font-weight:700; letter-spacing:.25em; text-transform:uppercase; color:var(--p); margin-bottom:5px; }
 .contact-val{ font-size:13px; color:#333; font-weight:500; }
@@ -617,6 +661,22 @@ h1,h2,h3,.jf{ font-family:'Josefin Sans',sans-serif; }
           <div class="step-desc">We pick the date together &mdash; ideally on the calendar of your new permanent facility &mdash; and start the parent communication rollout.</div>
         </li>
       </ol>
+
+      <div class="action-band">
+        <div class="action-heading">Ready to Move Forward</div>
+        <div class="action-title">Take the next step</div>
+        <div class="action-sub">Share the full proposal with your team or request the agreement &mdash; once you&rsquo;re ready, we&rsquo;ll send it straight over for review and signature.</div>
+        <div class="action-buttons">
+          <button class="act-btn act-btn-primary" onclick="printProposal()">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Download Proposal
+          </button>
+          <a class="act-btn act-btn-secondary" href="mailto:contact@nathanbinglephotography.com?subject=Cogito%20Academy%20%E2%80%94%20Agreement%20Request&amp;body=Hi%20Nathan%2C%0A%0AWe%E2%80%99ve%20reviewed%20the%20proposal%20and%20would%20like%20to%20receive%20the%20formal%20photography%20agreement%20for%20Cogito%20Academy%20for%20the%202026%E2%80%932027%20school%20year.%0A%0AThanks%2C%0A">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            Request Agreement
+          </a>
+        </div>
+      </div>
     </div>
   </div>
 </div>
@@ -656,6 +716,23 @@ function showTab(idx, btn) {
   document.querySelectorAll('.tab-panel').forEach((p,i) => p.classList.toggle('active', i===idx));
   document.querySelectorAll('.tab-btn').forEach((b,i) => b.classList.toggle('active', i===idx));
   window.scrollTo(0, 0);
+}
+
+// For Download Proposal — reveal all tabs so full content prints, then trigger browser's native print dialog
+function printProposal() {
+  const panels = document.querySelectorAll('.tab-panel');
+  const prevStates = [];
+  panels.forEach(p => {
+    prevStates.push(p.classList.contains('active'));
+    p.classList.add('active');
+  });
+  window.print();
+  // Restore original tab state after print dialog closes
+  setTimeout(() => {
+    panels.forEach((p, i) => {
+      if (!prevStates[i]) p.classList.remove('active');
+    });
+  }, 100);
 }
 </script>
 </body>
