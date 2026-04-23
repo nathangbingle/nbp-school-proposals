@@ -198,6 +198,94 @@ h1,h2,h3,.jf{ font-family:'Josefin Sans',sans-serif; }
 .prop-footer-name{ font-family:'Josefin Sans',sans-serif; font-weight:700; letter-spacing:.14em; font-size:13px; text-transform:uppercase; color:#1a1a1a; margin-bottom:4px; }
 .prop-footer-sub{ font-size:11px; color:#bbb; }
 
+/* Package cards — standardized NBP pricing */
+.pkg-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:14px; margin-top:26px; }
+.pkg-card{
+  background:#fff; border-radius:10px; padding:22px 22px 20px;
+  border:1px solid #EDE9E0; position:relative; transition:transform .15s, box-shadow .15s;
+  display:flex; flex-direction:column;
+}
+.pkg-card.featured{
+  border-top:3px solid var(--s);
+  box-shadow:0 4px 14px rgba(10,37,64,.06);
+}
+.pkg-badge{
+  position:absolute; top:-10px; right:16px;
+  background:var(--s); color:var(--p-deep); font-family:'Josefin Sans',sans-serif;
+  font-size:9px; font-weight:700; letter-spacing:.18em; text-transform:uppercase;
+  padding:4px 10px; border-radius:30px;
+}
+.pkg-name{
+  font-family:'Josefin Sans',sans-serif; font-size:12px; font-weight:700;
+  letter-spacing:.16em; text-transform:uppercase; color:var(--p); margin-bottom:14px;
+}
+.pkg-price{
+  font-family:'Josefin Sans',sans-serif; font-size:42px; font-weight:700;
+  color:#1a1a1a; line-height:1; margin-bottom:4px;
+}
+.pkg-price-sub{
+  font-size:10px; color:#aaa; letter-spacing:.12em; text-transform:uppercase;
+  font-family:'Josefin Sans',sans-serif; font-weight:600; margin-bottom:16px;
+}
+.pkg-contents{
+  list-style:none; padding:0; margin:0; font-size:12.5px; color:#666;
+  flex:1;
+}
+.pkg-contents li{
+  padding:6px 0 6px 18px; position:relative; line-height:1.55;
+  border-top:1px solid #F4F1E9;
+}
+.pkg-contents li:first-child{ border-top:none; }
+.pkg-contents li::before{
+  content:""; position:absolute; left:0; top:13px;
+  width:6px; height:6px; border-radius:50%; background:var(--s);
+}
+
+.alc-list{
+  display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+  gap:1px; background:#F0EDE6; border-radius:8px; overflow:hidden; margin-top:14px;
+}
+.alc-item{
+  background:#fff; padding:14px 16px; display:flex; justify-content:space-between; align-items:center;
+}
+.alc-name{ font-size:12.5px; color:#444; }
+.alc-price{ font-family:'Josefin Sans',sans-serif; font-weight:700; color:var(--p); font-size:14px; white-space:nowrap; margin-left:10px; }
+
+.flex-box{
+  background:linear-gradient(135deg,var(--p-deep),var(--p));
+  border-radius:10px; padding:32px 34px; margin-top:38px;
+  color:#fff; position:relative; overflow:hidden;
+}
+.flex-box::after{
+  content:""; position:absolute; right:-40px; top:-40px;
+  width:200px; height:200px; border-radius:50%;
+  background:radial-gradient(circle, rgba(240,168,24,.2), transparent 70%);
+}
+.flex-title{
+  font-family:'Josefin Sans',sans-serif; font-size:9px; font-weight:700;
+  letter-spacing:.22em; text-transform:uppercase; color:var(--s); margin-bottom:8px;
+}
+.flex-h{ font-family:'Josefin Sans',sans-serif; font-size:22px; font-weight:700; margin-bottom:14px; line-height:1.2; position:relative; z-index:1; }
+.flex-body{ font-size:13px; line-height:1.75; color:rgba(255,255,255,.8); margin-bottom:20px; position:relative; z-index:1; max-width:520px; }
+.flex-slider{ position:relative; z-index:1; padding:20px 0 8px; }
+.flex-track{
+  height:4px; background:rgba(255,255,255,.12); border-radius:4px; position:relative;
+  background-image:linear-gradient(to right, rgba(255,255,255,.25) 0%, var(--s) 100%);
+}
+.flex-ticks{
+  display:flex; justify-content:space-between; margin-top:12px;
+  font-family:'Josefin Sans',sans-serif; font-size:10px; font-weight:700;
+  letter-spacing:.12em; text-transform:uppercase;
+}
+.flex-tick{ display:flex; flex-direction:column; align-items:center; gap:4px; color:rgba(255,255,255,.55); }
+.flex-tick strong{ color:#fff; font-size:13px; }
+.flex-tick.anchor{ color:var(--s); }
+.flex-example{
+  margin-top:22px; padding-top:22px; border-top:1px solid rgba(255,255,255,.1);
+  font-size:12.5px; color:rgba(255,255,255,.7); line-height:1.75; position:relative; z-index:1;
+}
+.flex-example strong{ color:#fff; }
+
 /* Action buttons — Download Proposal / Request Agreement */
 .action-band{
   background:linear-gradient(135deg, var(--p-deep), var(--p));
@@ -388,46 +476,141 @@ h1,h2,h3,.jf{ font-family:'Josefin Sans',sans-serif; }
 <div class="tab-panel" id="tab-2">
   <div class="section" style="background:#fff">
     <div class="section-inner">
-      <div class="tag">Commission Structure</div>
-      <h2 class="section-h2">Tiered commission, <span>paid annually</span></h2>
-      <p class="body-text">CVA earns commission on aggregate net portrait sales across all sessions in the school year (fall, winter, and spring combined). The more participation, the higher the tier — giving CVA an active stake in promotion.</p>
+      <div class="tag">Portrait Packages</div>
+      <h2 class="section-h2">Pricing that fits <span>CVA families</span></h2>
+      <p class="body-text">Every school family gets the same organized, professional experience &mdash; and a range of ordering options that work for every budget. Prices shown below are standard retail; see the Commission Flex section for how CVA&rsquo;s revenue share can adjust them up or down.</p>
 
-      <div class="table-wrap">
-        <table class="comm-table">
-          <thead>
-            <tr><th>Annual Net Sales</th><th>Rate</th><th>What that pays</th></tr>
-          </thead>
-          <tbody>
-            <tr><td>$15,000 and above</td><td>15%</td><td>$2,250+ to CVA</td></tr>
-            <tr class="highlight"><td>$10,000 – $14,999</td><td>12%</td><td>$1,200 – $1,800 to CVA</td></tr>
-            <tr><td>Below $10,000</td><td>10%</td><td>Up to $1,000 to CVA</td></tr>
-          </tbody>
-        </table>
+      <div class="pkg-grid">
+        <div class="pkg-card">
+          <div class="pkg-name">Basic</div>
+          <div class="pkg-price">$25</div>
+          <div class="pkg-price-sub">Standard Retail</div>
+          <ul class="pkg-contents">
+            <li>2× Set of 2 &mdash; 3.5&times;5 prints</li>
+            <li>4 Wallet prints</li>
+          </ul>
+        </div>
+
+        <div class="pkg-card">
+          <div class="pkg-name">Standard</div>
+          <div class="pkg-price">$33</div>
+          <div class="pkg-price-sub">Standard Retail</div>
+          <ul class="pkg-contents">
+            <li>1&times; 5&times;7 print</li>
+            <li>2× Set of 2 &mdash; 3.5&times;5 prints</li>
+            <li>4 Wallet prints</li>
+            <li>Group 5&times;7 print</li>
+          </ul>
+        </div>
+
+        <div class="pkg-card featured">
+          <div class="pkg-badge">Most Popular</div>
+          <div class="pkg-name">Mid Tier</div>
+          <div class="pkg-price">$45</div>
+          <div class="pkg-price-sub">Standard Retail</div>
+          <ul class="pkg-contents">
+            <li>2× 5&times;7 prints</li>
+            <li>1× 8&times;10 print</li>
+            <li>8 Wallet prints</li>
+            <li>3.5&times;5 Magnet Print</li>
+          </ul>
+        </div>
+
+        <div class="pkg-card">
+          <div class="pkg-name">3 Digitals</div>
+          <div class="pkg-price">$50</div>
+          <div class="pkg-price-sub">Standard Retail</div>
+          <ul class="pkg-contents">
+            <li>3× Photo Downloads</li>
+            <li>Original resolution</li>
+            <li>Yours to print or share</li>
+          </ul>
+        </div>
+
+        <div class="pkg-card">
+          <div class="pkg-name">Download All</div>
+          <div class="pkg-price">$75</div>
+          <div class="pkg-price-sub">Standard Retail</div>
+          <ul class="pkg-contents">
+            <li>Every photo from the session</li>
+            <li>Original resolution</li>
+            <li>Full usage rights for family</li>
+          </ul>
+        </div>
+
+        <div class="pkg-card">
+          <div class="pkg-name">Ultimate</div>
+          <div class="pkg-price">$81</div>
+          <div class="pkg-price-sub">Standard Retail</div>
+          <ul class="pkg-contents">
+            <li>4× 5&times;7 prints</li>
+            <li>2× 8&times;10 prints</li>
+            <li>Memory Mate 8&times;10 Composite</li>
+            <li>Full digital download</li>
+            <li>3.5&times;5 Magnet Print</li>
+          </ul>
+        </div>
+
+        <div class="pkg-card">
+          <div class="pkg-name">Sibling</div>
+          <div class="pkg-price">$99</div>
+          <div class="pkg-price-sub">Standard Retail</div>
+          <ul class="pkg-contents">
+            <li>4× 5&times;7 prints</li>
+            <li>2× 8&times;10 prints</li>
+            <li>4× Digital Downloads</li>
+            <li>Great for multi-child families</li>
+          </ul>
+        </div>
       </div>
 
-      <p class="body-text" style="margin-top:18px;font-size:12px;color:#888">Net sales = gross sales minus taxes, shipping, processing fees, refunds, and production costs. Commissions paid within 60 days of the final session archive, with a full itemized sales report.</p>
+      <h3 style="font-family:'Josefin Sans',sans-serif;font-size:10px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--p);margin-top:44px;margin-bottom:4px">A-la-Carte</h3>
+      <p style="font-size:12px;color:#888;margin-bottom:14px">For families who want something specific.</p>
+      <div class="alc-list">
+        <div class="alc-item"><span class="alc-name">5&times;7 Print</span><span class="alc-price">$15</span></div>
+        <div class="alc-item"><span class="alc-name">8&times;10 Print</span><span class="alc-price">$22</span></div>
+        <div class="alc-item"><span class="alc-name">Set of 2 &mdash; 5&times;7 Prints</span><span class="alc-price">$23</span></div>
+        <div class="alc-item"><span class="alc-name">Set of 4 &mdash; 3.5&times;5 Prints</span><span class="alc-price">$23</span></div>
+        <div class="alc-item"><span class="alc-name">Set of 8 Wallet Prints</span><span class="alc-price">$24</span></div>
+        <div class="alc-item"><span class="alc-name">Single Photo Download</span><span class="alc-price">$35</span></div>
+        <div class="alc-item"><span class="alc-name">3&quot; Pinback Button</span><span class="alc-price">$12</span></div>
+        <div class="alc-item"><span class="alc-name">3.5&times;5 Magnet Print</span><span class="alc-price">$12</span></div>
+        <div class="alc-item"><span class="alc-name">Set of 2 Magnet Prints</span><span class="alc-price">$13</span></div>
+      </div>
 
-      <div class="note-box" style="margin-top:24px">
+      <div class="note-box" style="margin-top:28px">
         <div class="note-title">A Note on Senior Sitting Fees</div>
-        <p class="body-text" style="margin:0">The $25 senior booking deposit is an operational fee — it covers session time and scheduling overhead, similar to how a doctor's office handles appointment holds. It's not a portrait sale, so it isn't part of commission. <strong>All senior portrait orders</strong> placed through the online gallery <strong>are</strong> commissioned at the same rates above.</p>
+        <p class="body-text" style="margin:0">The $25 senior booking deposit is an operational fee &mdash; it covers session time and scheduling overhead, similar to how a doctor's office handles appointment holds. It's not a portrait sale, so it isn't part of commission. <strong>All senior portrait orders</strong> placed through the online gallery <strong>are</strong> commissioned at the elected rate.</p>
       </div>
+
+      <p style="font-size:11px;color:#bbb;margin-top:18px;font-style:italic">Sales tax may apply. Package contents may be revised to meet CVA&rsquo;s specific needs.</p>
     </div>
   </div>
 
   <div class="section" style="background:var(--light)">
     <div class="section-inner">
-      <div class="tag">Realistic Range</div>
-      <h2 class="section-h2">What CVA can <span>realistically expect</span></h2>
-      <div class="fund-grid">
-        <div>
-          <p class="body-text">For a virtual academy of CVA's size (~175 students, grades 6–12), realistic annual commission ranges between roughly $1,500 and $2,500+ depending on participation and how senior families engage.</p>
-          <p class="body-text">Stronger participation drives the school into the higher tier — which is part of why parent communication support is built into the program. NBP supplies the messaging, CVA distributes through ParentSquare and "The Hive."</p>
-          <p class="body-text">Commission is delivered with a full itemized report so CVA can verify every figure: net sales by session, deductions, and the resulting tier calculation.</p>
+      <div class="tag">Commission Flex</div>
+      <h2 class="section-h2">CVA controls <span>the revenue-share rate</span></h2>
+      <p class="body-text" style="max-width:560px">The prices above are our standard retail, already structured with a 20% commission share to CVA built in. But CVA can adjust that rate up or down &mdash; session to session &mdash; to match what the school wants at any given time.</p>
+
+      <div class="flex-box">
+        <div class="flex-title">How It Works</div>
+        <div class="flex-h">Dial left for the lowest family prices.<br>Dial right for the biggest fundraiser.</div>
+        <p class="flex-body">Every dollar a family spends (less sales tax and shipping) is split between CVA and NBP according to the commission rate CVA selects. Full itemized reporting every time &mdash; every student, every order, every dollar.</p>
+
+        <div class="flex-slider">
+          <div class="flex-track"></div>
+          <div class="flex-ticks">
+            <div class="flex-tick"><strong>10%</strong><span>Lowest prices</span></div>
+            <div class="flex-tick anchor"><strong>20%</strong><span>Standard</span></div>
+            <div class="flex-tick"><strong>30%</strong><span>Moderate lift</span></div>
+            <div class="flex-tick"><strong>40%</strong><span>Strong fundraiser</span></div>
+            <div class="flex-tick"><strong>50%</strong><span>Maximum</span></div>
+          </div>
         </div>
-        <div>
-          <div class="stat-card"><div class="stat-num">~$1,500–$2,500</div><div class="stat-lbl">Realistic annual commission to CVA at typical participation</div></div>
-          <div class="stat-card"><div class="stat-num">$0</div><div class="stat-lbl">Out-of-pocket cost to the school — ever</div></div>
-          <div class="stat-card"><div class="stat-num">100%</div><div class="stat-lbl">Of expected commission paid — no hidden exclusions</div></div>
+
+        <div class="flex-example">
+          <strong>Example:</strong> At CVA&rsquo;s standard 20% rate, the Mid Tier package is $45 and CVA earns $9 per order. Dial to 30%, and the Mid Tier becomes ~$52 with $16 going to the school. Dial to 40%, and it&rsquo;s ~$60 with $24 to the school. Every tier available at any package.
         </div>
       </div>
     </div>
@@ -448,7 +631,7 @@ h1,h2,h3,.jf{ font-family:'Josefin Sans',sans-serif; }
         <div class="spec-row"><div class="spec-label">Termination</div><div class="spec-val">30-day for convenience, either side</div></div>
         <div class="spec-row"><div class="spec-label">Exclusivity</div><div class="spec-val">NBP is exclusive school-portrait provider</div></div>
         <div class="spec-row"><div class="spec-label">Cost to CVA</div><div class="spec-val">$0 — parents pay only if they order</div></div>
-        <div class="spec-row"><div class="spec-label">Commission</div><div class="spec-val">10% / 12% / 15% tiered, annual aggregate</div></div>
+        <div class="spec-row"><div class="spec-label">Commission</div><div class="spec-val">Flexible 10–50%, CVA selects per session</div></div>
         <div class="spec-row"><div class="spec-label">Insurance</div><div class="spec-val">$2,000,000 commercial general liability</div></div>
         <div class="spec-row"><div class="spec-label">Indemnification</div><div class="spec-val">Mutual — each party covers its own conduct</div></div>
         <div class="spec-row"><div class="spec-label">Background Checks</div><div class="spec-val">Current on all on-site staff</div></div>
