@@ -1,0 +1,852 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>NBP Booster Club Outreach Dashboard</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #15254A;
+    --navy-deep: #0D1830;
+    --orange: #E54D1F;
+    --orange-soft: #FBEADF;
+    --paper: #FBF9F5;
+    --paper-warm: #F4EFE6;
+    --ink: #1A2030;
+    --muted: #6B7180;
+    --rule: #E3DED4;
+    --rule-soft: #EDE8DF;
+    --green: #2D8F5F;
+    --green-soft: #DCEFE3;
+    --yellow: #E8A02E;
+    --yellow-soft: #FBEFD8;
+
+    --font-display: 'ITC Avant Garde Gothic Pro', 'Jost', 'Century Gothic', sans-serif;
+    --font-body: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+
+  body {
+    font-family: var(--font-body);
+    background: var(--paper);
+    color: var(--ink);
+    line-height: 1.5;
+    font-size: 14px;
+    font-weight: 400;
+  }
+
+  .container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 32px 32px 80px;
+  }
+
+  /* HEADER */
+  .dash-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding-bottom: 18px;
+    border-bottom: 2px solid var(--navy);
+    margin-bottom: 32px;
+  }
+  .dash-title {
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: 22px;
+    color: var(--navy);
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+  }
+  .dash-title .accent { color: var(--orange); }
+  .dash-subtitle {
+    font-family: var(--font-body);
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--muted);
+    font-weight: 500;
+    text-align: right;
+  }
+
+  /* STATS BAR */
+  .stats-bar {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    border: 1px solid var(--rule);
+    background: #fff;
+    margin-bottom: 28px;
+  }
+  .stat-cell {
+    padding: 18px 20px;
+    border-right: 1px solid var(--rule);
+  }
+  .stat-cell:last-child { border-right: none; }
+  .stat-num {
+    font-family: var(--font-display);
+    font-size: 26px;
+    font-weight: 500;
+    color: var(--navy);
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+  .stat-num.orange { color: var(--orange); }
+  .stat-num.green { color: var(--green); }
+  .stat-cell-label {
+    font-family: var(--font-display);
+    font-size: 9.5px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--muted);
+    font-weight: 500;
+  }
+
+  /* FILTER BAR */
+  .filter-bar {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 24px;
+    flex-wrap: wrap;
+  }
+  .filter-label {
+    font-family: var(--font-display);
+    font-size: 10px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--muted);
+    font-weight: 600;
+    margin-right: 4px;
+  }
+  .filter-btn {
+    font-family: var(--font-display);
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-weight: 500;
+    padding: 8px 14px;
+    border: 1px solid var(--rule);
+    background: #fff;
+    color: var(--ink);
+    cursor: pointer;
+    transition: all 0.15s ease;
+  }
+  .filter-btn:hover { border-color: var(--navy); }
+  .filter-btn.active {
+    background: var(--navy);
+    color: #fff;
+    border-color: var(--navy);
+  }
+
+  /* CLUB CARD */
+  .clubs-grid { display: flex; flex-direction: column; gap: 16px; }
+
+  .club-card {
+    background: #fff;
+    border: 1px solid var(--rule);
+    padding: 22px 24px;
+    position: relative;
+    transition: border-color 0.15s;
+  }
+  .club-card:hover { border-color: var(--navy); }
+  .club-card.done {
+    background: var(--green-soft);
+    border-color: var(--green);
+    opacity: 0.85;
+  }
+  .club-card.excluded {
+    background: var(--paper-warm);
+    opacity: 0.65;
+  }
+
+  .club-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20px;
+    margin-bottom: 14px;
+  }
+
+  .club-info { flex: 1; min-width: 0; }
+
+  .club-name {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 15px;
+    color: var(--navy);
+    letter-spacing: 0.01em;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+
+  .club-meta {
+    display: flex;
+    gap: 16px;
+    font-size: 12px;
+    color: var(--muted);
+    flex-wrap: wrap;
+  }
+
+  .club-meta span::before { content: ''; }
+  .club-meta .tier-badge {
+    font-family: var(--font-display);
+    font-size: 9.5px;
+    letter-spacing: 0.15em;
+    padding: 2px 8px;
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+  .tier-1 { background: var(--orange); color: #fff; }
+  .tier-2 { background: var(--navy); color: #fff; }
+  .tier-note { background: var(--yellow-soft); color: var(--yellow); border: 1px solid var(--yellow); }
+
+  .club-actions {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    flex-shrink: 0;
+  }
+
+  .action-btn {
+    font-family: var(--font-display);
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    font-weight: 600;
+    padding: 7px 12px;
+    border: 1px solid var(--rule);
+    background: #fff;
+    color: var(--navy);
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    transition: all 0.15s;
+  }
+  .action-btn:hover { border-color: var(--navy); background: var(--paper-warm); }
+  .action-btn.primary { background: var(--navy); color: #fff; border-color: var(--navy); }
+  .action-btn.primary:hover { background: var(--navy-deep); }
+  .action-btn.orange { background: var(--orange); color: #fff; border-color: var(--orange); }
+  .action-btn.orange:hover { background: #C94015; }
+  .action-btn.done-btn { background: var(--green); color: #fff; border-color: var(--green); }
+
+  .club-links {
+    display: flex;
+    gap: 14px;
+    padding-top: 8px;
+    font-size: 12.5px;
+    border-top: 1px dashed var(--rule-soft);
+    flex-wrap: wrap;
+  }
+  .club-links a {
+    color: var(--navy);
+    text-decoration: none;
+    border-bottom: 1px dotted var(--orange);
+    padding-bottom: 1px;
+  }
+  .club-links a:hover { color: var(--orange); }
+  .club-links .link-label {
+    font-family: var(--font-display);
+    font-size: 9.5px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+    font-weight: 600;
+    margin-right: 4px;
+  }
+
+  /* MESSAGE EXPANDED */
+  .message-toggle {
+    margin-top: 14px;
+    padding-top: 14px;
+    border-top: 1px dashed var(--rule-soft);
+  }
+  .message-toggle summary {
+    cursor: pointer;
+    font-family: var(--font-display);
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--orange);
+    font-weight: 600;
+    padding: 4px 0;
+    list-style: none;
+  }
+  .message-toggle summary::-webkit-details-marker { display: none; }
+  .message-toggle summary::before {
+    content: '+';
+    display: inline-block;
+    margin-right: 8px;
+    transition: transform 0.2s;
+  }
+  .message-toggle[open] summary::before {
+    content: '−';
+  }
+
+  .message-content {
+    margin-top: 14px;
+    padding: 16px 18px;
+    background: var(--paper-warm);
+    border-left: 3px solid var(--orange);
+    font-family: var(--font-body);
+    font-size: 13px;
+    line-height: 1.65;
+    white-space: pre-wrap;
+    color: var(--ink);
+  }
+
+  .message-actions {
+    display: flex;
+    gap: 8px;
+    margin-top: 10px;
+  }
+
+  /* NOTES FIELD */
+  .notes-field {
+    width: 100%;
+    margin-top: 12px;
+    padding: 10px 12px;
+    border: 1px solid var(--rule);
+    background: #fff;
+    font-family: var(--font-body);
+    font-size: 12.5px;
+    color: var(--ink);
+    resize: vertical;
+    min-height: 32px;
+  }
+  .notes-field:focus { outline: none; border-color: var(--navy); }
+
+  /* FOOTER */
+  .footer-note {
+    margin-top: 48px;
+    padding: 20px 24px;
+    background: var(--paper-warm);
+    border: 1px solid var(--rule);
+    border-left: 4px solid var(--orange);
+    font-size: 13px;
+    color: var(--ink);
+    line-height: 1.6;
+  }
+  .footer-note strong {
+    font-family: var(--font-display);
+    font-weight: 600;
+    color: var(--navy);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 11px;
+  }
+
+  /* TOAST */
+  .toast {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: var(--navy);
+    color: #fff;
+    padding: 12px 18px;
+    font-family: var(--font-display);
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    font-weight: 600;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.25s;
+    pointer-events: none;
+    z-index: 99;
+  }
+  .toast.show { opacity: 1; transform: translateY(0); }
+
+  @media (max-width: 720px) {
+    .container { padding: 20px 16px 60px; }
+    .dash-header { flex-direction: column; align-items: flex-start; gap: 12px; }
+    .dash-subtitle { text-align: left; }
+    .stats-bar { grid-template-columns: 1fr 1fr; }
+    .stat-cell { border-bottom: 1px solid var(--rule); }
+    .stat-cell:nth-child(3), .stat-cell:nth-child(4) { border-bottom: none; }
+    .stat-cell:nth-child(even) { border-right: none; }
+    .club-top { flex-direction: column; }
+    .club-actions { width: 100%; flex-wrap: wrap; }
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <header class="dash-header">
+    <div>
+      <div class="dash-title">NBP Booster <span class="accent">·</span> Outreach Dashboard</div>
+    </div>
+    <div class="dash-subtitle">
+      <div>Tier 1 + Tier 2 Booster Clubs</div>
+      <div>Fall 2026 Outreach Campaign</div>
+    </div>
+  </header>
+
+  <div class="stats-bar">
+    <div class="stat-cell">
+      <div class="stat-num" id="totalCount">0</div>
+      <div class="stat-cell-label">Total Clubs</div>
+    </div>
+    <div class="stat-cell">
+      <div class="stat-num orange" id="pendingCount">0</div>
+      <div class="stat-cell-label">Not Yet Contacted</div>
+    </div>
+    <div class="stat-cell">
+      <div class="stat-num green" id="sentCount">0</div>
+      <div class="stat-cell-label">Sent</div>
+    </div>
+    <div class="stat-cell">
+      <div class="stat-num" id="progressPct">0%</div>
+      <div class="stat-cell-label">Campaign Progress</div>
+    </div>
+  </div>
+
+  <div class="filter-bar">
+    <span class="filter-label">View:</span>
+    <button class="filter-btn active" data-filter="all">All</button>
+    <button class="filter-btn" data-filter="pending">Not Contacted</button>
+    <button class="filter-btn" data-filter="sent">Sent</button>
+    <button class="filter-btn" data-filter="tier1">Tier 1 Only</button>
+    <button class="filter-btn" data-filter="tier2">Tier 2 Only</button>
+  </div>
+
+  <div class="clubs-grid" id="clubsGrid">
+    <!-- Club cards rendered via JS -->
+  </div>
+
+  <div class="footer-note">
+    <strong>Important Reminder</strong><br><br>
+    This dashboard is for <strong>manual outreach</strong>. Facebook's Messenger Platform prohibits automated DMs to pages you don't already have a relationship with — sending bulk automated messages could get @nathan.bingle.photo.sports restricted. Click through, copy the draft, tweak the opener to feel personal, and send it yourself.<br><br>
+    Before sending: <strong>offer the program to Pleasant Knoll Middle School first.</strong> You need a real case study before claiming anything about how this works in the wild.<br><br>
+    Progress is saved in your browser (localStorage). If you clear browser data, your tracking resets.
+  </div>
+
+</div>
+
+<div class="toast" id="toast">Copied to clipboard</div>
+
+<script>
+  // ============ DATA ============
+  const clubs = [
+    // === TIER 1 — Fort Mill School District ===
+    {
+      id: "pkms",
+      name: "Pleasant Knoll Middle School Athletic Boosters",
+      tier: 1,
+      school: "Pleasant Knoll MS",
+      district: "Fort Mill SD",
+      zip: "29708",
+      fb: "https://facebook.com/PKMSAthleticBoosters",
+      website: "https://pkmsabc.wixsite.com/boosters",
+      email: null,
+      ad: null,
+      activity: "Active",
+      note: "Existing NBP client — offer NEW program here FIRST before outreach",
+      excluded: true
+    },
+    {
+      id: "fmms",
+      name: "Fort Mill Middle School Athletic Booster Club",
+      tier: 1,
+      school: "Fort Mill MS",
+      district: "Fort Mill SD",
+      zip: "29715",
+      fb: "https://facebook.com/FMMS.ABC",
+      website: null,
+      email: null,
+      ad: "Sean Smith — smiths@fortmillschools.org",
+      activity: "613 followers — active"
+    },
+    {
+      id: "btms",
+      name: "Banks Trail Middle School (Boosters/Athletics)",
+      tier: 1,
+      school: "Banks Trail MS",
+      district: "Fort Mill SD",
+      zip: "29715",
+      fb: "https://www.facebook.com/p/Banks-Trail-Middle-School-100067196156100/",
+      website: "https://btms.fortmillschools.org/",
+      email: null,
+      ad: "Stephanie Jowers — jowerss@fortmillschools.org",
+      activity: "839 followers — school page active (no dedicated ABC page located yet)"
+    },
+    {
+      id: "fcms",
+      name: "Forest Creek Middle School (Athletics)",
+      tier: 1,
+      school: "Forest Creek MS",
+      district: "Fort Mill SD",
+      zip: "29715",
+      fb: null,
+      website: null,
+      email: null,
+      ad: "David Helms — HelmsD@fortmillschools.org",
+      activity: "No dedicated booster FB page found — contact AD directly"
+    },
+    {
+      id: "ghms",
+      name: "Gold Hill Middle School (Athletics)",
+      tier: 1,
+      school: "Gold Hill MS",
+      district: "Fort Mill SD",
+      zip: "29708 (Tega Cay)",
+      fb: null,
+      website: null,
+      email: null,
+      ad: "Principal: Richard Eppes — eppesr@fortmillschools.org",
+      activity: "No dedicated booster FB page found — contact office directly"
+    },
+    {
+      id: "sms",
+      name: "Springfield Middle School (Athletics)",
+      tier: 1,
+      school: "Springfield MS",
+      district: "Fort Mill SD",
+      zip: "29715",
+      fb: null,
+      website: null,
+      email: null,
+      ad: null,
+      activity: "No dedicated booster FB page found — contact office directly"
+    },
+    {
+      id: "fmhs",
+      name: "Fort Mill High School Yellow Jackets Athletics",
+      tier: 1,
+      school: "Fort Mill HS",
+      district: "Fort Mill SD",
+      zip: "29715",
+      fb: null,
+      website: "https://www.fortmillhighathleticzone.com/",
+      email: null,
+      ad: null,
+      activity: "Athletic zone website active — booster FB page to verify"
+    },
+    {
+      id: "nfhs",
+      name: "Nation Ford High School Athletic Booster Club",
+      tier: 1,
+      school: "Nation Ford HS",
+      district: "Fort Mill SD",
+      zip: "29708",
+      fb: "https://facebook.com/NAFOABC",
+      website: "https://nationfordathleticzone.com/nfhs-abc-home/",
+      email: null,
+      ad: null,
+      activity: "773 followers — monthly meetings 2nd Tuesdays 6:30pm"
+    },
+    {
+      id: "crhs",
+      name: "Catawba Ridge High School Athletic Booster Club",
+      tier: 1,
+      school: "Catawba Ridge HS",
+      district: "Fort Mill SD",
+      zip: "29715",
+      fb: "https://facebook.com/catawbaclub",
+      website: "https://catawbaridgeathleticzone.com/catawba-ridge-booster-club",
+      email: "crhsabcpresident@gmail.com",
+      ad: null,
+      activity: "Active — recent posts Nov 2025"
+    },
+
+    // === TIER 2 — Nearby high-income zones ===
+    {
+      id: "ilhs",
+      name: "Indian Land High School Athletic Booster Club",
+      tier: 2,
+      school: "Indian Land HS",
+      district: "Lancaster County SD",
+      zip: "29707",
+      fb: "https://www.facebook.com/p/Indian-Land-High-School-Athletic-Booster-Club-100064425082477/",
+      website: "https://www.ilwarriors.com/",
+      email: null,
+      ad: null,
+      activity: "1,171 followers — very active"
+    },
+    {
+      id: "ilms",
+      name: "Indian Land Middle School (Athletics)",
+      tier: 2,
+      school: "Indian Land MS",
+      district: "Lancaster County SD",
+      zip: "29707",
+      fb: null,
+      website: "https://ilms.lancastercsd.com/athletics",
+      email: null,
+      ad: null,
+      activity: "School athletics page active — no dedicated booster FB page"
+    },
+    {
+      id: "chs",
+      name: "Clover High School (Athletics — York SD 2)",
+      tier: 2,
+      school: "Clover HS",
+      district: "York SD 2",
+      zip: "29710 (Lake Wylie area)",
+      fb: null,
+      website: null,
+      email: null,
+      ad: null,
+      activity: "TO RESEARCH — Lake Wylie zone is demographically strong"
+    },
+    {
+      id: "orms",
+      name: "Oakridge Middle School (Athletics — York SD 2)",
+      tier: 2,
+      school: "Oakridge MS",
+      district: "York SD 2",
+      zip: "29710 (Lake Wylie)",
+      fb: null,
+      website: null,
+      email: null,
+      ad: null,
+      activity: "TO RESEARCH — Lake Wylie area"
+    },
+    {
+      id: "wmsabc",
+      name: "Weddington Middle School Athletic Booster Club",
+      tier: 2,
+      school: "Weddington MS",
+      district: "Union County Public Schools (NC)",
+      zip: "28173 (Waxhaw — #2 MHI in all of NC)",
+      fb: "https://facebook.com/wmsabc",
+      website: "https://www.wmsabc.com/",
+      email: null,
+      ad: null,
+      activity: "2,090 followers — very active, strongest FB presence in list"
+    },
+    {
+      id: "mrms",
+      name: "Marvin Ridge Middle School (Athletics)",
+      tier: 2,
+      school: "Marvin Ridge MS",
+      district: "Union County Public Schools (NC)",
+      zip: "28173 (Waxhaw)",
+      fb: null,
+      website: null,
+      email: null,
+      ad: null,
+      activity: "TO RESEARCH — top-tier demographic, Union County"
+    },
+  ];
+
+  // ============ MESSAGE TEMPLATES ============
+  function generateMessage(club) {
+    const oneParager = "https://nathangbingle.github.io/nbp-school-proposals/fmsd-partnership.html";
+    
+    const schoolShort = club.school;
+    
+    if (club.tier === 1) {
+      // Fort Mill SD — mention local connection + Holly's district
+      return `Hi ${schoolShort} Booster Club —
+
+I'm Nathan Bingle, a Fort Mill-based photographer. I already run the photography program at Pleasant Knoll Middle and wanted to reach out directly to the ${schoolShort} boosters because I've just put together something I think your families would love.
+
+Starting this upcoming fall, I'm including a free 24×36 custom banner for every 8th-grade fall athlete — football, cheer, dance, volleyball. No cost to the school, no cost to families. Winter and spring banners are $10 each, which is roughly half of what most schools are paying now.
+
+Everything else is the complete photography package — picture day, team/individual photos every season, revenue share back to the booster program, online ordering shipped to families.
+
+Full one-pager with the details: ${oneParager}
+
+If you're not the right person to look at this, would you mind pointing me to whoever handles athletic photography decisions? Happy to jump on a quick call or come meet in person — I live 10 minutes away.
+
+Thanks,
+Nathan Bingle
+nathan@nathanbinglephotography.com
+nathanbinglephotography.com`;
+    } else {
+      // Tier 2 — outside FMSD, establish bona fides
+      return `Hi ${schoolShort} Athletic Boosters —
+
+I'm Nathan Bingle, a photographer based in Fort Mill, SC. I specialize in school and youth sports photography and currently run the program at Pleasant Knoll Middle School. I'm reaching out because I've just rolled out a partnership program I think your families would appreciate.
+
+The headline: every 8th-grade fall athlete gets a free 24×36 custom banner — football, cheer, dance, volleyball. No cost to the school, no cost to families. Winter and spring banners are $10 each, about half of what most schools charge.
+
+Along with that: full picture-day service, team and individual photos every season, revenue share back to the booster program, and online ordering that ships directly to families (no cash collection through the school).
+
+Full one-pager: ${oneParager}
+
+If this is something the boosters would consider, I'd love to set up a quick call with whoever handles athletic photography decisions. Happy to drive out to meet in person.
+
+Thanks for considering,
+Nathan Bingle
+nathan@nathanbinglephotography.com
+nathanbinglephotography.com`;
+    }
+  }
+
+  // ============ STATE MANAGEMENT ============
+  const STORAGE_KEY = 'nbp_booster_status_v1';
+  
+  function getStatus() {
+    try {
+      return JSON.parse(localStorage.getItem(STORAGE_KEY)) || {};
+    } catch { return {}; }
+  }
+
+  function saveStatus(status) {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(status));
+  }
+
+  function updateClubStatus(clubId, field, value) {
+    const status = getStatus();
+    if (!status[clubId]) status[clubId] = {};
+    status[clubId][field] = value;
+    saveStatus(status);
+    renderStats();
+  }
+
+  // ============ RENDER ============
+  let currentFilter = 'all';
+
+  function renderStats() {
+    const status = getStatus();
+    const contactable = clubs.filter(c => !c.excluded);
+    const total = contactable.length;
+    const sent = contactable.filter(c => status[c.id]?.sent).length;
+    const pending = total - sent;
+    const pct = total > 0 ? Math.round((sent / total) * 100) : 0;
+
+    document.getElementById('totalCount').textContent = total;
+    document.getElementById('pendingCount').textContent = pending;
+    document.getElementById('sentCount').textContent = sent;
+    document.getElementById('progressPct').textContent = pct + '%';
+  }
+
+  function renderClubs() {
+    const grid = document.getElementById('clubsGrid');
+    const status = getStatus();
+
+    const filtered = clubs.filter(c => {
+      if (currentFilter === 'all') return true;
+      if (currentFilter === 'pending') return !c.excluded && !status[c.id]?.sent;
+      if (currentFilter === 'sent') return status[c.id]?.sent;
+      if (currentFilter === 'tier1') return c.tier === 1;
+      if (currentFilter === 'tier2') return c.tier === 2;
+      return true;
+    });
+
+    grid.innerHTML = filtered.map(club => {
+      const cs = status[club.id] || {};
+      const isSent = cs.sent;
+      const cardClass = club.excluded ? 'excluded' : (isSent ? 'done' : '');
+      const tierClass = club.excluded ? 'tier-note' : (club.tier === 1 ? 'tier-1' : 'tier-2');
+      const tierLabel = club.excluded ? 'Existing Client' : `Tier ${club.tier}`;
+      const message = club.excluded ? '' : generateMessage(club);
+
+      return `
+        <div class="club-card ${cardClass}" data-club="${club.id}">
+          <div class="club-top">
+            <div class="club-info">
+              <div class="club-name">${club.name}</div>
+              <div class="club-meta">
+                <span class="tier-badge ${tierClass}">${tierLabel}</span>
+                <span>${club.district}</span>
+                <span>${club.zip}</span>
+                <span>${club.activity}</span>
+              </div>
+            </div>
+            <div class="club-actions">
+              ${club.excluded ? `
+                <span style="font-family: var(--font-display); font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--yellow); font-weight: 600;">Offer new program first</span>
+              ` : `
+                <button class="action-btn ${isSent ? 'done-btn' : 'primary'}" onclick="toggleSent('${club.id}')">
+                  ${isSent ? '✓ Sent' : 'Mark Sent'}
+                </button>
+              `}
+            </div>
+          </div>
+
+          <div class="club-links">
+            ${club.fb ? `<div><span class="link-label">Facebook:</span> <a href="${club.fb}" target="_blank">Open page</a></div>` : ''}
+            ${club.website ? `<div><span class="link-label">Website:</span> <a href="${club.website}" target="_blank">Open</a></div>` : ''}
+            ${club.email ? `<div><span class="link-label">Email:</span> <a href="mailto:${club.email}">${club.email}</a></div>` : ''}
+            ${club.ad ? `<div><span class="link-label">AD/Principal:</span> ${club.ad}</div>` : ''}
+            ${club.note ? `<div><span class="link-label">Note:</span> ${club.note}</div>` : ''}
+          </div>
+
+          ${!club.excluded ? `
+            <details class="message-toggle">
+              <summary>Draft message</summary>
+              <div class="message-content" id="msg-${club.id}">${message}</div>
+              <div class="message-actions">
+                <button class="action-btn orange" onclick="copyMessage('${club.id}')">Copy Message</button>
+                ${club.email ? `<a class="action-btn" href="mailto:${club.email}?subject=${encodeURIComponent('Photography partnership for ' + club.school)}&body=${encodeURIComponent(message)}" target="_blank">Open in Email</a>` : ''}
+                ${club.fb ? `<a class="action-btn" href="${club.fb}" target="_blank">Open Facebook</a>` : ''}
+              </div>
+            </details>
+
+            <textarea class="notes-field" placeholder="Notes (response, follow-up, etc)..." 
+                      onblur="updateClubStatus('${club.id}', 'notes', this.value)">${cs.notes || ''}</textarea>
+          ` : ''}
+        </div>
+      `;
+    }).join('');
+  }
+
+  // ============ ACTIONS ============
+  function toggleSent(clubId) {
+    const status = getStatus();
+    if (!status[clubId]) status[clubId] = {};
+    status[clubId].sent = !status[clubId].sent;
+    if (status[clubId].sent) status[clubId].sentAt = new Date().toISOString();
+    saveStatus(status);
+    renderClubs();
+    renderStats();
+    showToast(status[clubId].sent ? 'Marked as sent' : 'Marked as not sent');
+  }
+
+  async function copyMessage(clubId) {
+    const msgEl = document.getElementById('msg-' + clubId);
+    if (!msgEl) return;
+    try {
+      await navigator.clipboard.writeText(msgEl.textContent);
+      showToast('Copied to clipboard');
+    } catch (e) {
+      // fallback
+      const ta = document.createElement('textarea');
+      ta.value = msgEl.textContent;
+      document.body.appendChild(ta);
+      ta.select();
+      document.execCommand('copy');
+      document.body.removeChild(ta);
+      showToast('Copied to clipboard');
+    }
+  }
+
+  function showToast(text) {
+    const t = document.getElementById('toast');
+    t.textContent = text;
+    t.classList.add('show');
+    setTimeout(() => t.classList.remove('show'), 1800);
+  }
+
+  // ============ FILTER ============
+  document.querySelectorAll('.filter-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      currentFilter = btn.dataset.filter;
+      renderClubs();
+    });
+  });
+
+  // Make functions global for inline handlers
+  window.toggleSent = toggleSent;
+  window.copyMessage = copyMessage;
+  window.updateClubStatus = updateClubStatus;
+
+  // ============ INIT ============
+  renderClubs();
+  renderStats();
+</script>
+
+</body>
+</html>
