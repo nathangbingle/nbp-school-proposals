@@ -1,8 +1,8 @@
 {
   "meta": {
-    "last_updated": null,
+    "last_updated": "2026-04-24T03:48:43.400945+00:00",
     "last_discovery_run": null,
-    "version": 1
+    "version": 2
   },
   "clubs": [
     {
@@ -29,7 +29,7 @@
       "zip": "29715",
       "fb": "https://facebook.com/FMMS.ABC",
       "website": null,
-      "email": null,
+      "email": "fmmsbooster@gmail.com",
       "ad": "Sean Smith — smiths@fortmillschools.org",
       "activity": "613 followers — active",
       "excluded": false
@@ -55,11 +55,11 @@
       "district": "Fort Mill SD",
       "tier": 1,
       "zip": "29715",
-      "fb": null,
+      "fb": "https://facebook.com/ForestCreekABC",
       "website": null,
-      "email": null,
+      "email": "fcmsboosterclubpresident@gmail.com",
       "ad": "David Helms — HelmsD@fortmillschools.org",
-      "activity": "No dedicated booster FB page found — contact AD directly",
+      "activity": "577 followers — active",
       "excluded": false
     },
     {
@@ -69,11 +69,11 @@
       "district": "Fort Mill SD",
       "tier": 1,
       "zip": "29708 (Tega Cay)",
-      "fb": null,
+      "fb": "https://www.facebook.com/Gold-Hill-Middle-School-Athletic-Booster-Club-135812313106191",
       "website": null,
       "email": null,
-      "ad": "Principal: Richard Eppes — eppesr@fortmillschools.org",
-      "activity": "No dedicated booster FB page found — contact office directly",
+      "ad": "Tate Hamilton — hamiltont@fortmillschools.org",
+      "activity": "892 followers — meetings 2nd Mon monthly",
       "excluded": false
     },
     {
@@ -83,11 +83,11 @@
       "district": "Fort Mill SD",
       "tier": 1,
       "zip": "29715",
-      "fb": null,
+      "fb": "https://www.facebook.com/p/Springfield-Middle-School-Athletic-Boosters-100077320220767/",
       "website": null,
       "email": null,
       "ad": null,
-      "activity": "No dedicated booster FB page found — contact office directly",
+      "activity": "240 followers — active",
       "excluded": false
     },
     {
@@ -97,11 +97,11 @@
       "district": "Fort Mill SD",
       "tier": 1,
       "zip": "29715",
-      "fb": null,
+      "fb": "https://www.facebook.com/FortMillJackets",
       "website": "https://www.fortmillhighathleticzone.com/",
       "email": null,
       "ad": null,
-      "activity": "Athletic zone website active",
+      "activity": "Fort Mill Jackets athletic page — active",
       "excluded": false
     },
     {
@@ -279,11 +279,11 @@
       "district": "Charlotte-Mecklenburg Schools",
       "tier": 3,
       "zip": "28277 (Ballantyne)",
-      "fb": null,
-      "website": null,
-      "email": null,
-      "ad": null,
-      "activity": "PENDING DISCOVERY",
+      "fb": "https://www.facebook.com/p/Ardrey-Kell-High-School-Athletics-100069322825307/",
+      "website": "https://ardreykellathleticzone.com/booster-club-information/",
+      "email": "amy.gramaglia@gmail.com",
+      "ad": "Co-Presidents: Amy Gramaglia, Kelly Ludwick (kellyduggan@yahoo.com)",
+      "activity": "1,432 followers — very active",
       "excluded": false
     },
     {
@@ -350,10 +350,10 @@
       "tier": 3,
       "zip": "28078 (Huntersville)",
       "fb": null,
-      "website": null,
+      "website": "https://www.houghathleticboosterclub.org/",
       "email": null,
       "ad": null,
-      "activity": "PENDING DISCOVERY",
+      "activity": "Instagram @clubhoughhusky — 808 followers; 501c-3 nonprofit",
       "excluded": false
     },
     {
