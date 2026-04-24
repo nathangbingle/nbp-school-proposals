@@ -384,8 +384,9 @@
       <div class="dash-title">NBP Booster <span class="accent">·</span> Outreach Dashboard</div>
     </div>
     <div class="dash-subtitle">
-      <div>Tier 1 + Tier 2 Booster Clubs</div>
+      <div>Tier 1 · 2 · 3 Booster Clubs</div>
       <div>Fall 2026 Outreach Campaign</div>
+      <div id="lastUpdated" style="color: var(--orange); font-weight: 600;">Loading…</div>
     </div>
   </header>
 
@@ -433,209 +434,38 @@
 <div class="toast" id="toast">Copied to clipboard</div>
 
 <script>
-  // ============ DATA ============
-  const clubs = [
-    // === TIER 1 — Fort Mill School District ===
-    {
-      id: "pkms",
-      name: "Pleasant Knoll Middle School Athletic Boosters",
-      tier: 1,
-      school: "Pleasant Knoll MS",
-      district: "Fort Mill SD",
-      zip: "29708",
-      fb: "https://facebook.com/PKMSAthleticBoosters",
-      website: "https://pkmsabc.wixsite.com/boosters",
-      email: null,
-      ad: null,
-      activity: "Active",
-      note: "Existing NBP client — offer NEW program here FIRST before outreach",
-      excluded: true
-    },
-    {
-      id: "fmms",
-      name: "Fort Mill Middle School Athletic Booster Club",
-      tier: 1,
-      school: "Fort Mill MS",
-      district: "Fort Mill SD",
-      zip: "29715",
-      fb: "https://facebook.com/FMMS.ABC",
-      website: null,
-      email: null,
-      ad: "Sean Smith — smiths@fortmillschools.org",
-      activity: "613 followers — active"
-    },
-    {
-      id: "btms",
-      name: "Banks Trail Middle School (Boosters/Athletics)",
-      tier: 1,
-      school: "Banks Trail MS",
-      district: "Fort Mill SD",
-      zip: "29715",
-      fb: "https://www.facebook.com/p/Banks-Trail-Middle-School-100067196156100/",
-      website: "https://btms.fortmillschools.org/",
-      email: null,
-      ad: "Stephanie Jowers — jowerss@fortmillschools.org",
-      activity: "839 followers — school page active (no dedicated ABC page located yet)"
-    },
-    {
-      id: "fcms",
-      name: "Forest Creek Middle School (Athletics)",
-      tier: 1,
-      school: "Forest Creek MS",
-      district: "Fort Mill SD",
-      zip: "29715",
-      fb: null,
-      website: null,
-      email: null,
-      ad: "David Helms — HelmsD@fortmillschools.org",
-      activity: "No dedicated booster FB page found — contact AD directly"
-    },
-    {
-      id: "ghms",
-      name: "Gold Hill Middle School (Athletics)",
-      tier: 1,
-      school: "Gold Hill MS",
-      district: "Fort Mill SD",
-      zip: "29708 (Tega Cay)",
-      fb: null,
-      website: null,
-      email: null,
-      ad: "Principal: Richard Eppes — eppesr@fortmillschools.org",
-      activity: "No dedicated booster FB page found — contact office directly"
-    },
-    {
-      id: "sms",
-      name: "Springfield Middle School (Athletics)",
-      tier: 1,
-      school: "Springfield MS",
-      district: "Fort Mill SD",
-      zip: "29715",
-      fb: null,
-      website: null,
-      email: null,
-      ad: null,
-      activity: "No dedicated booster FB page found — contact office directly"
-    },
-    {
-      id: "fmhs",
-      name: "Fort Mill High School Yellow Jackets Athletics",
-      tier: 1,
-      school: "Fort Mill HS",
-      district: "Fort Mill SD",
-      zip: "29715",
-      fb: null,
-      website: "https://www.fortmillhighathleticzone.com/",
-      email: null,
-      ad: null,
-      activity: "Athletic zone website active — booster FB page to verify"
-    },
-    {
-      id: "nfhs",
-      name: "Nation Ford High School Athletic Booster Club",
-      tier: 1,
-      school: "Nation Ford HS",
-      district: "Fort Mill SD",
-      zip: "29708",
-      fb: "https://facebook.com/NAFOABC",
-      website: "https://nationfordathleticzone.com/nfhs-abc-home/",
-      email: null,
-      ad: null,
-      activity: "773 followers — monthly meetings 2nd Tuesdays 6:30pm"
-    },
-    {
-      id: "crhs",
-      name: "Catawba Ridge High School Athletic Booster Club",
-      tier: 1,
-      school: "Catawba Ridge HS",
-      district: "Fort Mill SD",
-      zip: "29715",
-      fb: "https://facebook.com/catawbaclub",
-      website: "https://catawbaridgeathleticzone.com/catawba-ridge-booster-club",
-      email: "crhsabcpresident@gmail.com",
-      ad: null,
-      activity: "Active — recent posts Nov 2025"
-    },
+  // ============ DATA (loaded from dashboard-data.json) ============
+  let clubs = [];
+  let dataMeta = { last_discovery_run: null };
 
-    // === TIER 2 — Nearby high-income zones ===
-    {
-      id: "ilhs",
-      name: "Indian Land High School Athletic Booster Club",
-      tier: 2,
-      school: "Indian Land HS",
-      district: "Lancaster County SD",
-      zip: "29707",
-      fb: "https://www.facebook.com/p/Indian-Land-High-School-Athletic-Booster-Club-100064425082477/",
-      website: "https://www.ilwarriors.com/",
-      email: null,
-      ad: null,
-      activity: "1,171 followers — very active"
-    },
-    {
-      id: "ilms",
-      name: "Indian Land Middle School (Athletics)",
-      tier: 2,
-      school: "Indian Land MS",
-      district: "Lancaster County SD",
-      zip: "29707",
-      fb: null,
-      website: "https://ilms.lancastercsd.com/athletics",
-      email: null,
-      ad: null,
-      activity: "School athletics page active — no dedicated booster FB page"
-    },
-    {
-      id: "chs",
-      name: "Clover High School (Athletics — York SD 2)",
-      tier: 2,
-      school: "Clover HS",
-      district: "York SD 2",
-      zip: "29710 (Lake Wylie area)",
-      fb: null,
-      website: null,
-      email: null,
-      ad: null,
-      activity: "TO RESEARCH — Lake Wylie zone is demographically strong"
-    },
-    {
-      id: "orms",
-      name: "Oakridge Middle School (Athletics — York SD 2)",
-      tier: 2,
-      school: "Oakridge MS",
-      district: "York SD 2",
-      zip: "29710 (Lake Wylie)",
-      fb: null,
-      website: null,
-      email: null,
-      ad: null,
-      activity: "TO RESEARCH — Lake Wylie area"
-    },
-    {
-      id: "wmsabc",
-      name: "Weddington Middle School Athletic Booster Club",
-      tier: 2,
-      school: "Weddington MS",
-      district: "Union County Public Schools (NC)",
-      zip: "28173 (Waxhaw — #2 MHI in all of NC)",
-      fb: "https://facebook.com/wmsabc",
-      website: "https://www.wmsabc.com/",
-      email: null,
-      ad: null,
-      activity: "2,090 followers — very active, strongest FB presence in list"
-    },
-    {
-      id: "mrms",
-      name: "Marvin Ridge Middle School (Athletics)",
-      tier: 2,
-      school: "Marvin Ridge MS",
-      district: "Union County Public Schools (NC)",
-      zip: "28173 (Waxhaw)",
-      fb: null,
-      website: null,
-      email: null,
-      ad: null,
-      activity: "TO RESEARCH — top-tier demographic, Union County"
-    },
-  ];
+  async function loadClubs() {
+    try {
+      const res = await fetch('./dashboard-data.json?cb=' + Date.now());
+      if (!res.ok) throw new Error('HTTP ' + res.status);
+      const data = await res.json();
+      clubs = data.clubs || [];
+      dataMeta = data.meta || {};
+      updateFreshness();
+    } catch (err) {
+      console.error('Failed to load dashboard-data.json:', err);
+      document.getElementById('clubsGrid').innerHTML =
+        '<div style="padding:40px;text-align:center;color:var(--muted);">Couldn\'t load club data. Check dashboard-data.json.</div>';
+    }
+  }
+
+  function updateFreshness() {
+    const el = document.getElementById('lastUpdated');
+    if (!el) return;
+    if (dataMeta.last_discovery_run) {
+      const d = new Date(dataMeta.last_discovery_run);
+      const diffH = Math.floor((Date.now() - d.getTime()) / 3600000);
+      el.textContent = diffH < 1 ? 'Just updated'
+                     : diffH < 24 ? `Updated ${diffH}h ago`
+                     : `Updated ${Math.floor(diffH/24)}d ago`;
+    } else {
+      el.textContent = 'Waiting for first discovery run';
+    }
+  }
 
   // ============ MESSAGE TEMPLATES ============
   function generateMessage(club) {
@@ -848,8 +678,11 @@ nathanbinglephotography.com`;
   window.updateClubStatus = updateClubStatus;
 
   // ============ INIT ============
-  renderClubs();
-  renderStats();
+  (async function init() {
+    await loadClubs();
+    renderClubs();
+    renderStats();
+  })();
 </script>
 
 </body>
