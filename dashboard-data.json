@@ -1,8 +1,8 @@
 {
   "meta": {
-    "last_updated": "2026-04-24T03:58:28.385874+00:00",
+    "last_updated": "2026-04-24T04:00:58.814352+00:00",
     "last_discovery_run": "2026-04-24T03:58:28.385874+00:00",
-    "version": 4,
+    "version": 5,
     "last_run_discovered": 0,
     "last_run_skipped_blocked": 14
   },
@@ -159,7 +159,7 @@
       "website": "https://ilms.lancastercsd.com/athletics",
       "email": null,
       "ad": null,
-      "activity": "School athletics page active",
+      "activity": "Indian Land MS — Lancaster CSD, school athletics page",
       "excluded": false
     },
     {
@@ -212,10 +212,10 @@
       "tier": 2,
       "zip": "28173 (Waxhaw)",
       "fb": null,
-      "website": null,
+      "website": "https://marvinridgeathleticzone.com/",
       "email": null,
       "ad": null,
-      "activity": "PENDING DISCOVERY",
+      "activity": "MR Mavericks Middle — uses Marvin Ridge athletic zone / gomavericks.org parent site",
       "excluded": false
     },
     {
@@ -226,10 +226,10 @@
       "tier": 3,
       "zip": "28173 (Waxhaw)",
       "fb": null,
-      "website": null,
+      "website": "https://www.gomavericks.org/",
       "email": null,
       "ad": null,
-      "activity": "PENDING DISCOVERY",
+      "activity": "Marvin Ridge Mavericks Athletic Booster Club — gomavericks.org (no dedicated FB found)",
       "excluded": false
     },
     {
@@ -240,10 +240,10 @@
       "tier": 3,
       "zip": "28173 (Waxhaw)",
       "fb": null,
-      "website": null,
+      "website": "https://ucpsathleticzone.com/cuthbertson/",
       "email": null,
       "ad": null,
-      "activity": "PENDING DISCOVERY",
+      "activity": "Cuthbertson Cavaliers — UCPS athletic zone",
       "excluded": false
     },
     {
@@ -254,10 +254,10 @@
       "tier": 3,
       "zip": "28173 (Waxhaw)",
       "fb": null,
-      "website": null,
+      "website": "https://ucpsathleticzone.com/cuthbertson/",
       "email": null,
       "ad": null,
-      "activity": "PENDING DISCOVERY",
+      "activity": "Cuthbertson MS — UCPS athletic zone",
       "excluded": false
     },
     {
@@ -268,10 +268,10 @@
       "tier": 3,
       "zip": "28104",
       "fb": null,
-      "website": null,
+      "website": "https://www.weddingtonathleticzone.com/",
       "email": null,
       "ad": null,
-      "activity": "PENDING DISCOVERY",
+      "activity": "Weddington HS Warriors ABC — UCPS, uses athletic zone site",
       "excluded": false
     },
     {
@@ -296,10 +296,10 @@
       "tier": 3,
       "zip": "28277 (Ballantyne)",
       "fb": null,
-      "website": null,
+      "website": "https://cmsathleticzone.com/community-house/",
       "email": null,
       "ad": null,
-      "activity": "PENDING DISCOVERY",
+      "activity": "Community House MS — Ballantyne area, uses CMS athletic zone",
       "excluded": false
     },
     {
@@ -309,11 +309,11 @@
       "district": "Charlotte-Mecklenburg Schools",
       "tier": 3,
       "zip": "28277",
-      "fb": null,
-      "website": null,
+      "fb": "https://www.facebook.com/p/Jay-M-Robinson-Middle-School-Athletic-Booster-Club-100066802233211/",
+      "website": "https://cmsathleticzone.com/jay-m-robinson/booster-club/",
       "email": null,
-      "ad": null,
-      "activity": "PENDING DISCOVERY",
+      "ad": "Anna Beveridge — annak.beveridge@cms.k12.nc.us",
+      "activity": "83 followers — Ballantyne area, 5925 Ballantyne Commons Pkwy",
       "excluded": false
     },
     {
@@ -324,10 +324,10 @@
       "tier": 3,
       "zip": "28210",
       "fb": null,
-      "website": null,
+      "website": "https://cmsathleticzone.com/south-mecklenburg/",
       "email": null,
       "ad": null,
-      "activity": "PENDING DISCOVERY",
+      "activity": "South Meck HS — uses CMS athletic zone",
       "excluded": false
     },
     {
@@ -338,10 +338,10 @@
       "tier": 3,
       "zip": "28270",
       "fb": null,
-      "website": null,
+      "website": "https://cmsathleticzone.com/providence/",
       "email": null,
       "ad": null,
-      "activity": "PENDING DISCOVERY",
+      "activity": "Providence HS — uses CMS athletic zone",
       "excluded": false
     },
     {
@@ -366,10 +366,10 @@
       "tier": 3,
       "zip": "28078 (Huntersville)",
       "fb": null,
-      "website": null,
+      "website": "https://cmsathleticzone.com/bailey/",
       "email": null,
       "ad": null,
-      "activity": "PENDING DISCOVERY",
+      "activity": "Bailey MS — Huntersville, uses CMS athletic zone",
       "excluded": false
     },
     {
@@ -380,10 +380,10 @@
       "tier": 3,
       "zip": "28104 (Matthews)",
       "fb": null,
-      "website": null,
+      "website": "https://cmsathleticzone.com/butler/",
       "email": null,
       "ad": null,
-      "activity": "PENDING DISCOVERY",
+      "activity": "Butler HS — uses CMS athletic zone",
       "excluded": false
     },
     {
@@ -394,10 +394,10 @@
       "tier": 3,
       "zip": "28227 (Mint Hill)",
       "fb": null,
-      "website": null,
+      "website": "https://cmsathleticzone.com/rocky-river/",
       "email": null,
       "ad": null,
-      "activity": "PENDING DISCOVERY",
+      "activity": "Rocky River HS — uses CMS athletic zone",
       "excluded": false
     },
     {
@@ -408,10 +408,10 @@
       "tier": 3,
       "zip": "28104 (Matthews)",
       "fb": null,
-      "website": null,
+      "website": "https://cmsathleticzone.com/crestdale/",
       "email": null,
       "ad": null,
-      "activity": "PENDING DISCOVERY",
+      "activity": "Crestdale MS — Matthews, uses CMS athletic zone",
       "excluded": false
     },
     {
@@ -421,11 +421,11 @@
       "district": "Charlotte-Mecklenburg Schools",
       "tier": 3,
       "zip": "28211",
-      "fb": null,
-      "website": null,
+      "fb": "https://www.facebook.com/myersparkhighschool",
+      "website": "https://mpmustangclub.org/",
       "email": null,
       "ad": null,
-      "activity": "PENDING DISCOVERY",
+      "activity": "Mustang Club — 20 men's/women's teams, membership-driven booster",
       "excluded": false
     }
   ]

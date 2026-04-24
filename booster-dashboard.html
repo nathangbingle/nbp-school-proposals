@@ -470,8 +470,8 @@
   // ============ MESSAGE TEMPLATES ============
   function generateMessage(club) {
     const oneParager = "https://nathangbingle.github.io/nbp-school-proposals/fmsd-partnership.html";
-    
     const schoolShort = club.school;
+    const contactPath = club.fb ? "Facebook" : (club.website ? "your website" : "your booster club");
     
     if (club.tier === 1) {
       // Fort Mill SD — lead with rec league familiarity + social proof
@@ -493,7 +493,7 @@ Thanks,
 Nathan Bingle
 nathan@nathanbinglephotography.com
 nathanbinglephotography.com`;
-    } else {
+    } else if (club.tier === 2) {
       // Tier 2 — outside FMSD, lead harder on reviews
       return `Hi ${schoolShort} Athletic Boosters —
 
@@ -510,6 +510,24 @@ Full one-pager: ${oneParager}
 If this is something the boosters would consider, I'd love to set up a quick call with whoever handles athletic photography decisions. Happy to drive out to meet in person.
 
 Thanks for considering,
+Nathan Bingle
+nathan@nathanbinglephotography.com
+nathanbinglephotography.com`;
+    } else {
+      // Tier 3 — Charlotte/Union County, less name recognition; lead harder with stats + free offer
+      return `Hi ${schoolShort} Athletic Booster Club —
+
+I'm Nathan Bingle, a high-volume school and youth sports photographer based just south of Charlotte in Fort Mill, SC. I've built my operation around rec leagues and schools across the Carolinas — 127 verified parent reviews, 86% would recommend, 98 rated us 10 out of 10.
+
+I'm reaching out because I just rolled out a program I think your booster club will want to know about.
+
+Every 8th-grade fall athlete at partner schools gets a FREE 24×36 custom banner — football, cheer, volleyball, dance. Winter and spring banners are $10 each, about half of what most Charlotte-area schools are paying now.
+
+Full program details (picture day, every sport, revenue share to the school, online ordering shipped to families): ${oneParager}
+
+If this is something your boosters would consider, I'd love 15 minutes with whoever makes the athletic photography call. Happy to drive to Charlotte to meet in person.
+
+Thanks,
 Nathan Bingle
 nathan@nathanbinglephotography.com
 nathanbinglephotography.com`;
@@ -613,7 +631,7 @@ nathanbinglephotography.com`;
               <div class="message-actions">
                 <button class="action-btn orange" onclick="copyMessage('${club.id}')">Copy Message</button>
                 ${club.email ? `<a class="action-btn" href="mailto:${club.email}?subject=${encodeURIComponent('Photography partnership for ' + club.school)}&body=${encodeURIComponent(message)}" target="_blank">Open in Email</a>` : ''}
-                ${club.fb ? `<a class="action-btn" href="${club.fb}" target="_blank">Open Facebook</a>` : ''}
+                ${club.fb ? `<a class="action-btn" href="${club.fb}" target="_blank">Open Facebook</a>` : (club.website ? `<a class="action-btn" href="${club.website}" target="_blank">Open Website</a>` : '')}
               </div>
             </details>
 
