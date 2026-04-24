@@ -1,10 +1,10 @@
 {
   "meta": {
-    "last_updated": "2026-04-24T04:00:58.814352+00:00",
-    "last_discovery_run": "2026-04-24T03:58:28.385874+00:00",
-    "version": 5,
+    "last_updated": "2026-04-24T12:02:40.176959+00:00",
+    "last_discovery_run": "2026-04-24T12:02:40.176959+00:00",
+    "version": 6,
     "last_run_discovered": 0,
-    "last_run_skipped_blocked": 14
+    "last_run_skipped_blocked": 12
   },
   "clubs": [
     {
