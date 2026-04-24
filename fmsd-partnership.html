@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Nathan Bingle Photography — Fort Mill Schools Partnership</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #15254A;
+    --navy-deep: #0D1830;
+    --orange: #E54D1F;
+    --orange-soft: #F2EBE4;
+    --paper: #FFFFFF;
+    --paper-warm: #F7F4EF;
+    --ink: #1A2030;
+    --muted: #6B7180;
+    --rule: #E3DED4;
+    --rule-soft: #EDE8DF;
+
+    --font-display: 'ITC Avant Garde Gothic Pro', 'Jost', 'Century Gothic', sans-serif;
+    --font-body: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+
+  body {
+    font-family: var(--font-body);
+    background: var(--paper);
+    color: var(--ink);
+    line-height: 1.55;
+    font-size: 14.5px;
+    font-weight: 400;
+  }
+
+  .page {
+    max-width: 880px;
+    margin: 0 auto;
+    padding: 56px 64px 56px;
+    background: var(--paper);
+    position: relative;
+  }
+
+  .masthead {
+    display: flex; justify-content: space-between; align-items: flex-end;
+    padding-bottom: 20px; border-bottom: 2px solid var(--navy); margin-bottom: 48px;
+  }
+
+  .wordmark {
+    font-family: var(--font-display); font-weight: 500; font-size: 20px;
+    letter-spacing: 0.02em; color: var(--navy); line-height: 1; text-transform: uppercase;
+  }
+  .wordmark .amp { color: var(--orange); margin: 0 4px; font-weight: 400; }
+
+  .masthead-meta {
+    font-family: var(--font-body); font-size: 10px; letter-spacing: 0.2em;
+    text-transform: uppercase; color: var(--muted); text-align: right;
+    line-height: 1.8; font-weight: 500;
+  }
+  .masthead-meta .primary { color: var(--navy); font-weight: 600; }
+
+  .hero { margin-bottom: 52px; position: relative; }
+
+  .eyebrow {
+    font-family: var(--font-display); font-size: 10px; letter-spacing: 0.32em;
+    text-transform: uppercase; color: var(--orange); font-weight: 600;
+    margin-bottom: 28px; display: inline-flex; align-items: center; gap: 14px;
+  }
+  .eyebrow::before { content: ''; display: inline-block; width: 28px; height: 2px; background: var(--orange); }
+
+  h1 {
+    font-family: var(--font-display); font-weight: 500; font-size: 46px;
+    line-height: 1.05; letter-spacing: -0.015em; color: var(--navy);
+    margin-bottom: 28px; max-width: 740px;
+  }
+  h1 .accent { color: var(--orange); font-weight: 500; }
+
+  .lead {
+    font-family: var(--font-body); font-weight: 400; font-size: 17px;
+    line-height: 1.55; color: var(--ink); max-width: 660px; letter-spacing: -0.005em;
+  }
+  .lead .strong { color: var(--navy); font-weight: 600; }
+
+  .banner-feature {
+    background: var(--navy); color: var(--paper); padding: 36px 40px 32px;
+    margin: 48px 0; position: relative; overflow: hidden;
+  }
+  .banner-feature::before { content: ''; position: absolute; top: 0; left: 0; bottom: 0; width: 5px; background: var(--orange); }
+
+  .banner-feature-label {
+    font-family: var(--font-display); font-size: 10px; letter-spacing: 0.3em;
+    text-transform: uppercase; color: var(--orange); font-weight: 600; margin-bottom: 14px;
+  }
+  .banner-feature-headline {
+    font-family: var(--font-display); font-weight: 500; font-size: 26px;
+    line-height: 1.15; letter-spacing: -0.01em; margin-bottom: 14px; color: #fff;
+  }
+  .banner-feature-headline .accent { color: var(--orange); font-weight: 500; }
+  .banner-feature-body {
+    font-family: var(--font-body); font-size: 14px; line-height: 1.6;
+    color: rgba(255, 255, 255, 0.8); max-width: 620px; font-weight: 400; margin-bottom: 28px;
+  }
+
+  .tiers {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.15); padding-top: 28px;
+  }
+  .tier { padding: 0 28px; position: relative; }
+  .tier:first-child { padding-left: 0; }
+  .tier:last-child { padding-right: 0; border-left: 1px solid rgba(255, 255, 255, 0.15); }
+
+  .tier-header {
+    display: flex; align-items: baseline; justify-content: space-between;
+    gap: 16px; margin-bottom: 14px;
+  }
+  .tier-label {
+    font-family: var(--font-display); font-size: 11px; letter-spacing: 0.3em;
+    text-transform: uppercase; color: #fff; font-weight: 600;
+  }
+  .tier-price-tag {
+    font-family: var(--font-display); font-size: 10px; letter-spacing: 0.22em;
+    text-transform: uppercase; color: var(--orange); font-weight: 600;
+  }
+  .tier-sports {
+    font-family: var(--font-body); font-size: 12.5px; line-height: 1.55;
+    color: rgba(255, 255, 255, 0.65); margin-bottom: 18px; font-weight: 400;
+  }
+  .tier-price-row { display: flex; align-items: baseline; gap: 14px; }
+  .tier-price {
+    font-family: var(--font-display); font-weight: 500; font-size: 42px;
+    line-height: 1; letter-spacing: -0.02em; color: var(--orange);
+  }
+  .tier-price-caption {
+    font-family: var(--font-body); font-size: 11px; line-height: 1.4;
+    color: rgba(255, 255, 255, 0.6); font-weight: 400; max-width: 130px;
+  }
+  .tier-price-caption .strike { text-decoration: line-through; text-decoration-thickness: 1px; }
+
+  .section-head {
+    display: flex; align-items: baseline; gap: 16px;
+    margin-bottom: 28px; padding-bottom: 12px; border-bottom: 1px solid var(--rule);
+  }
+  .section-num {
+    font-family: var(--font-display); font-size: 11px; color: var(--orange);
+    font-weight: 600; letter-spacing: 0.15em;
+  }
+  .section-title {
+    font-family: var(--font-display); font-size: 22px; font-weight: 500;
+    letter-spacing: -0.01em; color: var(--navy); line-height: 1.15; text-transform: uppercase;
+  }
+
+  .included-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 30px 44px; margin-bottom: 52px;
+  }
+  .included-item { position: relative; padding-left: 24px; }
+  .included-item::before {
+    content: ''; position: absolute; left: 0; top: 7px; width: 10px; height: 10px;
+    background: var(--orange); transform: rotate(45deg);
+  }
+  .included-item-title {
+    font-family: var(--font-display); font-weight: 600; font-size: 14px;
+    letter-spacing: 0.02em; text-transform: uppercase; color: var(--navy); margin-bottom: 6px;
+  }
+  .included-item-desc {
+    font-family: var(--font-body); font-size: 13.5px; line-height: 1.55;
+    color: var(--muted); font-weight: 400;
+  }
+
+  .why {
+    display: grid; grid-template-columns: 2fr 3fr; gap: 48px;
+    margin-bottom: 52px; padding: 40px 0;
+    border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule);
+  }
+  .why-pullquote {
+    font-family: var(--font-display); font-weight: 400; font-size: 22px;
+    line-height: 1.3; color: var(--navy); letter-spacing: -0.01em; position: relative;
+  }
+  .why-pullquote::before {
+    content: ''; display: block; width: 40px; height: 3px; background: var(--orange); margin-bottom: 20px;
+  }
+  .why-body { font-family: var(--font-body); font-size: 14.5px; line-height: 1.7; color: var(--ink); font-weight: 400; }
+  .why-body p + p { margin-top: 16px; }
+  .why-body strong { color: var(--navy); font-weight: 600; }
+
+  .stats {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 0;
+    margin-bottom: 52px; border-top: 2px solid var(--navy); border-bottom: 2px solid var(--navy);
+  }
+  .stat { padding: 26px 18px; text-align: center; border-right: 1px solid var(--rule); }
+  .stat:last-child { border-right: none; }
+  .stat-value {
+    font-family: var(--font-display); font-weight: 500; font-size: 28px;
+    letter-spacing: -0.01em; color: var(--navy); line-height: 1; margin-bottom: 10px;
+  }
+  .stat-value .accent { color: var(--orange); }
+  .stat-label {
+    font-family: var(--font-display); font-size: 9.5px; letter-spacing: 0.18em;
+    text-transform: uppercase; color: var(--muted); line-height: 1.4; font-weight: 500;
+  }
+
+  .cta {
+    display: grid; grid-template-columns: 1fr auto; align-items: center;
+    gap: 36px; padding: 36px 40px; background: var(--paper-warm);
+    border: 1px solid var(--rule); position: relative;
+  }
+  .cta::before { content: ''; position: absolute; top: 0; left: 0; bottom: 0; width: 4px; background: var(--orange); }
+  .cta-headline {
+    font-family: var(--font-display); font-weight: 500; font-size: 22px;
+    letter-spacing: -0.01em; color: var(--navy); line-height: 1.2; margin-bottom: 8px;
+  }
+  .cta-headline .accent { color: var(--orange); }
+  .cta-sub {
+    font-family: var(--font-body); font-size: 13.5px; color: var(--muted);
+    line-height: 1.55; font-weight: 400; max-width: 460px;
+  }
+  .contact-block {
+    font-family: var(--font-body); font-size: 13px; line-height: 1.75;
+    color: var(--navy); font-weight: 500; text-align: right;
+    border-left: 1px solid var(--rule); padding-left: 32px;
+  }
+  .contact-block .name {
+    font-family: var(--font-display); font-weight: 600; font-size: 15px;
+    color: var(--navy); letter-spacing: 0.03em; text-transform: uppercase;
+    display: block; margin-bottom: 8px;
+  }
+  .contact-block a {
+    color: var(--navy); text-decoration: none;
+    border-bottom: 1px solid var(--orange); padding-bottom: 1px; transition: color 0.2s;
+  }
+  .contact-block a:hover { color: var(--orange); }
+
+  .footer {
+    margin-top: 40px; padding-top: 18px; border-top: 1px solid var(--rule-soft);
+    font-family: var(--font-display); font-size: 10px; letter-spacing: 0.22em;
+    text-transform: uppercase; color: var(--muted);
+    display: flex; justify-content: space-between; font-weight: 500;
+  }
+  .footer .tag { color: var(--navy); font-weight: 600; }
+
+  @media print {
+    body { background: white; }
+    .page { padding: 32px 40px; max-width: none; }
+    h1 { font-size: 38px; }
+    .banner-feature, .why, .stats, .cta { break-inside: avoid; }
+  }
+
+  @media (max-width: 720px) {
+    .page { padding: 32px 24px; }
+    h1 { font-size: 32px; }
+    .lead { font-size: 16px; }
+    .banner-feature { padding: 28px 24px; }
+    .tiers { grid-template-columns: 1fr; gap: 24px; }
+    .tier { padding: 0; }
+    .tier:last-child { border-left: none; border-top: 1px solid rgba(255, 255, 255, 0.15); padding-top: 24px; }
+    .tier-price { font-size: 36px; }
+    .included-grid { grid-template-columns: 1fr; gap: 24px; }
+    .why { grid-template-columns: 1fr; gap: 28px; padding: 28px 0; }
+    .stats { grid-template-columns: 1fr 1fr; }
+    .stat { border-bottom: 1px solid var(--rule); }
+    .stat:nth-child(3), .stat:nth-child(4) { border-bottom: none; }
+    .stat:nth-child(even) { border-right: none; }
+    .cta { grid-template-columns: 1fr; gap: 24px; padding: 28px 24px; }
+    .contact-block { border-left: none; border-top: 1px solid var(--rule); padding-left: 0; padding-top: 20px; text-align: left; }
+    .masthead { flex-direction: column; align-items: flex-start; gap: 18px; }
+    .masthead-meta { text-align: left; }
+  }
+</style>
+</head>
+<body>
+
+<div class="page">
+
+  <header class="masthead">
+    <div class="wordmark">Nathan Bingle <span class="amp">·</span> Photography</div>
+    <div class="masthead-meta">
+      <div class="primary">District Partnership Proposal</div>
+      <div>Prepared for Fort Mill Schools</div>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="eyebrow">A proposal for Fort Mill Schools</div>
+    <h1>A photography partnership built for districts like yours — and every 8th-grade fall athlete gets a <span class="accent">free banner.</span></h1>
+    <p class="lead">
+      <span class="strong">Fall-season banners are included at no cost — every football, cheer, dance, and volleyball 8th grader goes home with a professionally printed 24×36 banner.</span> Winter and spring banners are just $10 each — roughly half of what most districts are paying now.
+    </p>
+  </section>
+
+  <section class="banner-feature">
+    <div class="banner-feature-label">The Banner Program</div>
+    <div class="banner-feature-headline">
+      Every 8th grader. Every sport. <span class="accent">Every season.</span>
+    </div>
+    <p class="banner-feature-body">
+      Fall banners are on us. Winter and spring banners are $10 each — about half the market rate. Custom-designed for each athlete, professionally printed on 13oz vinyl, and delivered to the school ready to hang. One photographer for the whole year, every sport, every athlete.
+    </p>
+
+    <div class="tiers">
+      <div class="tier">
+        <div class="tier-header">
+          <div class="tier-label">Fall Season</div>
+          <div class="tier-price-tag">Included</div>
+        </div>
+        <div class="tier-sports">Football · Cheer · Dance · Volleyball</div>
+        <div class="tier-price-row">
+          <div class="tier-price">$0</div>
+          <div class="tier-price-caption">every 8th-grade athlete, no charge to school or family</div>
+        </div>
+      </div>
+
+      <div class="tier">
+        <div class="tier-header">
+          <div class="tier-label">Winter + Spring</div>
+          <div class="tier-price-tag">At Cost</div>
+        </div>
+        <div class="tier-sports">Basketball · Baseball · Soccer · Track · Flag Football</div>
+        <div class="tier-price-row">
+          <div class="tier-price">$10</div>
+          <div class="tier-price-caption"><span class="strike">$25 – $30 typical</span><br>half the market rate</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head">
+      <div class="section-num">01 /</div>
+      <div class="section-title">What's included at every partner school</div>
+    </div>
+
+    <div class="included-grid">
+      <div class="included-item">
+        <div class="included-item-title">School Picture Day</div>
+        <div class="included-item-desc">Individual portraits, classroom group composites, staff portraits, and retake day — run on a tight schedule that keeps disruption to the school day minimal.</div>
+      </div>
+      <div class="included-item">
+        <div class="included-item-title">Athletics, Every Season</div>
+        <div class="included-item-desc">Team and individual photos for every sport the school runs — fall, winter, and spring. Same consistent quality, same streamlined workflow every time.</div>
+      </div>
+      <div class="included-item">
+        <div class="included-item-title">Free Fall Banner Program</div>
+        <div class="included-item-desc">A free 24×36 custom banner for every 8th-grade fall athlete. Winter and spring banners at $10 each — approximately half of typical market rate.</div>
+      </div>
+      <div class="included-item">
+        <div class="included-item-title">Revenue Share Back to the School</div>
+        <div class="included-item-desc">A percentage of every photo sale returns to the school or booster program as a fundraising commission. Transparent, itemized reporting with every check.</div>
+      </div>
+      <div class="included-item">
+        <div class="included-item-title">Online Ordering, Shipped to Families</div>
+        <div class="included-item-desc">Parents order online at their own pace. Photos ship directly to their door. No order forms, no cash collection, no envelopes for the front office to manage.</div>
+      </div>
+      <div class="included-item">
+        <div class="included-item-title">One Partner, Every Program</div>
+        <div class="included-item-desc">Consolidate picture day, sports, and banner needs with a single vendor across every school in the district. One contact, one workflow, one standard.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="why">
+    <div>
+      <p class="why-pullquote">
+        We can offer this because our operation is built for volume. At scale, the math works — and the school gets the benefit.
+      </p>
+    </div>
+    <div class="why-body">
+      <p>Most school photographers can't offer this. A free fall-banner program and half-market winter/spring pricing only works at a photography operation engineered for it: <strong>streamlined picture days</strong>, optimized ordering systems, and the volume to print banners at a scale that smaller studios can't match.</p>
+      <p>We're a <strong>Fort Mill-based business</strong> serving schools and sports programs across the Carolinas — already the photographer at Pleasant Knoll Middle School and at youth sports organizations throughout York, Lancaster, and Mecklenburg counties.</p>
+      <p>Bringing this program to Fort Mill Schools gives the district a consistent photography standard, a meaningful fundraising return, and a signature fall banner tradition that parents, students, and staff will love — with zero budget impact.</p>
+    </div>
+  </section>
+
+  <section class="stats">
+    <div class="stat">
+      <div class="stat-value">Carolinas</div>
+      <div class="stat-label">Regional photography<br>partner</div>
+    </div>
+    <div class="stat">
+      <div class="stat-value">K <span class="accent">–</span> 12</div>
+      <div class="stat-label">Every level, every<br>sport, every season</div>
+    </div>
+    <div class="stat">
+      <div class="stat-value">$0</div>
+      <div class="stat-label">Cost for the<br>fall banner program</div>
+    </div>
+    <div class="stat">
+      <div class="stat-value">100<span class="accent">%</span></div>
+      <div class="stat-label">Commission reporting<br>transparency</div>
+    </div>
+  </section>
+
+  <section class="cta">
+    <div>
+      <div class="cta-headline">Let's talk about rolling this out <span class="accent">district-wide.</span></div>
+      <div class="cta-sub">Happy to come in for a 20-minute meeting to walk through logistics, revenue-share structure, and how the banner program would roll out across each school.</div>
+    </div>
+    <div class="contact-block">
+      <span class="name">Nathan Bingle</span>
+      <a href="mailto:nathan@nathanbinglephotography.com">nathan@nathanbinglephotography.com</a><br>
+      <a href="https://nathanbinglephotography.com">nathanbinglephotography.com</a><br>
+      Fort Mill, SC
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div><span class="tag">Nathan Bingle Photography</span> &nbsp;·&nbsp; Schools · Athletics · Events</div>
+    <div>Fort Mill · Rock Hill · Charlotte</div>
+  </footer>
+
+</div>
+
+</body>
+</html>
