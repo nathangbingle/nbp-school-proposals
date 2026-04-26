@@ -1,10 +1,12 @@
 {
   "meta": {
-    "last_updated": "2026-04-25T12:00:44.460143+00:00",
+    "last_updated": "2026-04-26T02:45:22.720686+00:00",
     "last_discovery_run": "2026-04-25T12:00:44.460143+00:00",
-    "version": 7,
+    "version": 9,
     "last_run_discovered": 0,
-    "last_run_skipped_blocked": 12
+    "last_run_skipped_blocked": 12,
+    "last_manual_enrichment": "2026-04-26T02:45:22.720719+00:00",
+    "last_manual_enrichment_count": 27
   },
   "clubs": [
     {
@@ -30,7 +32,7 @@
       "tier": 1,
       "zip": "29715",
       "fb": "https://facebook.com/FMMS.ABC",
-      "website": null,
+      "website": "https://fmms.fortmillschools.org/",
       "email": "fmmsbooster@gmail.com",
       "ad": "Sean Smith — smiths@fortmillschools.org",
       "activity": "613 followers — active",
@@ -58,7 +60,7 @@
       "tier": 1,
       "zip": "29715",
       "fb": "https://facebook.com/ForestCreekABC",
-      "website": null,
+      "website": "https://fcms.fortmillschools.org/",
       "email": "fcmsboosterclubpresident@gmail.com",
       "ad": "David Helms — HelmsD@fortmillschools.org",
       "activity": "577 followers — active",
@@ -72,7 +74,7 @@
       "tier": 1,
       "zip": "29708 (Tega Cay)",
       "fb": "https://www.facebook.com/Gold-Hill-Middle-School-Athletic-Booster-Club-135812313106191",
-      "website": null,
+      "website": "https://ghms.fortmillschools.org/",
       "email": null,
       "ad": "Tate Hamilton — hamiltont@fortmillschools.org",
       "activity": "892 followers — meetings 2nd Mon monthly",
@@ -86,10 +88,10 @@
       "tier": 1,
       "zip": "29715",
       "fb": "https://www.facebook.com/p/Springfield-Middle-School-Athletic-Boosters-100077320220767/",
-      "website": null,
+      "website": "https://sms.fortmillschools.org/",
       "email": null,
-      "ad": null,
-      "activity": "240 followers — active",
+      "ad": "Contact via FMSD athletic dept (athletic AD listings on fortmillathleticzone.com)",
+      "activity": "240 followers — active, FMSD middle school",
       "excluded": false
     },
     {
@@ -101,9 +103,9 @@
       "zip": "29715",
       "fb": "https://www.facebook.com/FortMillJackets",
       "website": "https://www.fortmillhighathleticzone.com/",
-      "email": null,
-      "ad": null,
-      "activity": "Fort Mill Jackets athletic page — active",
+      "email": "fmhsabcmerchandise@gmail.com",
+      "ad": "Dwayne Hartsoe — hartsoed@fortmillschools.org",
+      "activity": "Fort Mill Yellow Jackets ABC — softball state champs, Twitter @FortMillJackets, golf tournament fundraiser",
       "excluded": false
     },
     {
@@ -114,10 +116,10 @@
       "tier": 1,
       "zip": "29708",
       "fb": "https://facebook.com/NAFOABC",
-      "website": "https://nationfordathleticzone.com/nfhs-abc-home/",
+      "website": "https://www.nationfordathleticzone.com/",
       "email": null,
-      "ad": null,
-      "activity": "773 followers — monthly meetings 2nd Tuesdays 6:30pm",
+      "ad": "Brigette McSheehan (interim AD as of Sept 2025) — mcsheehanb@fortmillschools.org",
+      "activity": "Nation Ford Falcons ABC — 773 followers, monthly meetings, FMSD",
       "excluded": false
     },
     {
@@ -130,7 +132,7 @@
       "fb": "https://facebook.com/catawbaclub",
       "website": "https://catawbaridgeathleticzone.com/catawba-ridge-booster-club",
       "email": "crhsabcpresident@gmail.com",
-      "ad": null,
+      "ad": "Rick Lewis — lewisr@fortmillschools.org",
       "activity": "Active — recent posts Nov 2025",
       "excluded": false
     },
@@ -145,7 +147,7 @@
       "website": "https://www.ilwarriors.com/",
       "email": null,
       "ad": null,
-      "activity": "1,171 followers — very active",
+      "activity": "1,171 FB followers — very active, IG @ilhsboosterclub (932), Lancaster CSD",
       "excluded": false
     },
     {
@@ -159,7 +161,7 @@
       "website": "https://ilms.lancastercsd.com/athletics",
       "email": null,
       "ad": null,
-      "activity": "Indian Land MS — Lancaster CSD, school athletics page",
+      "activity": "Indian Land MS — Lancaster CSD, 8063 River Rd, no dedicated booster FB found",
       "excluded": false
     },
     {
@@ -169,11 +171,11 @@
       "district": "York SD 2",
       "tier": 2,
       "zip": "29710",
-      "fb": null,
-      "website": null,
+      "fb": "https://www.facebook.com/cloverhighschoolathleticboosterclub/",
+      "website": "https://cloverathletics.org/",
       "email": null,
       "ad": null,
-      "activity": "PENDING DISCOVERY",
+      "activity": "CHS Athletic Booster Club — 1,541 FB followers (very active), Clover SC",
       "excluded": false
     },
     {
@@ -183,11 +185,11 @@
       "district": "York SD 2",
       "tier": 2,
       "zip": "29710 (Lake Wylie)",
-      "fb": null,
-      "website": null,
-      "email": null,
-      "ad": null,
-      "activity": "PENDING DISCOVERY",
+      "fb": "https://www.facebook.com/omsptso/",
+      "website": "https://www.clover.k12.sc.us/o/oms/page/athletics",
+      "email": "oakridgeptso@gmail.com",
+      "ad": "Bryan Dillon (Principal) — bryan.dillon@clover.k12.sc.us",
+      "activity": "Oakridge MS uses PTSO for boosting — 1,309 FB followers, Lake Wylie SC",
       "excluded": false
     },
     {
@@ -198,10 +200,10 @@
       "tier": 2,
       "zip": "28173 (Waxhaw)",
       "fb": "https://facebook.com/wmsabc",
-      "website": "https://www.wmsabc.com/",
+      "website": "https://www.facebook.com/wmsabc/",
       "email": null,
       "ad": null,
-      "activity": "2,090 followers — very active",
+      "activity": "Weddington MS ABC — Union NC, FB active, posts game updates regularly",
       "excluded": false
     },
     {
@@ -211,11 +213,11 @@
       "district": "Union County Public Schools (NC)",
       "tier": 2,
       "zip": "28173 (Waxhaw)",
-      "fb": null,
-      "website": "https://marvinridgeathleticzone.com/",
+      "fb": "https://www.facebook.com/p/Marvin-Ridge-Mavericks-Athletic-Booster-Club-61559233341989/",
+      "website": "https://www.gomavericks.org/",
       "email": null,
       "ad": null,
-      "activity": "MR Mavericks Middle — uses Marvin Ridge athletic zone / gomavericks.org parent site",
+      "activity": "Same booster as Marvin Ridge HS (MRMABC) — covers both MS + HS",
       "excluded": false
     },
     {
@@ -225,11 +227,11 @@
       "district": "Union County Public Schools (NC)",
       "tier": 3,
       "zip": "28173 (Waxhaw)",
-      "fb": null,
+      "fb": "https://www.facebook.com/p/Marvin-Ridge-Mavericks-Athletic-Booster-Club-61559233341989/",
       "website": "https://www.gomavericks.org/",
       "email": null,
       "ad": null,
-      "activity": "Marvin Ridge Mavericks Athletic Booster Club — gomavericks.org (no dedicated FB found)",
+      "activity": "Marvin Ridge Mavericks ABC (MRMABC) — covers MR HS + MS, 501(c)(3), Waxhaw NC",
       "excluded": false
     },
     {
@@ -240,10 +242,10 @@
       "tier": 3,
       "zip": "28173 (Waxhaw)",
       "fb": null,
-      "website": "https://ucpsathleticzone.com/cuthbertson/",
+      "website": "https://www.gocavs.org/",
       "email": null,
       "ad": null,
-      "activity": "Cuthbertson Cavaliers — UCPS athletic zone",
+      "activity": "Cuthbertson ABC (CABC) — covers HS + MS, 501(c)(3), fully funds MS sports, UCPS",
       "excluded": false
     },
     {
@@ -254,10 +256,10 @@
       "tier": 3,
       "zip": "28173 (Waxhaw)",
       "fb": null,
-      "website": "https://ucpsathleticzone.com/cuthbertson/",
+      "website": "https://www.gocavs.org/",
       "email": null,
       "ad": null,
-      "activity": "Cuthbertson MS — UCPS athletic zone",
+      "activity": "Same booster as Cuthbertson HS (CABC) — fully funds MS sports program",
       "excluded": false
     },
     {
@@ -268,10 +270,10 @@
       "tier": 3,
       "zip": "28104",
       "fb": null,
-      "website": "https://www.weddingtonathleticzone.com/",
+      "website": "https://shop.sportstoyou.com/weddington_high_school_athletic/",
       "email": null,
       "ad": null,
-      "activity": "Weddington HS Warriors ABC — UCPS, uses athletic zone site",
+      "activity": "Weddington HS Warriors ABC — UCPS, no dedicated booster FB located, sports gear store",
       "excluded": false
     },
     {
@@ -299,7 +301,7 @@
       "website": "https://cmsathleticzone.com/community-house/",
       "email": null,
       "ad": null,
-      "activity": "Community House MS — Ballantyne area, uses CMS athletic zone",
+      "activity": "Community House MS — Ballantyne, CMS middle school, no dedicated booster FB located",
       "excluded": false
     },
     {
@@ -313,7 +315,7 @@
       "website": "https://cmsathleticzone.com/jay-m-robinson/booster-club/",
       "email": null,
       "ad": "Anna Beveridge — annak.beveridge@cms.k12.nc.us",
-      "activity": "83 followers — Ballantyne area, 5925 Ballantyne Commons Pkwy",
+      "activity": "Jay M Robinson MS — Charlotte, CMS, FB page active",
       "excluded": false
     },
     {
@@ -323,11 +325,11 @@
       "district": "Charlotte-Mecklenburg Schools",
       "tier": 3,
       "zip": "28210",
-      "fb": null,
-      "website": "https://cmsathleticzone.com/south-mecklenburg/",
-      "email": null,
+      "fb": "https://www.facebook.com/SouthMeckSB",
+      "website": "https://www.southmeckboosters.org/",
+      "email": "info@smsportsboosters.com",
       "ad": null,
-      "activity": "South Meck HS — uses CMS athletic zone",
+      "activity": "South Meck Sports Boosters — $90K+ raised 2022-23, 26 varsity + 11 JV teams, IG @southmeckSB",
       "excluded": false
     },
     {
@@ -338,10 +340,10 @@
       "tier": 3,
       "zip": "28270",
       "fb": null,
-      "website": "https://cmsathleticzone.com/providence/",
+      "website": "https://cmsathleticzone.com/providence-highschool/panther-athletic-club/",
       "email": null,
-      "ad": null,
-      "activity": "Providence HS — uses CMS athletic zone",
+      "ad": "Johnathan Castator — johnathana.castator@cms.k12.nc.us",
+      "activity": "Panther Athletic Club (PAC) — $100K+ annually, 563 IG followers @providencepac",
       "excluded": false
     },
     {
@@ -351,11 +353,11 @@
       "district": "Charlotte-Mecklenburg Schools",
       "tier": 3,
       "zip": "28078 (Huntersville)",
-      "fb": null,
+      "fb": "https://www.facebook.com/HuskyHABC",
       "website": "https://www.houghathleticboosterclub.org/",
       "email": null,
-      "ad": null,
-      "activity": "Instagram @clubhoughhusky — 808 followers; 501c-3 nonprofit",
+      "ad": "Lori DeMarcus — lori1.demarcus@cms.k12.nc.us",
+      "activity": "Hough Athletic Booster Club (HABC) — 501c3, golf tournament fundraiser, IG @houghathletics",
       "excluded": false
     },
     {
@@ -365,11 +367,11 @@
       "district": "Charlotte-Mecklenburg Schools",
       "tier": 3,
       "zip": "28078 (Huntersville)",
-      "fb": null,
-      "website": "https://cmsathleticzone.com/bailey/",
+      "fb": "https://www.facebook.com/BaileyBroncosAthleticBoosters/",
+      "website": "https://baileyathletics.boosterhub.com/home/1715",
       "email": null,
-      "ad": null,
-      "activity": "Bailey MS — Huntersville, uses CMS athletic zone",
+      "ad": "Joe Aiello — josephj.aiello@cms.k12.nc.us",
+      "activity": "Bailey MS Broncos Athletic Boosters — Cornelius, IG @baileymiddleathleticboosters",
       "excluded": false
     },
     {
@@ -379,11 +381,11 @@
       "district": "Charlotte-Mecklenburg Schools",
       "tier": 3,
       "zip": "28104 (Matthews)",
-      "fb": null,
-      "website": "https://cmsathleticzone.com/butler/",
+      "fb": "https://www.facebook.com/1BHSathletics/",
+      "website": "https://butlerbulldogsathletics.com/butler-high-school-athletic-booster-club/",
       "email": null,
-      "ad": null,
-      "activity": "Butler HS — uses CMS athletic zone",
+      "ad": "Chris Satterfield CAA — c1.satterfield@cms.k12.nc.us",
+      "activity": "Butler HS Athletic Booster Club — 501c3, EIN 56-2043757, Matthews NC",
       "excluded": false
     },
     {
@@ -393,11 +395,11 @@
       "district": "Charlotte-Mecklenburg Schools",
       "tier": 3,
       "zip": "28227 (Mint Hill)",
-      "fb": null,
-      "website": "https://cmsathleticzone.com/rocky-river/",
+      "fb": "https://www.facebook.com/p/Rocky-River-Ravens-100087231834320/",
+      "website": "https://www.rockyriverathleticzone.com/",
       "email": null,
-      "ad": null,
-      "activity": "Rocky River HS — uses CMS athletic zone",
+      "ad": "Stephen Joyner Jr. — stephenw.joyner@cms.k12.nc.us",
+      "activity": "Rocky River HS ABC Inc, EIN 27-2801984, Mint Hill NC, IG @rockyriverhs",
       "excluded": false
     },
     {
@@ -411,7 +413,7 @@
       "website": "https://cmsathleticzone.com/crestdale/",
       "email": null,
       "ad": null,
-      "activity": "Crestdale MS — Matthews, uses CMS athletic zone",
+      "activity": "Crestdale MS — Matthews, CMS, no dedicated booster FB located",
       "excluded": false
     },
     {
@@ -423,9 +425,9 @@
       "zip": "28211",
       "fb": "https://www.facebook.com/myersparkhighschool",
       "website": "https://mpmustangclub.org/",
-      "email": null,
-      "ad": null,
-      "activity": "Mustang Club — 20 men's/women's teams, membership-driven booster",
+      "email": "mpmustangclubpresident@gmail.com",
+      "ad": "Brian Poore — brian.poore@cms.k12.nc.us",
+      "activity": "Myers Park Mustang Club — 900+ student-athletes, 20 sports, X @mp_stangsclub",
       "excluded": false
     }
   ]
