@@ -206,6 +206,18 @@
   .tier-2 { background: var(--navy); color: #fff; }
   .tier-note { background: var(--yellow-soft); color: var(--yellow); border: 1px solid var(--yellow); }
 
+  .level-badge {
+    font-family: var(--font-display);
+    font-size: 9.5px;
+    letter-spacing: 0.15em;
+    padding: 2px 7px;
+    text-transform: uppercase;
+    font-weight: 600;
+    border-radius: 2px;
+  }
+  .level-hs { background: rgba(0,80,140,.08); color: #00568c; border: 1px solid rgba(0,80,140,.25); }
+  .level-ms { background: rgba(60,120,40,.08); color: #3f7530; border: 1px solid rgba(60,120,40,.25); }
+
   .club-actions {
     display: flex;
     gap: 8px;
@@ -471,67 +483,67 @@
   function generateMessage(club) {
     const oneParager = "https://nathangbingle.github.io/nbp-school-proposals/fmsd-partnership.html";
     const schoolShort = club.school;
-    const contactPath = club.fb ? "Facebook" : (club.website ? "your website" : "your booster club");
-    
-    if (club.tier === 1) {
-      // Fort Mill SD — lead with rec league familiarity + social proof
-      return `Hi ${schoolShort} Booster Club —
-
-I'm Nathan Bingle, a Fort Mill-based photographer. You may already know us from the rec leagues — we shoot the majority of youth sports programs across Fort Mill and Lancaster County, and we run the photography program at Pleasant Knoll Middle School. 127 verified parent reviews, 98 of them 10 out of 10.
-
-I'm reaching out directly because I've just rolled out something new that I think will save your booster club real money.
-
-Starting this upcoming fall, we're covering fall senior banners at our partner schools — your booster club pays nothing for them. That's every graduating fall athlete (football, cheer, dance, volleyball — 8th graders at middle school, seniors at high school). Winter and spring banners from us are $10 each, roughly half of what most boosters are paying right now.
-
-Everything else is the complete photography package — picture day, team/individual photos every season, online ordering shipped to families, and zero administrative burden on the school office.
-
-Full one-pager with the details: ${oneParager}
-
-If you're not the right person to look at this, would you mind pointing me to whoever handles your athletic photography and banner budget? Happy to jump on a quick call or come meet in person — I live 10 minutes away.
-
-Thanks,
+    const isHS = club.school_type === 'hs';
+    const sig = `Thanks,
 Nathan Bingle
 nathan@nathanbinglephotography.com
 nathanbinglephotography.com`;
+
+    // Banner pitch line varies by HS vs MS
+    const bannerPitch = isHS
+      ? `Starting this fall, **fall senior banners are on us** at partner schools — football, cheer, dance, volleyball, every fall sport. Your booster pays $0 for them. Winter and spring senior banners are $10 each, about half what most boosters in the area are paying right now.`
+      : `Starting this fall, **8th-grade fall banners are on us** at partner schools — football, cheer, volleyball, every fall sport. Your booster pays $0 for them. Winter and spring banners are $10 each, about half what most middle school boosters are paying right now.`;
+
+    // The "everything else" line varies — HS gets varsity/JV + signing day mention
+    const everythingElse = isHS
+      ? `Everything else is a complete photo program — picture day, varsity & JV team and individual photos every season, signing day and senior night coverage on request, and online ordering shipped directly to families. Zero administrative burden on the AD's office.`
+      : `Everything else is a complete photo program — picture day, team and individual photos every season, and online ordering shipped directly to families. Nothing for the school office to manage.`;
+
+    // Closing CTA varies by tier
+    const greeting = club.tier === 1
+      ? `Hi ${schoolShort} Booster Club —`
+      : `Hi ${schoolShort} Athletic Booster Club —`;
+
+    // Opening intro varies by tier
+    let intro;
+    if (club.tier === 1) {
+      // Fort Mill SD — lead with rec league familiarity
+      intro = `I'm Nathan Bingle, a Fort Mill–based photographer. You probably know us from the rec leagues — we shoot the majority of youth sports across Fort Mill and Lancaster County, and we run the photography program at Pleasant Knoll Middle School. Last 127 parent reviews: 86% would recommend, 98 rated us 10 out of 10.`;
     } else if (club.tier === 2) {
-      // Tier 2 — outside FMSD, lead harder on reviews
-      return `Hi ${schoolShort} Athletic Boosters —
+      // Tier 2 — adjacent SC markets, lead with reviews
+      intro = `I'm Nathan Bingle, a photographer based in Fort Mill, SC. We shoot the majority of rec league youth sports across Fort Mill, Tega Cay, and Lancaster County, and run the photography program at Pleasant Knoll Middle School. Last 127 parent reviews came back at 86% would recommend, 98 of them 10 out of 10.`;
+    } else {
+      // Tier 3 — Charlotte/NC, less name recognition
+      intro = `I'm Nathan Bingle, a high-volume school and youth sports photographer based just south of Charlotte in Fort Mill, SC. Most of my work is across the Carolinas — 127 verified parent reviews, 86% would recommend, 98 rated us 10 out of 10.`;
+    }
 
-I'm Nathan Bingle, a photographer based in Fort Mill, SC. I shoot the majority of rec league youth sports programs across Fort Mill, Tega Cay, and Lancaster County, and run the photography program at Pleasant Knoll Middle School. Our last 127 parent reviews came back at 86% "would recommend," with 98 of them rating us 10 out of 10.
+    const reason = `I'm reaching out because I've just rolled out a partnership program that will save your booster real money on banners.`;
 
-I'm reaching out because I've just rolled out a partnership program that will save your booster club real money on banners.
+    // Closing CTA varies by tier
+    let close;
+    if (club.tier === 1) {
+      close = `If you're not the right person, would you mind pointing me to whoever handles photography and the banner budget for the booster? I live 10 minutes away — happy to jump on a quick call or come meet in person.`;
+    } else if (club.tier === 2) {
+      close = `If your booster would consider this, I'd love a quick call with whoever handles photography and the banner budget. Happy to drive out to meet in person.`;
+    } else {
+      close = `If this is worth 15 minutes, I'd love to talk to whoever handles your booster's photography and banner budget. Happy to drive into Charlotte to meet in person.`;
+    }
 
-The headline: we're covering fall senior banners — your booster pays nothing for them. That means 8th graders at middle school and seniors at high school, every fall sport. Winter and spring banners are $10 each, about half of what most boosters charge right now.
+    return `${greeting}
 
-Along with that: full picture-day service, team and individual photos every season, and online ordering that ships directly to families (no cash collection or order forms through the school office).
+${intro}
+
+${reason}
+
+${bannerPitch}
+
+${everythingElse}
 
 Full one-pager: ${oneParager}
 
-If this is something your booster would consider, I'd love to set up a quick call with whoever handles your athletic photography and banner budget. Happy to drive out to meet in person.
+${close}
 
-Thanks for considering,
-Nathan Bingle
-nathan@nathanbinglephotography.com
-nathanbinglephotography.com`;
-    } else {
-      // Tier 3 — Charlotte/Union County, less name recognition; lead harder with stats + free offer
-      return `Hi ${schoolShort} Athletic Booster Club —
-
-I'm Nathan Bingle, a high-volume school and youth sports photographer based just south of Charlotte in Fort Mill, SC. I've built my operation around rec leagues and schools across the Carolinas — 127 verified parent reviews, 86% would recommend, 98 rated us 10 out of 10.
-
-I'm reaching out because I just rolled out a program that will save your booster club money on banners.
-
-Your booster pays nothing for fall senior banners at partner schools — football, cheer, volleyball, dance. We cover the whole fall season. Winter and spring banners from us are $10 each, about half of what most Charlotte-area boosters are paying now.
-
-Full program details (picture day, every sport, online ordering shipped to families, zero administrative burden on the school office): ${oneParager}
-
-If this is something your booster would consider, I'd love 15 minutes with whoever handles the banner budget. Happy to drive to Charlotte to meet in person.
-
-Thanks,
-Nathan Bingle
-nathan@nathanbinglephotography.com
-nathanbinglephotography.com`;
-    }
+${sig}`;
   }
 
   // ============ STATE MANAGEMENT ============
@@ -600,6 +612,7 @@ nathanbinglephotography.com`;
               <div class="club-name">${club.name}</div>
               <div class="club-meta">
                 <span class="tier-badge ${tierClass}">${tierLabel}</span>
+                ${club.school_type === 'hs' ? '<span class="level-badge level-hs">HS</span>' : club.school_type === 'ms' ? '<span class="level-badge level-ms">MS</span>' : ''}
                 <span>${club.district}</span>
                 <span>${club.zip}</span>
                 <span>${club.activity}</span>
@@ -618,6 +631,7 @@ nathanbinglephotography.com`;
 
           <div class="club-links">
             ${club.fb ? `<div><span class="link-label">Facebook:</span> <a href="${club.fb}" target="_blank">Open page</a></div>` : ''}
+            ${club.ig ? `<div><span class="link-label">Instagram:</span> <a href="${club.ig}" target="_blank">Open profile</a></div>` : ''}
             ${club.website ? `<div><span class="link-label">Website:</span> <a href="${club.website}" target="_blank">Open</a></div>` : ''}
             ${club.email ? `<div><span class="link-label">Email:</span> <a href="mailto:${club.email}">${club.email}</a></div>` : ''}
             ${club.ad ? `<div><span class="link-label">AD/Principal:</span> ${club.ad}</div>` : ''}
@@ -631,7 +645,9 @@ nathanbinglephotography.com`;
               <div class="message-actions">
                 <button class="action-btn orange" onclick="copyMessage('${club.id}')">Copy Message</button>
                 ${club.email ? `<a class="action-btn" href="mailto:${club.email}?subject=${encodeURIComponent('Photography partnership for ' + club.school)}&body=${encodeURIComponent(message)}" target="_blank">Open in Email</a>` : ''}
-                ${club.fb ? `<a class="action-btn" href="${club.fb}" target="_blank">Open Facebook</a>` : (club.website ? `<a class="action-btn" href="${club.website}" target="_blank">Open Website</a>` : '')}
+                ${club.fb ? `<a class="action-btn" href="${club.fb}" target="_blank">Open Facebook</a>` : ''}
+                ${club.ig ? `<a class="action-btn" href="${club.ig}" target="_blank">Open Instagram</a>` : ''}
+                ${!club.fb && !club.ig && club.website ? `<a class="action-btn" href="${club.website}" target="_blank">Open Website</a>` : ''}
               </div>
             </details>
 

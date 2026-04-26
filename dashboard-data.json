@@ -1,12 +1,16 @@
 {
   "meta": {
-    "last_updated": "2026-04-26T02:45:22.720686+00:00",
+    "last_updated": "2026-04-26T02:50:04.247974+00:00",
     "last_discovery_run": "2026-04-25T12:00:44.460143+00:00",
-    "version": 9,
+    "version": 10,
     "last_run_discovered": 0,
     "last_run_skipped_blocked": 12,
     "last_manual_enrichment": "2026-04-26T02:45:22.720719+00:00",
-    "last_manual_enrichment_count": 27
+    "last_manual_enrichment_count": 27,
+    "schema_changes": [
+      "added ig field",
+      "added school_type field"
+    ]
   },
   "clubs": [
     {
@@ -22,7 +26,9 @@
       "ad": null,
       "activity": "Active",
       "note": "Existing NBP client — offer NEW program here FIRST before outreach",
-      "excluded": true
+      "excluded": true,
+      "ig": null,
+      "school_type": "ms"
     },
     {
       "id": "fmms",
@@ -36,7 +42,9 @@
       "email": "fmmsbooster@gmail.com",
       "ad": "Sean Smith — smiths@fortmillschools.org",
       "activity": "613 followers — active",
-      "excluded": false
+      "excluded": false,
+      "ig": null,
+      "school_type": "ms"
     },
     {
       "id": "btms",
@@ -50,7 +58,9 @@
       "email": null,
       "ad": "Stephanie Jowers — jowerss@fortmillschools.org",
       "activity": "839 followers — school page (no dedicated ABC page located)",
-      "excluded": false
+      "excluded": false,
+      "ig": null,
+      "school_type": "ms"
     },
     {
       "id": "fcms",
@@ -64,7 +74,9 @@
       "email": "fcmsboosterclubpresident@gmail.com",
       "ad": "David Helms — HelmsD@fortmillschools.org",
       "activity": "577 followers — active",
-      "excluded": false
+      "excluded": false,
+      "ig": null,
+      "school_type": "ms"
     },
     {
       "id": "ghms",
@@ -78,7 +90,9 @@
       "email": null,
       "ad": "Tate Hamilton — hamiltont@fortmillschools.org",
       "activity": "892 followers — meetings 2nd Mon monthly",
-      "excluded": false
+      "excluded": false,
+      "ig": null,
+      "school_type": "ms"
     },
     {
       "id": "sms",
@@ -92,7 +106,9 @@
       "email": null,
       "ad": "Contact via FMSD athletic dept (athletic AD listings on fortmillathleticzone.com)",
       "activity": "240 followers — active, FMSD middle school",
-      "excluded": false
+      "excluded": false,
+      "ig": null,
+      "school_type": "ms"
     },
     {
       "id": "fmhs",
@@ -106,7 +122,9 @@
       "email": "fmhsabcmerchandise@gmail.com",
       "ad": "Dwayne Hartsoe — hartsoed@fortmillschools.org",
       "activity": "Fort Mill Yellow Jackets ABC — softball state champs, Twitter @FortMillJackets, golf tournament fundraiser",
-      "excluded": false
+      "excluded": false,
+      "ig": null,
+      "school_type": "hs"
     },
     {
       "id": "nfhs",
@@ -120,7 +138,9 @@
       "email": null,
       "ad": "Brigette McSheehan (interim AD as of Sept 2025) — mcsheehanb@fortmillschools.org",
       "activity": "Nation Ford Falcons ABC — 773 followers, monthly meetings, FMSD",
-      "excluded": false
+      "excluded": false,
+      "ig": null,
+      "school_type": "hs"
     },
     {
       "id": "crhs",
@@ -134,7 +154,9 @@
       "email": "crhsabcpresident@gmail.com",
       "ad": "Rick Lewis — lewisr@fortmillschools.org",
       "activity": "Active — recent posts Nov 2025",
-      "excluded": false
+      "excluded": false,
+      "ig": null,
+      "school_type": "hs"
     },
     {
       "id": "ilhs",
@@ -148,7 +170,9 @@
       "email": null,
       "ad": null,
       "activity": "1,171 FB followers — very active, IG @ilhsboosterclub (932), Lancaster CSD",
-      "excluded": false
+      "excluded": false,
+      "ig": "https://www.instagram.com/ilhsboosterclub/",
+      "school_type": "hs"
     },
     {
       "id": "ilms",
@@ -162,7 +186,9 @@
       "email": null,
       "ad": null,
       "activity": "Indian Land MS — Lancaster CSD, 8063 River Rd, no dedicated booster FB found",
-      "excluded": false
+      "excluded": false,
+      "ig": null,
+      "school_type": "ms"
     },
     {
       "id": "chs",
@@ -176,7 +202,9 @@
       "email": null,
       "ad": null,
       "activity": "CHS Athletic Booster Club — 1,541 FB followers (very active), Clover SC",
-      "excluded": false
+      "excluded": false,
+      "ig": null,
+      "school_type": "hs"
     },
     {
       "id": "orms",
@@ -190,7 +218,9 @@
       "email": "oakridgeptso@gmail.com",
       "ad": "Bryan Dillon (Principal) — bryan.dillon@clover.k12.sc.us",
       "activity": "Oakridge MS uses PTSO for boosting — 1,309 FB followers, Lake Wylie SC",
-      "excluded": false
+      "excluded": false,
+      "ig": null,
+      "school_type": "ms"
     },
     {
       "id": "wmsabc",
@@ -204,7 +234,9 @@
       "email": null,
       "ad": null,
       "activity": "Weddington MS ABC — Union NC, FB active, posts game updates regularly",
-      "excluded": false
+      "excluded": false,
+      "ig": null,
+      "school_type": "ms"
     },
     {
       "id": "mrms",
@@ -218,7 +250,9 @@
       "email": null,
       "ad": null,
       "activity": "Same booster as Marvin Ridge HS (MRMABC) — covers both MS + HS",
-      "excluded": false
+      "excluded": false,
+      "ig": null,
+      "school_type": "ms"
     },
     {
       "id": "mrhs",
@@ -232,7 +266,9 @@
       "email": null,
       "ad": null,
       "activity": "Marvin Ridge Mavericks ABC (MRMABC) — covers MR HS + MS, 501(c)(3), Waxhaw NC",
-      "excluded": false
+      "excluded": false,
+      "ig": null,
+      "school_type": "hs"
     },
     {
       "id": "cuthhs",
@@ -246,7 +282,9 @@
       "email": null,
       "ad": null,
       "activity": "Cuthbertson ABC (CABC) — covers HS + MS, 501(c)(3), fully funds MS sports, UCPS",
-      "excluded": false
+      "excluded": false,
+      "ig": null,
+      "school_type": "hs"
     },
     {
       "id": "cuthms",
@@ -260,7 +298,9 @@
       "email": null,
       "ad": null,
       "activity": "Same booster as Cuthbertson HS (CABC) — fully funds MS sports program",
-      "excluded": false
+      "excluded": false,
+      "ig": null,
+      "school_type": "ms"
     },
     {
       "id": "wedhs",
@@ -274,7 +314,9 @@
       "email": null,
       "ad": null,
       "activity": "Weddington HS Warriors ABC — UCPS, no dedicated booster FB located, sports gear store",
-      "excluded": false
+      "excluded": false,
+      "ig": null,
+      "school_type": "hs"
     },
     {
       "id": "ardrey",
@@ -288,7 +330,9 @@
       "email": "amy.gramaglia@gmail.com",
       "ad": "Co-Presidents: Amy Gramaglia, Kelly Ludwick (kellyduggan@yahoo.com)",
       "activity": "1,432 followers — very active",
-      "excluded": false
+      "excluded": false,
+      "ig": null,
+      "school_type": "hs"
     },
     {
       "id": "comhms",
@@ -302,7 +346,9 @@
       "email": null,
       "ad": null,
       "activity": "Community House MS — Ballantyne, CMS middle school, no dedicated booster FB located",
-      "excluded": false
+      "excluded": false,
+      "ig": null,
+      "school_type": "ms"
     },
     {
       "id": "jmrms",
@@ -316,7 +362,9 @@
       "email": null,
       "ad": "Anna Beveridge — annak.beveridge@cms.k12.nc.us",
       "activity": "Jay M Robinson MS — Charlotte, CMS, FB page active",
-      "excluded": false
+      "excluded": false,
+      "ig": null,
+      "school_type": "ms"
     },
     {
       "id": "southmec",
@@ -330,7 +378,9 @@
       "email": "info@smsportsboosters.com",
       "ad": null,
       "activity": "South Meck Sports Boosters — $90K+ raised 2022-23, 26 varsity + 11 JV teams, IG @southmeckSB",
-      "excluded": false
+      "excluded": false,
+      "ig": null,
+      "school_type": "hs"
     },
     {
       "id": "providence",
@@ -344,7 +394,9 @@
       "email": null,
       "ad": "Johnathan Castator — johnathana.castator@cms.k12.nc.us",
       "activity": "Panther Athletic Club (PAC) — $100K+ annually, 563 IG followers @providencepac",
-      "excluded": false
+      "excluded": false,
+      "ig": "https://www.instagram.com/providencepac/",
+      "school_type": "hs"
     },
     {
       "id": "hough",
@@ -358,7 +410,9 @@
       "email": null,
       "ad": "Lori DeMarcus — lori1.demarcus@cms.k12.nc.us",
       "activity": "Hough Athletic Booster Club (HABC) — 501c3, golf tournament fundraiser, IG @houghathletics",
-      "excluded": false
+      "excluded": false,
+      "ig": "https://www.instagram.com/houghathletics/",
+      "school_type": "hs"
     },
     {
       "id": "bailey",
@@ -372,7 +426,9 @@
       "email": null,
       "ad": "Joe Aiello — josephj.aiello@cms.k12.nc.us",
       "activity": "Bailey MS Broncos Athletic Boosters — Cornelius, IG @baileymiddleathleticboosters",
-      "excluded": false
+      "excluded": false,
+      "ig": "https://www.instagram.com/baileymiddleathleticboosters/",
+      "school_type": "ms"
     },
     {
       "id": "butler",
@@ -386,7 +442,9 @@
       "email": null,
       "ad": "Chris Satterfield CAA — c1.satterfield@cms.k12.nc.us",
       "activity": "Butler HS Athletic Booster Club — 501c3, EIN 56-2043757, Matthews NC",
-      "excluded": false
+      "excluded": false,
+      "ig": null,
+      "school_type": "hs"
     },
     {
       "id": "rocky",
@@ -400,7 +458,9 @@
       "email": null,
       "ad": "Stephen Joyner Jr. — stephenw.joyner@cms.k12.nc.us",
       "activity": "Rocky River HS ABC Inc, EIN 27-2801984, Mint Hill NC, IG @rockyriverhs",
-      "excluded": false
+      "excluded": false,
+      "ig": "https://www.instagram.com/rockyriverhs/",
+      "school_type": "hs"
     },
     {
       "id": "crest",
@@ -414,7 +474,9 @@
       "email": null,
       "ad": null,
       "activity": "Crestdale MS — Matthews, CMS, no dedicated booster FB located",
-      "excluded": false
+      "excluded": false,
+      "ig": null,
+      "school_type": "ms"
     },
     {
       "id": "myerspark",
@@ -428,7 +490,9 @@
       "email": "mpmustangclubpresident@gmail.com",
       "ad": "Brian Poore — brian.poore@cms.k12.nc.us",
       "activity": "Myers Park Mustang Club — 900+ student-athletes, 20 sports, X @mp_stangsclub",
-      "excluded": false
+      "excluded": false,
+      "ig": null,
+      "school_type": "hs"
     }
   ]
 }
