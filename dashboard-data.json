@@ -1,8 +1,8 @@
 {
   "meta": {
-    "last_updated": "2026-04-27T02:09:19.400951+00:00",
+    "last_updated": "2026-04-27T02:17:26.861924+00:00",
     "last_discovery_run": "2026-04-25T12:00:44.460143+00:00",
-    "version": 12,
+    "version": 15,
     "last_run_discovered": 0,
     "last_run_skipped_blocked": 12,
     "last_manual_enrichment": "2026-04-26T02:45:22.720719+00:00",
@@ -14,7 +14,8 @@
     "last_agent_run": "2026-04-26T03:43:25.653181+00:00",
     "last_agent_clubs_changed": 13,
     "last_agent_fields_added": 15,
-    "ms_expansion_added": 12
+    "ms_expansion_added": 12,
+    "principal_pass_added": 13
   },
   "clubs": [
     {
@@ -61,7 +62,7 @@
       "zip": "29715",
       "fb": "https://www.facebook.com/p/Banks-Trail-Middle-School-100067196156100/",
       "website": "https://btms.fortmillschools.org/",
-      "email": null,
+      "email": "pyrcma@fortmillschools.org",
       "ad": "Stephanie Jowers — jowerss@fortmillschools.org",
       "activity": "839 followers — school page (no dedicated ABC page located)",
       "excluded": false,
@@ -99,7 +100,7 @@
       "zip": "29708 (Tega Cay)",
       "fb": "https://www.facebook.com/Gold-Hill-Middle-School-Athletic-Booster-Club-135812313106191",
       "website": "https://ghms.fortmillschools.org/",
-      "email": null,
+      "email": "eppesr@fortmillschools.org",
       "ad": "Tate Hamilton — hamiltont@fortmillschools.org",
       "activity": "892 followers — meetings 2nd Mon monthly",
       "excluded": false,
@@ -118,7 +119,7 @@
       "zip": "29715",
       "fb": "https://www.facebook.com/p/Springfield-Middle-School-Athletic-Boosters-100077320220767/",
       "website": "https://sms.fortmillschools.org/",
-      "email": null,
+      "email": "beelsd@fortmillschools.org",
       "ad": "Contact via FMSD athletic dept (athletic AD listings on fortmillathleticzone.com)",
       "activity": "240 followers — active, FMSD middle school",
       "excluded": false,
@@ -212,8 +213,8 @@
       "zip": "29707",
       "fb": null,
       "website": "https://ilms.lancastercsd.com/athletics",
-      "email": null,
-      "ad": null,
+      "email": "chris.thorpe@lcsd.k12.sc.us",
+      "ad": "Christopher Thorpe (Principal) — chris.thorpe@lcsd.k12.sc.us",
       "activity": "Indian Land MS — Lancaster CSD, 8063 River Rd, no dedicated booster FB found",
       "excluded": false,
       "ig": null,
@@ -266,8 +267,8 @@
       "zip": "28173 (Waxhaw)",
       "fb": "https://facebook.com/wmsabc",
       "website": "https://www.facebook.com/wmsabc/",
-      "email": null,
-      "ad": null,
+      "email": "marcus.leake@ucps.k12.nc.us",
+      "ad": "Dr. Marcus Leake (Principal) — marcus.leake@ucps.k12.nc.us",
       "activity": "Weddington MS ABC — Union NC, FB active, posts game updates regularly",
       "excluded": false,
       "ig": null,
@@ -284,8 +285,8 @@
       "zip": "28173 (Waxhaw)",
       "fb": "https://www.facebook.com/p/Marvin-Ridge-Mavericks-Athletic-Booster-Club-61559233341989/",
       "website": "https://www.gomavericks.org/",
-      "email": null,
-      "ad": null,
+      "email": "james.eversole@ucps.k12.nc.us",
+      "ad": "James Eversole (Principal) — james.eversole@ucps.k12.nc.us",
       "activity": "Same booster as Marvin Ridge HS (MRMABC) — covers both MS + HS",
       "excluded": false,
       "ig": null,
@@ -338,14 +339,15 @@
       "zip": "28173 (Waxhaw)",
       "fb": null,
       "website": "https://www.gocavs.org/",
-      "email": null,
-      "ad": null,
+      "email": "catherine.perry@ucps.k12.nc.us",
+      "ad": "Catherine Perry (Principal) — catherine.perry@ucps.k12.nc.us",
       "activity": "Same booster as Cuthbertson HS (CABC) — fully funds MS sports program",
       "excluded": false,
       "ig": null,
       "school_type": "ms",
       "last_enrichment_attempted": "2026-04-26T03:36:21.823657+00:00",
-      "enrichment_misses": 1
+      "enrichment_misses": 1,
+      "note": "Yearbook coordinator: Rebecca Jacobson (rebecca.jacobson@ucps.k12.nc.us). Principal name TBD."
     },
     {
       "id": "wedhs",
@@ -597,8 +599,8 @@
       "activity": "A.R. Rucker MS — grades 6-8, ~513 students, Lancaster CSD",
       "fb": null,
       "ig": null,
-      "email": null,
-      "ad": null,
+      "email": "michelle.crosby@lcsd.k12.sc.us",
+      "ad": "Michelle Crosby (Principal) — michelle.crosby@lcsd.k12.sc.us",
       "website": "https://arrms.lancastercsd.com/",
       "note": "Lancaster main town location"
     },
@@ -613,10 +615,10 @@
       "activity": "Buford MS — grades 6-8, ~368 students, rural Lancaster County",
       "fb": null,
       "ig": null,
-      "email": null,
-      "ad": null,
+      "email": "ashley.bradley@lcsd.k12.sc.us",
+      "ad": "Ashley Bradley (Principal) — ashley.bradley@lcsd.k12.sc.us",
       "website": "https://bms.lancastercsd.com/",
-      "note": "You already shoot Buford Baseball & Softball — warm intro available"
+      "note": "You already shoot Buford Baseball & Softball — warm intro available | Warm intro available — Nathan already shoots Buford Baseball & Softball. Buford HS principal Michael Belk (michael.belk@lcsd.k12.sc.us); MS principal not yet confirmed."
     },
     {
       "id": "south-ms",
@@ -645,8 +647,8 @@
       "activity": "Andrew Jackson MS — grades 6-8, ~466 students, Kershaw rural area",
       "fb": null,
       "ig": null,
-      "email": null,
-      "ad": null,
+      "email": "christopher.timmons@lcsd.k12.sc.us",
+      "ad": "Chris Timmons (Principal) — christopher.timmons@lcsd.k12.sc.us",
       "website": "https://ajms.lancastercsd.com/",
       "note": "Furthest from Fort Mill — lower priority within Lancaster"
     },
@@ -693,8 +695,8 @@
       "activity": "Castle Heights MS — grades 6-8, ~710 students, Rock Hill",
       "fb": null,
       "ig": null,
-      "email": null,
-      "ad": null,
+      "email": "CRobinson@rhmail.org",
+      "ad": "Cynthia Robinson (Principal) — CRobinson@rhmail.org",
       "website": "https://chms.rock-hill.k12.sc.us/",
       "note": "Rock Hill area — your local market"
     },
@@ -741,8 +743,8 @@
       "activity": "Saluda Trail MS — grades 6-8, ~780 students, Rock Hill",
       "fb": null,
       "ig": null,
-      "email": null,
-      "ad": null,
+      "email": "gmarshall@rhmail.org",
+      "ad": "Dr. Marek Marshall (Principal) — gmarshall@rhmail.org",
       "website": "https://stms.rock-hill.k12.sc.us/",
       "note": null
     },
@@ -757,8 +759,8 @@
       "activity": "W.C. Sullivan MS — grades 6-8, ~805 students, Rock Hill",
       "fb": null,
       "ig": null,
-      "email": null,
-      "ad": null,
+      "email": "JRoldan@rhmail.org",
+      "ad": "Dr. Juan Roldan (Principal) — JRoldan@rhmail.org",
       "website": "https://sms-rh.rock-hill.k12.sc.us/",
       "note": null
     }
