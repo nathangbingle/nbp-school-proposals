@@ -426,6 +426,8 @@
     <button class="filter-btn active" data-filter="all">All</button>
     <button class="filter-btn" data-filter="pending">Not Contacted</button>
     <button class="filter-btn" data-filter="sent">Sent</button>
+    <button class="filter-btn" data-filter="ms">MS Only</button>
+    <button class="filter-btn" data-filter="hs">HS Only</button>
     <button class="filter-btn" data-filter="tier1">Tier 1 Only</button>
     <button class="filter-btn" data-filter="tier2">Tier 2 Only</button>
   </div>
@@ -592,6 +594,8 @@ ${sig}`;
       if (currentFilter === 'all') return true;
       if (currentFilter === 'pending') return !c.excluded && !status[c.id]?.sent;
       if (currentFilter === 'sent') return status[c.id]?.sent;
+      if (currentFilter === 'ms') return c.school_type === 'ms';
+      if (currentFilter === 'hs') return c.school_type === 'hs';
       if (currentFilter === 'tier1') return c.tier === 1;
       if (currentFilter === 'tier2') return c.tier === 2;
       return true;
