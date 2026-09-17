@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NBP Sports Proposals — Nathan Bingle Photography</title>
+<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;600;700&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap" rel="stylesheet">
+<style>
+:root {
+  --p: #0A2540;
+  --p-deep: #002030;
+  --s: #D4A54C;
+  --light: #F2EFEA;
+  --bg: #F7F6F2;
+  --tint: color-mix(in srgb, #0A2540 6%, white);
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: 'Poppins', sans-serif;
+  background: var(--bg);
+  color: #333;
+  min-height: 100vh;
+}
+h1, h2, h3, .jf { font-family: 'Josefin Sans', sans-serif; }
+.site-header {
+  background: #fff;
+  border-bottom: 1px solid #E8E4DC;
+  padding: 16px 28px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+.nbp-mark {
+  font-family: 'Josefin Sans', sans-serif;
+  font-weight: 700;
+  letter-spacing: .14em;
+  font-size: 16px;
+  text-transform: uppercase;
+  color: #1a1a1a;
+}
+.nbp-sub {
+  font-size: 9px;
+  font-weight: 500;
+  letter-spacing: .3em;
+  color: #bbb;
+  text-transform: uppercase;
+  margin-top: 2px;
+}
+.header-right {
+  text-align: right;
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 11px;
+  color: #ccc;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+.hero {
+  background: var(--p);
+  padding: 48px 28px 56px;
+  position: relative;
+  overflow: hidden;
+}
+.hero-wm {
+  position: absolute;
+  right: -10px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: clamp(5rem, 16vw, 11rem);
+  font-weight: 700;
+  letter-spacing: .06em;
+  color: rgba(255,255,255,.05);
+  line-height: 1;
+  pointer-events: none;
+  text-transform: uppercase;
+}
+.hero-inner { max-width: 720px; position: relative; z-index: 1; }
+.hero-kicker {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .35em;
+  text-transform: uppercase;
+  color: var(--s);
+  margin-bottom: 14px;
+}
+.hero-title {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: clamp(1.7rem, 5vw, 2.8rem);
+  font-weight: 700;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  color: #fff;
+  line-height: 1.15;
+  margin-bottom: 12px;
+}
+.hero-sub {
+  font-size: 14px;
+  color: rgba(255,255,255,.6);
+  line-height: 1.6;
+  max-width: 520px;
+}
+.hero-bar {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 4px;
+  background: var(--s);
+}
+.wrap {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 36px 20px 48px;
+}
+.tag {
+  display: inline-block;
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: .28em;
+  text-transform: uppercase;
+  color: var(--p);
+  background: var(--tint);
+  padding: 5px 12px;
+  border-radius: 40px;
+  margin-bottom: 10px;
+}
+.section-h2 {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: clamp(1.25rem, 3vw, 1.65rem);
+  font-weight: 700;
+  letter-spacing: .04em;
+  color: #1a1a1a;
+  margin-bottom: 8px;
+  line-height: 1.2;
+}
+.section-h2 span { color: var(--p); }
+.section-lead {
+  font-size: 13.5px;
+  color: #666;
+  line-height: 1.7;
+  margin-bottom: 20px;
+  max-width: 560px;
+}
+.section { margin-bottom: 40px; }
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 12px;
+}
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  background: #fff;
+  border: 1px solid #EDE9E0;
+  border-radius: 10px;
+  padding: 18px 16px;
+  text-decoration: none;
+  color: inherit;
+  transition: transform .15s, box-shadow .15s, border-color .15s;
+  position: relative;
+}
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(10,37,64,.08);
+  border-color: color-mix(in srgb, var(--s) 40%, #EDE9E0);
+}
+.card-title {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: .04em;
+  color: var(--p);
+  line-height: 1.35;
+  padding-right: 72px;
+}
+.card-meta {
+  font-size: 11px;
+  color: #aaa;
+  word-break: break-all;
+}
+.badge {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: var(--s);
+  color: #fff;
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  padding: 3px 8px;
+  border-radius: 20px;
+}
+.featured-band {
+  background: linear-gradient(135deg, var(--p), var(--p-deep));
+  border-radius: 12px;
+  padding: 22px 20px;
+  margin-bottom: 40px;
+}
+.featured-band .section-h2 { color: #fff; }
+.featured-band .section-lead { color: rgba(255,255,255,.65); }
+.featured-band .tag {
+  background: rgba(212,165,76,.18);
+  color: var(--s);
+}
+.featured-band .card {
+  background: rgba(255,255,255,.06);
+  border-color: rgba(255,255,255,.12);
+}
+.featured-band .card-title { color: #fff; }
+.featured-band .card-meta { color: rgba(255,255,255,.4); }
+.featured-band .card:hover {
+  background: rgba(255,255,255,.1);
+  box-shadow: 0 6px 18px rgba(0,0,0,.2);
+}
+.count {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: #aaa;
+  margin-bottom: 14px;
+}
+.site-footer {
+  background: #fff;
+  border-top: 1px solid #E8E4DC;
+  padding: 28px 20px;
+  text-align: center;
+}
+.footer-name {
+  font-family: 'Josefin Sans', sans-serif;
+  font-weight: 700;
+  letter-spacing: .14em;
+  font-size: 13px;
+  text-transform: uppercase;
+  color: #1a1a1a;
+  margin-bottom: 8px;
+}
+.footer-contact {
+  font-size: 13px;
+  color: #555;
+  line-height: 1.7;
+}
+.footer-contact a {
+  color: var(--p);
+  text-decoration: none;
+  font-weight: 500;
+}
+.footer-contact a:hover { color: var(--s); }
+.footer-sub {
+  font-size: 11px;
+  color: #bbb;
+  margin-top: 10px;
+}
+@media (max-width: 640px) {
+  .site-header { padding: 14px 16px; }
+  .header-right { display: none; }
+  .hero { padding: 36px 20px 44px; }
+  .wrap { padding: 28px 16px 40px; }
+}
+</style>
+</head>
+<body>
+<header class="site-header">
+  <div>
+    <div class="nbp-mark">Nathan Bingle</div>
+    <div class="nbp-sub">Photography</div>
+  </div>
+  <div class="header-right">Sports Proposals</div>
+</header>
+
+<section class="hero">
+  <div class="hero-wm">SPORTS</div>
+  <div class="hero-inner">
+    <div class="hero-kicker">Nathan Bingle Photography</div>
+    <h1 class="hero-title">NBP Sports Proposals</h1>
+    <p class="hero-sub">Picture-day proposals for youth sports leagues across the Charlotte metro — basketball, soccer, lacrosse, and more.</p>
+  </div>
+  <div class="hero-bar"></div>
+</section>
+
+<main class="wrap">
+  <section class="featured-band">
+    <div class="tag">Highlighted</div>
+    <h2 class="section-h2">Featured sports partners</h2>
+    <p class="section-lead">Quick links to standout proposals.</p>
+    <div class="grid">
+<a class="card" href="5th-quarter-sports.html"><span class="card-title">5th Quarter Sports</span><span class="badge">Featured</span><span class="card-meta">5th-quarter-sports.html</span></a>
+<a class="card" href="nc-fusion.html"><span class="card-title">NC Fusion</span><span class="badge">Featured</span><span class="card-meta">nc-fusion.html</span></a>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="tag">Winter Basketball</div>
+    <h2 class="section-h2">Winter <span>basketball</span> proposals</h2>
+    <p class="section-lead">League-specific winter basketball picture-day proposals, plus a general overview.</p>
+    <div class="count">18 proposals</div>
+    <div class="grid">
+<a class="card" href="winter-basketball.html"><span class="card-title">Winter Basketball (General)</span><span class="badge">Overview</span><span class="card-meta">winter-basketball.html</span></a>
+<a class="card" href="belmont-basketball.html"><span class="card-title">Belmont Basketball</span><span class="card-meta">belmont-basketball.html</span></a>
+<a class="card" href="carolina-courts-basketball.html"><span class="card-title">Carolina Courts Basketball</span><span class="card-meta">carolina-courts-basketball.html</span></a>
+<a class="card" href="carolina-hoopfest-basketball.html"><span class="card-title">Carolina Hoopfest Basketball</span><span class="card-meta">carolina-hoopfest-basketball.html</span></a>
+<a class="card" href="champ-basketball.html"><span class="card-title">Champ Basketball</span><span class="card-meta">champ-basketball.html</span></a>
+<a class="card" href="concord-basketball.html"><span class="card-title">Concord Basketball</span><span class="card-meta">concord-basketball.html</span></a>
+<a class="card" href="gaston-ymca-basketball.html"><span class="card-title">Gaston YMCA Basketball</span><span class="card-meta">gaston-ymca-basketball.html</span></a>
+<a class="card" href="gastonia-basketball.html"><span class="card-title">Gastonia Basketball</span><span class="card-meta">gastonia-basketball.html</span></a>
+<a class="card" href="indian-land-ymca-basketball.html"><span class="card-title">Indian Land YMCA Basketball</span><span class="card-meta">indian-land-ymca-basketball.html</span></a>
+<a class="card" href="kannapolis-basketball.html"><span class="card-title">Kannapolis Basketball</span><span class="card-meta">kannapolis-basketball.html</span></a>
+<a class="card" href="mara-basketball.html"><span class="card-title">MARA Basketball</span><span class="card-meta">mara-basketball.html</span></a>
+<a class="card" href="mecklenburg-basketball.html"><span class="card-title">Mecklenburg Basketball</span><span class="card-meta">mecklenburg-basketball.html</span></a>
+<a class="card" href="park-road-church-basketball.html"><span class="card-title">Park Road Church Basketball</span><span class="card-meta">park-road-church-basketball.html</span></a>
+<a class="card" href="rock-hill-basketball.html"><span class="card-title">Rock Hill Basketball</span><span class="card-meta">rock-hill-basketball.html</span></a>
+<a class="card" href="scra-basketball.html"><span class="card-title">SCRA Basketball</span><span class="card-meta">scra-basketball.html</span></a>
+<a class="card" href="wcwaa-basketball.html"><span class="card-title">WCWAA Basketball</span><span class="card-meta">wcwaa-basketball.html</span></a>
+<a class="card" href="yes-i-can-basketball.html"><span class="card-title">Yes I Can Basketball</span><span class="card-meta">yes-i-can-basketball.html</span></a>
+<a class="card" href="ymca-charlotte-basketball.html"><span class="card-title">YMCA Charlotte Basketball</span><span class="card-meta">ymca-charlotte-basketball.html</span></a>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="tag">All Other Sports</div>
+    <h2 class="section-h2">More <span>league</span> proposals</h2>
+    <p class="section-lead">Soccer, lacrosse, softball, athletic associations, parks &amp; recreation, and related partners.</p>
+    <div class="count">30 proposals</div>
+    <div class="grid">
+<a class="card" href="bar-a-academy-carolinas.html"><span class="card-title">Bar-A Academy Carolinas</span><span class="card-meta">bar-a-academy-carolinas.html</span></a>
+<a class="card" href="carolina-lacrosse-association.html"><span class="card-title">Carolina Lacrosse Association</span><span class="card-meta">carolina-lacrosse-association.html</span></a>
+<a class="card" href="char-meck-girls-softball.html"><span class="card-title">Char-Meck Girls Softball</span><span class="card-meta">char-meck-girls-softball.html</span></a>
+<a class="card" href="charlotte-eagles-soccer-club.html"><span class="card-title">Charlotte Eagles Soccer Club</span><span class="card-meta">charlotte-eagles-soccer-club.html</span></a>
+<a class="card" href="charlotte-metro-fc.html"><span class="card-title">Charlotte Metro FC</span><span class="card-meta">charlotte-metro-fc.html</span></a>
+<a class="card" href="charlotte-rise-fc.html"><span class="card-title">Charlotte Rise FC</span><span class="card-meta">charlotte-rise-fc.html</span></a>
+<a class="card" href="charlotte-soccer-academy.html"><span class="card-title">Charlotte Soccer Academy</span><span class="card-meta">charlotte-soccer-academy.html</span></a>
+<a class="card" href="harrisburg-parks-and-recreation-department.html"><span class="card-title">Harrisburg Parks & Recreation Department</span><span class="card-meta">harrisburg-parks-and-recreation-department.html</span></a>
+<a class="card" href="indian-trail-athletic-association.html"><span class="card-title">Indian Trail Athletic Association</span><span class="card-meta">indian-trail-athletic-association.html</span></a>
+<a class="card" href="lake-norman-little-league.html"><span class="card-title">Lake Norman Little League</span><span class="card-meta">lake-norman-little-league.html</span></a>
+<a class="card" href="matthews-athletic-recreation-association.html"><span class="card-title">Matthews Athletic Recreation Association</span><span class="card-meta">matthews-athletic-recreation-association.html</span></a>
+<a class="card" href="mint-hill-athletic-association.html"><span class="card-title">Mint Hill Athletic Association</span><span class="card-meta">mint-hill-athletic-association.html</span></a>
+<a class="card" href="myers-park-trinity-little-league.html"><span class="card-title">Myers Park Trinity Little League</span><span class="card-meta">myers-park-trinity-little-league.html</span></a>
+<a class="card" href="park-sharon-athletic-association.html"><span class="card-title">Park Sharon Athletic Association</span><span class="card-meta">park-sharon-athletic-association.html</span></a>
+<a class="card" href="pineville-community-athletic-association.html"><span class="card-title">Pineville Community Athletic Association</span><span class="card-meta">pineville-community-athletic-association.html</span></a>
+<a class="card" href="porter-ridge-athletic-association.html"><span class="card-title">Porter Ridge Athletic Association</span><span class="card-meta">porter-ridge-athletic-association.html</span></a>
+<a class="card" href="south-charlotte-recreation-association.html"><span class="card-title">South Charlotte Recreation Association</span><span class="card-meta">south-charlotte-recreation-association.html</span></a>
+<a class="card" href="south-park-youth-association.html"><span class="card-title">South Park Youth Association</span><span class="card-meta">south-park-youth-association.html</span></a>
+<a class="card" href="st-matthew-catholic-church-first-eucharist.html"><span class="card-title">St. Matthew Catholic Church — First Eucharist</span><span class="card-meta">st-matthew-catholic-church-first-eucharist.html</span></a>
+<a class="card" href="steele-creek-athletic-association.html"><span class="card-title">Steele Creek Athletic Association</span><span class="card-meta">steele-creek-athletic-association.html</span></a>
+<a class="card" href="style-lacrosse.html"><span class="card-title">Style Lacrosse</span><span class="card-meta">style-lacrosse.html</span></a>
+<a class="card" href="style-lacrosse-club.html"><span class="card-title">Style Lacrosse Club</span><span class="card-meta">style-lacrosse-club.html</span></a>
+<a class="card" href="team-91-lacrosse-charlotte.html"><span class="card-title">Team 91 Lacrosse Charlotte</span><span class="card-meta">team-91-lacrosse-charlotte.html</span></a>
+<a class="card" href="town-of-fort-mill-parks-and-recreation-department.html"><span class="card-title">Town Of Fort Mill Parks & Recreation Department</span><span class="card-meta">town-of-fort-mill-parks-and-recreation-department.html</span></a>
+<a class="card" href="town-of-fort-mill-parks-recreation-department.html"><span class="card-title">Town Of Fort Mill Parks Recreation Department</span><span class="card-meta">town-of-fort-mill-parks-recreation-department.html</span></a>
+<a class="card" href="waxhaw-athletic.html"><span class="card-title">Waxhaw Athletic</span><span class="card-meta">waxhaw-athletic.html</span></a>
+<a class="card" href="waxhaw-athletic-association.html"><span class="card-title">Waxhaw Athletic Association</span><span class="card-meta">waxhaw-athletic-association.html</span></a>
+<a class="card" href="waxhaw-soccer-club.html"><span class="card-title">Waxhaw Soccer Club</span><span class="card-meta">waxhaw-soccer-club.html</span></a>
+<a class="card" href="wcwaa-soccer.html"><span class="card-title">WCWAA Soccer</span><span class="card-meta">wcwaa-soccer.html</span></a>
+<a class="card" href="wesley-chapel-weddington-athletic-association.html"><span class="card-title">Wesley Chapel Weddington Athletic Association</span><span class="card-meta">wesley-chapel-weddington-athletic-association.html</span></a>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="footer-name">Nathan Bingle Photography</div>
+  <div class="footer-contact">
+    <a href="tel:7045586566">704-558-6566</a>
+    &nbsp;&middot;&nbsp;
+    <a href="mailto:contact@nathanbinglephotography.com">contact@nathanbinglephotography.com</a>
+  </div>
+  <div class="footer-sub">Fort Mill, SC &middot; Serving the Carolinas</div>
+</footer>
+</body>
+</html>
