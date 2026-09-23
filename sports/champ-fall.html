@@ -1,114 +1,78 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Nathan Bingle Photography — CHAMP Sports (Calvary Church) Fall Sports Proposal</title>
-<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;600;700&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap" rel="stylesheet">
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Nathan Bingle Photography — CHAMP Sports Fall Proposal</title>
+<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@600;700&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-:root{--p:#0A2540;--p-deep:#002030;--s:#D4A54C;--light:#F2EFEA;--tint:color-mix(in srgb,#0A2540 6%,white);}
-*{margin:0;padding:0;box-sizing:border-box}
-body{font-family:Poppins,sans-serif;background:#F7F6F2;color:#333}
-h1,h2,h3{font-family:'Josefin Sans',sans-serif}
-.site-header{background:#fff;border-bottom:1px solid #E8E4DC;padding:16px 36px;display:flex;justify-content:space-betwenn;align-items:center}
-.nbp-mark{font-family:'Josefin Sans',sans-serif;font-weight:700;letter-spacing:.14em;font-size:16px;text-transform:uppercase}
-.nbp-sub{font-size:9px;letter-spacing:.3em;color:#bbb;text-transform:uppercase;margin-top:2px}
-.hero{background:var(--p);padding:56px 40px;position:relative}
-.hero-kicker{font-family:'Josefin Sans',sans-serif;font-size:10px;font-weight:700;letter-spacing:.35em;text-transform:uppercase;color:var(--s);margin-bottom:16px}
-.hero-title{font-size:clamp(1.8rem,5vw,3rem);font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:#fff;line-height:1.1;margin-bottom:10px}
-.hero-sub{font-size:14px;color:rgba(255,255,255,.55);margin-bottom:24px}
-.hero-pills{display:flex;gap:10px;flex-wrap:wrap}
-.hero-pill{font-size:12px;color:#fff;background:rgba(255,255,255,.12);padding:8px 16px;border-radius:6px;border:1px solid rgba(255,255,255,.2)}
-.section{padding:48px 40px}.section-inner{max-width:760px;margin:0 auto}
-.tag{display:inline-block;font-family:'Josefin Sans',sans-serif;font-size:9px;font-weight:700;letter-spacing:.28em;text-transform:uppercase;color:var(--p);background:var(--tint);padding:5px 12px;border-radius:40px;margin-bottom:12px}
-.section-h2{font-size:clamp(1.4rem,3vw,1.9rem);font-weight:700;letter-spacing:.04em;color:#1a1a1a;margin-bottom:14px;line-height:1.15}
-.section-h2 span{color:var(--p)}
-.body-text{font-size:13.5px;color:#555;line-height:1.8;margin-bottom:13px}
-.timeline{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:#F0EDE6;border-radius:8px;overflow:hidden;margin-top:24px}
-.tl-step{background:#fff;padding:22px 18px}
-.tl-num{font-family:'Josefin Sans',sans-serif;font-size:32px;font-weight:700;color:var(--s);line-height:1;margin-bottom:10px}
-.tl-title{font-family:'Josefin Sans',sans-serif;font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--p);margin-bottom:6px}
-.tl-desc{font-size:12px;color:#777;line-height:1.6}
-.pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:24px}
-.pillar{background:#fff;padding:22px 18px;border-radius:8px;border-top:3px solid var(--s)}
-.pillar-title{font-family:'Josefin Sans',sans-serif;font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--p);margin-bottom:8px}
-.pillar p{font-size:12.5px;color:#666;line-height:1.65}
-.note-box{background:color-mix(in srgb,#D4A54C 10%,white);border-radius:8px;padding:22px 26px;margin-top:28px;border-left:3px solid var(--s)}
-.note-title{font-family:'Josefin Sans',sans-serif;font-size:9px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--p);margin-bottom:6px}
-.cta{background:linear-gradient(135deg,var(--p),var(--p-deep));border-radius:10px;padding:28px;margin-top:28px;color:#fff}
+:root{--p:#0A2540;--s:#D4A54C;--light:#F2EFEA}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Poppins,sans-serif;background:#F7F6F2;color:#333;line-height:1.6}
+h1,h2,.jf{font-family:'Josefin Sans',sans-serif}
+header{background:#fff;border-bottom:1px solid #E8E4DC;padding:16px 28px;display:flex;justify-content:space-between;align-items:center}
+.mark{font-weight:700;letter-spacing:.12em;text-transform:uppercase;font-size:15px}
+.sub{font-size:9px;letter-spacing:.28em;color:#bbb;text-transform:uppercase}
+.hero{background:var(--p);color:#fff;padding:48px 28px}
+.kicker{color:var(--s);font-size:10px;font-weight:700;letter-spacing:.3em;text-transform:uppercase;margin-bottom:12px}
+.hero h1{font-size:clamp(1.6rem,4vw,2.6rem);letter-spacing:.04em;text-transform:uppercase;margin-bottom:8px}
+.hero p{opacity:.7;font-size:14px;margin-bottom:18px}
+.pills{display:flex;flex-wrap:wrap;gap:8px}
+.pill{border:1px solid rgba(255,255,255,.25);background:rgba(255,255,255,.1);padding:7px 14px;border-radius:6px;font-size:12px}
+.wrap{max-width:720px;margin:0 auto;padding:40px 28px}
+.tag{display:inline-block;background:color-mix(in srgb,#0A2540 6%,white);color:var(--p);font-size:9px;font-weight:700;letter-spacing:.24em;text-transform:uppercase;padding:5px 12px;border-radius:40px;margin-bottom:10px}
+h2{font-size:1.5rem;margin-bottom:12px} h2 span{color:var(--p)}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:#F0EDE6;border-radius:8px;overflow:hidden;margin:20px 0}
+.step{background:#fff;padding:18px 14px}
+.num{font-family:'Josefin Sans',sans-serif;font-size:28px;font-weight:700;color:var(--s)}
+.st{font-family:'Josefin Sans',sans-serif;font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--p);margin:6px 0}
+.sd{font-size:12px;color:#777}
+.note{background:color-mix(in srgb,#D4A54C 10%,white);border-left:3px solid var(--s);padding:18px 20px;border-radius:8px;margin-top:20px;font-size:13.5px;color:#555}
+.grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-top:18px}
+.card{background:#fff;border-top:3px solid var(--s);border-radius:8px;padding:16px}
+.card h3{font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--p);margin-bottom:6px}
+.card p{font-size:12.5px;color:#666}
+.cta{background:var(--p);color:#fff;border-radius:10px;padding:24px;margin-top:28px}
 .cta a{color:var(--s)}
-.contact{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:20px}
-.contact-item{background:#fff;padding:16px;border-radius:8px}
-.contact-label{font-family:'Josefin Sans',sans-serif;font-size:9px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#aaa;margin-bottom:4px}
-.contact-val{font-size:14px;color:#1a1a1a;font-weight:600}
-.footer{text-align:center;padding:36px;color:#999;font-size:12px}
-@media(max-width:800px){.timeline,.pillars,.contact{grid-template-columns:1fr}.site-header,.hero,.section{padding-left:20px;padding-right:20px}}
-</style>
-</head>
-<body>
-<header class="site-header">
-  <div><div class="nbp-mark">Nathan Bingle Photography</div><div class="nbp-sub">Fort Mill · Carolinas</div></div>
-  <div style="font-family:'Josefin Sans',sans-serif;font-size:11px;color:#ccc;font-weight:700;letter-spacing:.1em;text-transform:uppercase">Fall Proposal</div>
-</header>
+.foot{text-align:center;padding:28px;color:#999;font-size:12px}
+@media(max-width:700px){.steps,.grid{grid-template-columns:1fr}}
+</style></head><body>
+<header><div><div class="mark jf">Nathan Bingle Photography</div><div class="sub">Fort Mill · Carolinas</div></div><div class="sub">Fall Proposal</div></header>
 <section class="hero">
-  <div class="hero-kicker">Prepared for CHAMP Sports · Calvary Church</div>
-  <h1 class="hero-title">CHAMP Sports (Calvary Church)</h1>
-  <div class="hero-sub">CHAMP Sports (Calvary Church) · Church youth athletics · Charlotte, NC</div>
-  <div class="hero-pills">
-    <div class="hero-pill">Fall sports</div>
-    <div class="hero-pill">Parent-pay picture day</div>
-    <div class="hero-pill">Individuals + teams</div>
+  <div class="kicker jf">Prepared for CHAMP Sports · Calvary Church</div>
+  <h1>CHAMP Sports (Calvary Church)</h1>
+  <p>Church youth athletics · Charlotte, NC</p>
+  <div class="pills"><span class="pill">Fall sports</span><span class="pill">Parent-pay picture day</span><span class="pill">Individuals + teams</span></div>
+</section>
+<section class="wrap">
+  <div class="tag jf">The Program</div>
+  <h2>A photo program built for <span>CHAMP Sports Fall</span></h2>
+  <p style="font-size:13.5px;color:#555;margin-bottom:12px">Nathan Bingle Photography is a Fort Mill–based, high-volume youth sports photography company serving the greater Charlotte area. Member of the Professional Photographers of America, with 5+ years specializing in team and individual photography.</p>
+  <p style="font-size:13.5px;color:#555">Parent-pay picture day for Fall youth athletics at Calvary — individuals and teams. First locked picture day: <strong>Saturday, October 10 at Calvary Life Center</strong>. Zero cost to CHAMP Sports. Families order online.</p>
+  <div class="grid">
+    <div class="card"><h3 class="jf">Zero League Cost</h3><p>No fees, retainers, or minimums. Parents pay only if they buy.</p></div>
+    <div class="card"><h3 class="jf">Fast Photo Days</h3><p>Teams move through in minutes. Games and practices stay on schedule.</p></div>
+    <div class="card"><h3 class="jf">Insured &amp; Checked</h3><p>Background-checked staff. $2M liability. COI on request.</p></div>
   </div>
 </section>
-<section class="section" style="background:#fff">
-  <div class="section-inner">
-    <div class="tag">The Program</div>
-    <h2 class="section-h2">A photo program built for <span>CHAMP Sports Fall</span></h2>
-    <p class="body-text">Nathan Bingle Photography is a Fort Mill–based, high-volume youth sports photography company serving the greater Charlotte area and the Carolinas. We’re a Member of the Professional Photographers of America, with 5+ years specializing in high-volume team and individual photography across the region.</p>
-    <p class="body-text">Prepared for CHAMP Sports (Calvary Church). This is a parent-pay picture day proposal for Fall youth athletics — individuals and teams — for CHAMP Sports programs at Calvary Church. It is <strong>not</strong> school-district vendor language and does not claim school-system affiliation. We schedule around your Fall season calendar — with Saturday, October 10 at Calvary Life Center as the first locked picture day — so every team gets covered without slowing down games or practices.</p>
-    <div class="pillars">
-      <div class="pillar"><div class="pillar-title">Zero League Cost</div><p>No fees, no upfront spend, no minimums. Parents pay only if they choose to buy. CHAMP Sports never invoices a family or handles a transaction.</p></div>
-      <div class="pillar"><div class="pillar-title">Fast Photo Days</div><p>Whole teams move through in minutes. Multiple setups, organized lines, and a crew that has done this at volume for years.</p></div>
-      <div class="pillar"><div class="pillar-title">Background-Checked · $2M Insured</div><p>Current background checks for every team member. $2,000,000 commercial general liability — COI on request.</p></div>
+<section class="wrap" style="background:var(--light);max-width:none">
+  <div style="max-width:720px;margin:0 auto">
+    <div class="tag jf">How It Works</div>
+    <h2>Schedule → Notify → Shoot → Deliver</h2>
+    <div class="steps">
+      <div class="step"><div class="num">1</div><div class="st">Schedule</div><div class="sd">Share rosters and the Fall calendar. We build the plan around sites and game days, including Oct 10 at Calvary Life Center.</div></div>
+      <div class="step"><div class="num">2</div><div class="st">Notify</div><div class="sd">We supply email, text, and flyer templates. Coaches get everything — no chasing.</div></div>
+      <div class="step"><div class="num">3</div><div class="st">Shoot</div><div class="sd">We arrive with photographers and full setups. Teams rotate through in minutes.</div></div>
+      <div class="step"><div class="num">4</div><div class="st">Deliver</div><div class="sd">Galleries in ~2 weeks. Parents order; we ship to their door. CHAMP touches nothing.</div></div>
     </div>
+    <div class="note"><strong>What CHAMP does:</strong> Provide rosters/parent contacts, share the notice, point teams on the day. No money handling, no fulfillment.</div>
   </div>
 </section>
-<section class="section" style="background:var(--light)">
-  <div class="section-inner">
-    <div class="tag">How It Works</div>
-    <h2 class="section-h2">Light lift for CHAMP Sports. <span>Heavy lift for us.</span></h2>
-    <p class="body-text">Photo day should run on its own — and never slow down a game schedule. Here’s the four-step rhythm we use for every league partner:</p>
-    <div class="timeline">
-      <div class="tl-step"><div class="tl-num">1</div><div class="tl-title">Schedule</div><div class="tl-desc">CHAMP Sports shares rosters and the Fall season calendar. We build a parent-pay picture day plan around sites, practices, and game days (including Saturday, October 10 at Calvary Life Center), then coordinate with league admin.</div></div>
-      <div class="tl-step"><div class="tl-num">2</div><div class="tl-title">Notify</div><div class="tl-desc">We supply pre-written email, text, and flyer templates. Coaches and team parents get everything they need — no chasing.</div></div>
-      <div class="tl-step"><div class="tl-num">3</div><div class="tl-desc">We arrive with photographers and full setups. Teams rotate through in minutes — games and practices stay on schedule.</div></div>
-      <div class="tl-step"><div class="tl-num">4</div><div class="tl-title">Deliver</div><div class="tl-desc">Galleries go out within ~2 weeks. Parents order, we fulfill and ship straight to their door — nobody at CHAMP Sports touches an order.</div></div>
-    </div>
-    <div class="note-box">
-      <div class="note-title">What CHAMP Sports actually has to do</div>
-      <p class="body-text" style="margin:0">Provide rosters and parent contact data, share the photo day notice through your coaches, and point teams at the right spot on the day. That’s it. No order collection, no money handling, no parent service issues, no fulfillment.</p>
-    </div>
+<section class="wrap">
+  <div class="tag jf">Next Step</div>
+  <h2>Ready when you are</h2>
+  <div class="cta">
+    <p style="margin-bottom:10px">Questions anytime — Nathan at <a href="mailto:contact@nathanbinglephotography.com">contact@nathanbinglephotography.com</a> or 704-558-6566.</p>
+    <p style="font-size:13px;opacity:.85">Sports overview: <a href="https://www.nathanbinglephotography.com/services/sports">nathanbinglephotography.com/services/sports</a></p>
+    <p style="font-size:12px;opacity:.65;margin-top:10px">Kelly Lamb · klamb@calvarychurch.com · champ@calvarychurch.com</p>
   </div>
 </section>
-<section class="section" style="background:#fff">
-  <div class="section-inner">
-    <div class="tag">Pricing · Parent-Pay</div>
-    <h2 class="section-h2">No cost to CHAMP Sports. <span>Families order online.</span></h2>
-    <p class="body-text">Packages start at $25 with a-la-carte options for every budget. Families order what they want online — no envelopes, no cash collection. CHAMP Sports also earns a share of every order; we keep the rate simple, put it in writing, and send an itemized report each season.</p>
-    <div class="cta">
-      <div style="font-family:'Josefin Sans',sans-serif;font-size:9px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--s);margin-bottom:8px">Next Step</div>
-      <div style="font-family:'Josefin Sans',sans-serif;font-size:22px;font-weight:700;margin-bottom:10px">Ready when you are</div>
-      <p style="font-size:13px;line-height:1.75;color:rgba(255,255,255,.85);margin-bottom:12px">Questions welcome anytime. Reach Nathan at <a href="mailto:contact@nathanbinglephotography.com">contact@nathanbinglephotography.com</a> or 704-558-6566. More on our sports programs: <a href="https://www.nathanbinglephotography.com/services/sports">nathanbinglephotography.com/services/sports</a>.</p>
-      <p style="font-size:12px;color:rgba(255,255,255,.65)">League contacts on file: Kelly Lamb (klamb@calvarychurch.com) and champ@calvarychurch.com.</p>
-    </div>
-    <div class="contact">
-      <div class="contact-item"><div class="contact-label">Owner</div><div class="contact-val">Nathan Bingle</div></div>
-      <div class="contact-item"><div class="contact-label">Email</div><div class="contact-val">contact@nathanbinglephotography.com</div></div>
-      <div class="contact-item"><div class="contact-label">Cell</div><div class="contact-val">704-558-6566</div></div>
-      <div class="contact-item"><div class="contact-label">Office</div><div class="contact-val">422 Crompton St, Charlotte, NC 28273</div></div>
-    </div>
-  </div>
-</section>
-<div class="footer">Nathan Bingle Photography · Fort Mill, SC · Serving the Carolinas</div>
-</body>
-</html>
+<div class="foot">Nathan Bingle Photography · Fort Mill, SC · Serving the Carolinas</div>
+</body></html>
