@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>MVA Media Day Proposal | Nathan Bingle Photography</title>
+<meta name="description" content="A media day proposal for Masters Volleyball Academy Carolinas from Nathan Bingle Photography: dramatic lighting, club colors, and an edited private gallery for every player.">
+<meta name="robots" content="noindex">
+<meta property="og:title" content="MVA Media Day | Nathan Bingle Photography">
+<meta property="og:description" content="Dramatic lighting, club colors, and an edited private gallery for every MVA player.">
+<meta property="og:image" content="https://nathangbingle.github.io/nbp-school-proposals/sports/images/masters-volleyball/mva-hero.jpg">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;600;700&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="images/masters-volleyball/mva-hero.jpg">
+<style>
+:root{--navy:#0A2540;--ink:#071321;--ink2:#0C1B2E;--gold:#D4A54C;--gold2:#E7C27A;--paper:#F7F6F2;--line:#E8E4DC;--lime:#B8E85A;--purple:#7B5CD6;--txt:#3b3f46;}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Poppins',sans-serif;background:var(--paper);color:var(--txt);-webkit-font-smoothing:antialiased;line-height:1.6}
+img{display:block;max-width:100%}
+a{color:inherit}
+h1,h2,h3,.jf{font-family:'Josefin Sans',sans-serif}
+.wrap{max-width:1100px;margin:0 auto;padding:0 28px}
+/* header */
+.hdr{position:sticky;top:0;z-index:50;background:rgba(7,19,33,.92);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid rgba(255,255,255,.08)}
+.hdr .wrap{display:flex;align-items:center;justify-content:space-between;height:64px;gap:16px}
+.mark{text-decoration:none;color:#fff;line-height:1}
+.mark b{display:block;font-family:'Josefin Sans',sans-serif;font-weight:700;letter-spacing:.16em;font-size:15px;text-transform:uppercase}
+.mark span{display:block;font-size:8.5px;font-weight:500;letter-spacing:.42em;color:var(--gold);text-transform:uppercase;margin-top:5px}
+.nav{display:flex;gap:26px;align-items:center}
+.nav a{font-family:'Josefin Sans',sans-serif;font-weight:700;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.72);text-decoration:none}
+.nav a:hover{color:#fff}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-family:'Josefin Sans',sans-serif;font-weight:700;font-size:12px;letter-spacing:.18em;text-transform:uppercase;text-decoration:none;padding:14px 22px;border-radius:999px;transition:transform .15s,background .15s,color .15s;white-space:nowrap}
+.btn:hover{transform:translateY(-1px)}
+.btn-gold{background:var(--gold);color:#111}
+.btn-gold:hover{background:var(--gold2)}
+.btn-ghost{border:1px solid rgba(255,255,255,.35);color:#fff}
+.btn-ghost:hover{background:rgba(255,255,255,.08)}
+.btn-sm{padding:10px 16px;font-size:10.5px}
+/* hero */
+.hero{position:relative;background:radial-gradient(900px 520px at 78% 30%,rgba(123,92,214,.28),rgba(123,92,214,0) 60%),radial-gradient(700px 480px at 10% 100%,rgba(184,232,90,.10),rgba(184,232,90,0) 60%),#05101c;color:#fff;overflow:hidden}
+.hero .wrap{display:grid;grid-template-columns:1.08fr .92fr;gap:56px;align-items:center;padding-top:72px;padding-bottom:84px}
+.hero-copy{position:relative;z-index:2}
+.hero-media{position:relative}
+.hero-media .main{width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;object-position:center 30%;border-radius:22px;box-shadow:0 40px 90px rgba(0,0,0,.55),0 0 0 1px rgba(255,255,255,.06)}
+.hero-media .chip{position:absolute;left:-28px;bottom:34px;display:flex;align-items:center;gap:12px;background:rgba(7,19,33,.88);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.12);border-radius:14px;padding:10px 16px 10px 10px;box-shadow:0 18px 40px rgba(0,0,0,.45)}
+.hero-media .chip img{width:46px;height:62px;object-fit:cover;border-radius:8px}
+.hero-media .chip b{display:block;font-family:'Josefin Sans',sans-serif;font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:var(--lime)}
+.hero-media .chip span{font-size:12.5px;color:rgba(255,255,255,.8)}
+.prep{display:inline-flex;align-items:center;gap:14px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);border-radius:999px;padding:6px 16px 6px 8px;margin-bottom:24px}
+.prep img{width:64px;height:auto;background:#fff;border-radius:999px;padding:4px 8px}
+.prep span{font-family:'Josefin Sans',sans-serif;font-weight:700;font-size:10.5px;letter-spacing:.24em;text-transform:uppercase;color:rgba(255,255,255,.85)}
+.hero h1{font-size:clamp(2.7rem,6.4vw,5.4rem);font-weight:700;letter-spacing:.03em;text-transform:uppercase;line-height:.98;margin-bottom:20px}
+.hero h1 em{font-style:normal;display:block;background:linear-gradient(90deg,var(--lime),#d7f59b 35%,var(--purple) 90%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero p.lede{font-size:clamp(15px,1.5vw,18px);color:rgba(255,255,255,.8);max-width:520px;margin-bottom:30px;font-weight:300}
+.hero .ctas{display:flex;gap:12px;flex-wrap:wrap}
+.accent-bar{height:4px;background:linear-gradient(90deg,var(--gold) 0%,var(--gold) 50%,var(--lime) 50%,var(--lime) 75%,var(--purple) 75%)}
+/* glance */
+.glance{background:var(--ink);color:#fff;padding:0 0 8px}
+.glance .grid{display:grid;grid-template-columns:repeat(4,1fr);border-left:1px solid rgba(255,255,255,.08)}
+.glance .cell{padding:30px 26px;border-right:1px solid rgba(255,255,255,.08)}
+.k{font-family:'Josefin Sans',sans-serif;font-weight:700;font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);margin-bottom:10px}
+.glance .v{font-family:'Josefin Sans',sans-serif;font-weight:700;font-size:22px;letter-spacing:.02em;line-height:1.15;margin-bottom:6px}
+.glance .s{font-size:13px;color:rgba(255,255,255,.62);line-height:1.55}
+/* sections */
+section{padding:92px 0}
+.tag{display:inline-block;font-family:'Josefin Sans',sans-serif;font-size:10px;font-weight:700;letter-spacing:.3em;text-transform:uppercase;color:var(--navy);background:rgba(10,37,64,.07);padding:6px 14px;border-radius:999px;margin-bottom:16px}
+.dark .tag{color:var(--gold);background:rgba(212,165,76,.12)}
+h2{font-size:clamp(1.8rem,3.6vw,2.7rem);font-weight:700;letter-spacing:.02em;line-height:1.08;color:#121417;margin-bottom:16px}
+.dark h2{color:#fff}
+h2 .g{color:var(--gold)}
+.intro{font-size:16px;color:#5a5f68;max-width:640px}
+.dark .intro{color:rgba(255,255,255,.7)}
+.dark{background:var(--ink);color:rgba(255,255,255,.82)}
+/* compare */
+.compare{display:grid;grid-template-columns:1fr 1.25fr;gap:22px;margin-top:44px}
+.card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:30px}
+.card h3{font-size:13px;letter-spacing:.24em;text-transform:uppercase;margin-bottom:6px;color:#8a8f98}
+.card .big{font-family:'Josefin Sans',sans-serif;font-weight:700;font-size:24px;color:#121417;margin-bottom:16px}
+.card ul{list-style:none}
+.card li{position:relative;padding-left:26px;font-size:14.5px;margin-bottom:10px;color:#555}
+.card li:before{content:"";position:absolute;left:0;top:9px;width:12px;height:2px;background:#c9c4b8}
+.card.feature{background:linear-gradient(160deg,#0C1B2E 0%,#071321 100%);border-color:#0C1B2E;color:#fff;position:relative;overflow:hidden}
+.card.feature:after{content:"";position:absolute;right:-80px;top:-80px;width:260px;height:260px;border-radius:50%;background:radial-gradient(circle,rgba(123,92,214,.35),rgba(123,92,214,0) 70%)}
+.card.feature:before{content:"";position:absolute;left:-60px;bottom:-90px;width:240px;height:240px;border-radius:50%;background:radial-gradient(circle,rgba(184,232,90,.22),rgba(184,232,90,0) 70%)}
+.card.feature h3{color:var(--gold)}
+.card.feature .big{color:#fff}
+.card.feature li{color:rgba(255,255,255,.85);z-index:1}
+.card.feature li:before{background:var(--lime);height:12px;width:12px;border-radius:50%;top:6px;box-shadow:0 0 0 4px rgba(184,232,90,.15)}
+.note{margin-top:22px;font-size:14.5px;color:#5a5f68;max-width:760px;border-left:3px solid var(--gold);padding:4px 0 4px 18px}
+/* band */
+.band{position:relative;min-height:440px;display:flex;align-items:center;color:#fff;overflow:hidden;background:#05101c}
+.band img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 30%}
+.band:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(5,16,28,.92) 0%,rgba(5,16,28,.6) 45%,rgba(5,16,28,.2) 100%)}
+.band .wrap{position:relative;z-index:2;width:100%}
+.band blockquote{font-family:'Poppins',sans-serif;font-style:italic;font-weight:300;font-size:clamp(1.4rem,3vw,2.2rem);line-height:1.3;max-width:560px}
+.band cite{display:block;margin-top:18px;font-style:normal;font-family:'Josefin Sans',sans-serif;font-weight:700;font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:var(--gold)}
+/* included */
+.inc{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:44px}
+.inc .item{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.09);border-radius:16px;padding:26px}
+.inc .ico{width:42px;height:42px;border-radius:12px;display:flex;align-items:center;justify-content:center;background:rgba(212,165,76,.14);color:var(--gold);margin-bottom:16px}
+.inc h3{font-size:15px;letter-spacing:.06em;color:#fff;margin-bottom:8px;text-transform:uppercase}
+.inc p{font-size:14px;color:rgba(255,255,255,.66)}
+/* steps */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:44px;counter-reset:s}
+.step{background:#fff;border:1px solid var(--line);border-radius:16px;padding:26px;position:relative}
+.step .n{font-family:'Josefin Sans',sans-serif;font-weight:700;font-size:40px;line-height:1;color:var(--gold);margin-bottom:14px}
+.step h3{font-size:15px;letter-spacing:.06em;text-transform:uppercase;color:#121417;margin-bottom:8px}
+.step p{font-size:14px;color:#5a5f68}
+.lift{margin-top:22px;background:var(--navy);color:rgba(255,255,255,.85);border-radius:16px;padding:22px 26px;font-size:14.5px}
+.lift b{color:#fff}
+/* photo stripe */
+.stripe{display:flex;gap:4px;background:#05101c;padding:4px 0;overflow:hidden}
+.stripe figure{margin:0;flex:var(--r) 1 0;aspect-ratio:var(--ar);overflow:hidden;min-width:0}
+.stripe img{width:100%;height:100%;object-fit:cover;display:block}
+@media (max-width:760px){
+ .stripe{overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+ .stripe::-webkit-scrollbar{display:none}
+ .stripe figure{flex:0 0 auto;height:280px;width:auto;scroll-snap-align:start}
+ .stripe img{width:auto;height:100%}
+}
+/* gallery */
+.gal{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:44px}
+.gal figure{position:relative;border-radius:14px;overflow:hidden;cursor:zoom-in;background:#0b1626;aspect-ratio:2/3}
+.gal figure.wide{grid-column:1/-1;aspect-ratio:16/8}
+.gal figure.wide img{object-position:center 72%}
+.gal img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
+.gal figure:hover img{transform:scale(1.03)}
+.gal figcaption{position:absolute;left:0;right:0;bottom:0;padding:34px 16px 14px;font-size:12px;color:#fff;background:linear-gradient(180deg,rgba(0,0,0,0),rgba(0,0,0,.75))}
+.gal figcaption b{display:block;font-family:'Josefin Sans',sans-serif;font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:var(--lime);font-weight:700}
+.galnote{margin-top:10px;font-size:13px;color:rgba(255,255,255,.55)}
+/* pricing */
+.price-wrap{display:grid;grid-template-columns:1.1fr 1fr;gap:22px;margin-top:44px;align-items:stretch}
+.price{border-radius:22px;padding:38px;background:linear-gradient(160deg,#0C1B2E,#071321);color:#fff;position:relative;overflow:hidden}
+.price:after{content:"";position:absolute;inset:auto -40px -120px auto;width:300px;height:300px;border-radius:50%;background:radial-gradient(circle,rgba(212,165,76,.25),rgba(212,165,76,0) 70%)}
+.price .amt{font-family:'Josefin Sans',sans-serif;font-weight:700;font-size:clamp(3.6rem,8vw,5.2rem);line-height:1;color:#fff}
+.price .amt sup{font-size:.42em;vertical-align:top;position:relative;top:.35em;margin-right:4px;color:var(--gold)}
+.price .per{font-family:'Josefin Sans',sans-serif;font-weight:700;letter-spacing:.26em;text-transform:uppercase;font-size:12px;color:var(--gold);margin:8px 0 22px}
+.price ul{list-style:none;position:relative;z-index:1}
+.price li{padding-left:28px;position:relative;margin-bottom:11px;font-size:14.5px;color:rgba(255,255,255,.86)}
+.price li svg{position:absolute;left:0;top:4px;color:var(--lime)}
+.side{display:flex;flex-direction:column;gap:18px}
+.side .card{flex:1}
+.side .card p{font-size:14.5px;color:#5a5f68}
+.side .card .big{font-size:20px;margin-bottom:8px}
+/* trust */
+.trust{background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:26px 0}
+.trust .row{display:flex;flex-wrap:wrap;gap:14px 36px;justify-content:center}
+.trust .t{display:flex;align-items:center;gap:10px;font-family:'Josefin Sans',sans-serif;font-weight:700;font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:#2a2f37}
+.trust svg{color:var(--gold)}
+/* faq */
+.faq{margin-top:36px;display:grid;grid-template-columns:1fr 1fr;gap:14px;align-items:start}
+details{background:#fff;border:1px solid var(--line);border-radius:14px;padding:18px 22px}
+summary{cursor:pointer;font-family:'Josefin Sans',sans-serif;font-weight:700;font-size:15px;color:#121417;list-style:none;display:flex;justify-content:space-between;gap:12px}
+summary::-webkit-details-marker{display:none}
+summary:after{content:"+";color:var(--gold);font-size:20px;line-height:1}
+details[open] summary:after{content:"\2013"}
+details p{margin-top:10px;font-size:14px;color:#5a5f68}
+/* cta */
+.cta{background:radial-gradient(1200px 500px at 85% 0%,rgba(123,92,214,.25),rgba(123,92,214,0) 60%),radial-gradient(900px 400px at 0% 100%,rgba(184,232,90,.12),rgba(184,232,90,0) 60%),var(--ink);color:#fff;text-align:center}
+.cta h2{color:#fff;max-width:720px;margin:0 auto 14px}
+.cta .intro{margin:0 auto 30px;color:rgba(255,255,255,.72)}
+.cta .ctas{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:34px}
+.sig{display:inline-flex;flex-direction:column;align-items:center;gap:4px}
+.sig b{font-family:'Josefin Sans',sans-serif;font-size:18px;letter-spacing:.06em}
+.sig span{font-size:13px;color:rgba(255,255,255,.6)}
+.sig a{color:var(--gold2);text-decoration:none}
+footer{background:#040b14;color:rgba(255,255,255,.45);font-size:12px;padding:26px 0;text-align:center;letter-spacing:.04em}
+/* lightbox */
+.lb{position:fixed;inset:0;background:rgba(3,8,14,.94);display:none;align-items:center;justify-content:center;z-index:100;padding:24px;cursor:zoom-out}
+.lb.on{display:flex}
+.lb img{max-height:92vh;max-width:92vw;border-radius:10px;box-shadow:0 30px 80px rgba(0,0,0,.6)}
+/* responsive */
+@media (max-width:900px){
+ .nav a.hide-sm{display:none}
+ .hero .wrap{grid-template-columns:1fr;gap:40px;padding-top:48px;padding-bottom:60px}
+ .hero-media{max-width:520px}
+ .hero-media .chip{left:14px}
+ .glance .grid{grid-template-columns:1fr 1fr}
+ .glance .cell:nth-child(-n+2){border-bottom:1px solid rgba(255,255,255,.08)}
+ .compare,.price-wrap{grid-template-columns:1fr}
+ .inc{grid-template-columns:1fr 1fr}
+ .steps{grid-template-columns:1fr 1fr}
+ .faq{grid-template-columns:1fr}
+}
+@media (max-width:560px){
+ .wrap{padding:0 20px}
+ .hdr .wrap{height:58px}
+ .mark b{font-size:13px}
+ .nav{gap:0}
+ section{padding:68px 0}
+ .hero .wrap{padding-top:36px;padding-bottom:48px;gap:32px}
+ .hero-media .main{aspect-ratio:1/1;object-position:center 35%}
+ .hero-media .chip{position:static;margin-top:12px;box-shadow:none}
+ .hero .ctas .btn{flex:1 1 100%}
+ .prep span{font-size:9.5px;letter-spacing:.18em}
+ .glance .grid{grid-template-columns:1fr}
+ .glance .cell{border-bottom:1px solid rgba(255,255,255,.08)}
+ .inc,.steps{grid-template-columns:1fr}
+ .card,.price{padding:26px}
+ .gal{grid-template-columns:1fr;gap:12px}
+ .gal figure.wide{aspect-ratio:3/2}
+ .gal figcaption{font-size:10.5px;padding:22px 10px 9px}
+ .band{min-height:540px;align-items:flex-start;padding-top:44px}
+ .band img{object-position:72% bottom}
+ .band:after{background:linear-gradient(180deg,rgba(5,16,28,.95) 0%,rgba(5,16,28,.7) 30%,rgba(5,16,28,.05) 60%)}
+ .cta .ctas .btn{flex:1 1 100%}
+}
+</style>
+</head>
+<body>
+
+<header class="hdr">
+ <div class="wrap">
+  <a class="mark" href="#top" aria-label="Nathan Bingle Photography"><b>Nathan Bingle</b><span>Photography</span></a>
+  <nav class="nav">
+   <a class="hide-sm" href="#why">Why media day</a>
+   <a class="hide-sm" href="#photos">Photos</a>
+   <a class="hide-sm" href="#pricing">Pricing</a>
+   <a class="btn btn-gold btn-sm" href="#contact">Let's talk</a>
+  </nav>
+ </div>
+</header>
+
+<main id="top">
+
+<section class="hero" style="padding:0">
+ <div class="wrap">
+  <div class="hero-copy">
+   <div class="prep"><img src="images/masters-volleyball/mva-logo.webp" alt="MVA logo"><span>Prepared for Masters Volleyball Academy &middot; Carolinas</span></div>
+   <h1>MVA <em>Media Day</em></h1>
+   <p class="lede">The dramatic, club-color portraits your players have been asking for. Every athlete gets her own styled session in your gym, and every family gets an edited private gallery.</p>
+   <div class="ctas">
+    <a class="btn btn-gold" href="#photos">See the look</a>
+    <a class="btn btn-ghost" href="#contact">Talk with Nathan</a>
+   </div>
+  </div>
+  <div class="hero-media">
+   <img class="main" src="images/masters-volleyball/mva-hero.jpg" alt="Volleyball player seated on a bench holding a ball, surrounded by blue and green smoke" width="1000" height="1500">
+   <div class="chip"><img src="images/masters-volleyball/mva-chip.jpg" alt=""><div><b>Your colors</b><span>MVA purple &amp; green in the smoke</span></div></div>
+  </div>
+ </div>
+</section>
+<div class="accent-bar"></div>
+
+<div class="glance">
+ <div class="wrap">
+  <div class="grid">
+   <div class="cell"><div class="k">The idea</div><div class="v">A true media day</div><div class="s">Pro lighting, fog and club colors, right on your court.</div></div>
+   <div class="cell"><div class="k">Every player</div><div class="v">Her own session</div><div class="s">Several styled poses with the ball, the net and the bench.</div></div>
+   <div class="cell"><div class="k">Investment</div><div class="v">$50 per player</div><div class="s">Covers the shoot and an edited private gallery.</div></div>
+   <div class="cell"><div class="k">Next step</div><div class="v">Pick a date</div><div class="s">Once uniforms are in, we'll build the schedule around your teams.</div></div>
+  </div>
+ </div>
+</div>
+
+<section id="why">
+ <div class="wrap">
+  <span class="tag">Why media day</span>
+  <h2>Last season was composites.<br>This season, <span class="g">the full experience.</span></h2>
+  <p class="intro">Photographing all nine MVA teams last December was a blast. But we know the look you were really hoping for was a true media day: dramatic, colorful portraits players are proud to post. That's exactly what we'd bring this year.</p>
+  <div class="compare">
+   <div class="card">
+    <h3>Last season</h3>
+    <div class="big">Team composites</div>
+    <ul>
+     <li>Quick individual portraits, team after team</li>
+     <li>Players cut out and placed on a designed template</li>
+     <li>Great for a team keepsake, less of a wow</li>
+    </ul>
+   </div>
+   <div class="card feature">
+    <h3>This season</h3>
+    <div class="big">MVA Media Day</div>
+    <ul>
+     <li>House lights down, colored lights and fog up, right in your gym</li>
+     <li>MVA purple and green in the smoke, so it looks like your club</li>
+     <li>Real, in-camera portraits with the ball, the net and the bench</li>
+     <li>Posed and action looks for every player, not just one headshot</li>
+     <li>Team photos in the same dramatic lighting</li>
+     <li>The kind of photos players post and parents frame</li>
+    </ul>
+   </div>
+  </div>
+  <p class="note">Same organized, on-schedule evening as last year. The difference is a full lighting and fog setup and a few minutes of real posing time for every athlete.</p>
+ </div>
+</section>
+
+<div class="band">
+ <img src="images/masters-volleyball/mva-band.jpg" alt="Player sitting on the floor balancing a ball overhead in blue and green smoke" loading="lazy">
+ <div class="wrap">
+  <blockquote>&ldquo;We don&rsquo;t just develop photos. We develop relationships.&rdquo;<cite>Nathan Bingle &middot; Founder &middot; Fort Mill, SC</cite></blockquote>
+ </div>
+</div>
+
+<section class="dark" id="included">
+ <div class="wrap">
+  <span class="tag">What's included</span>
+  <h2>Everything for a <span class="g">pro-level media day</span></h2>
+  <p class="intro">We bring the studio to your court and run the night, so your coaches can stay focused on the girls.</p>
+  <div class="inc">
+   <div class="item"><div class="ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M4.9 19.1L7 17M17 7l2.1-2.1"/></svg></div><h3>Lights &amp; fog setup</h3><p>Colored lights, hard key light and fog, set up in your gym before the first team arrives.</p></div>
+   <div class="item"><div class="ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 3a9 9 0 0 1 0 18M3.5 9h17M3.5 15h17"/></svg></div><h3>Club colors</h3><p>MVA purple and green in the light and smoke, so every portrait looks like your club.</p></div>
+   <div class="item"><div class="ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div><h3>Every player posed</h3><p>Several styled looks per athlete: seated, standing, at the net and in action.</p></div>
+   <div class="item"><div class="ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div><h3>Team photos</h3><p>Each team photographed together in the same dramatic lighting.</p></div>
+   <div class="item"><div class="ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg></div><h3>Edited private gallery</h3><p>Every player's best images, professionally edited and delivered to a private online gallery.</p></div>
+   <div class="item"><div class="ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v12H5.17L4 17.17V4z"/></svg></div><h3>Parent communication</h3><p>We send families the emails and texts before media day and when galleries are ready.</p></div>
+  </div>
+ </div>
+</section>
+
+<div class="stripe" aria-label="Legion Collegiate Academy media day photos">
+ <figure style="--ar:2/3;--r:0.6667"><img src="images/masters-volleyball/mva-g2.jpg" alt="Player in a cowboy hat in front of a green LED wall" loading="lazy"></figure>
+ <figure style="--ar:2/3;--r:0.6667"><img src="images/masters-volleyball/mva-hero.jpg" alt="Player seated on the Legion Volleyball bench with a ball in blue and green smoke" loading="lazy"></figure>
+ <figure style="--ar:3/2;--r:1.5"><img src="images/masters-volleyball/mva-g1.jpg" alt="Player #30 on the floor holding a ball out in green smoke" loading="lazy"></figure>
+ <figure style="--ar:2/3;--r:0.6667"><img src="images/masters-volleyball/mva-g3.jpg" alt="Two teammates standing back to back" loading="lazy"></figure>
+ <figure style="--ar:2/3;--r:0.6667"><img src="images/masters-volleyball/mva-g4.jpg" alt="Five teammates stacked in a smiling pyramid on the gym floor" loading="lazy"></figure>
+</div>
+
+<section id="how">
+ <div class="wrap">
+  <span class="tag">How media day works</span>
+  <h2>Light lift for MVA. <span class="g">Heavy lift for us.</span></h2>
+  <p class="intro">It runs a lot like last December, just with a bigger setup and more time for every player.</p>
+  <div class="steps">
+   <div class="step"><div class="n">01</div><h3>Pick a date</h3><p>Once uniforms are in, send a couple of evenings when the gym is free. Weekday evenings are easy for us.</p></div>
+   <div class="step"><div class="n">02</div><h3>Send rosters</h3><p>Rosters with parent emails and jersey numbers about two weeks out. We build the team-by-team schedule.</p></div>
+   <div class="step"><div class="n">03</div><h3>Media day</h3><p>We arrive about 45 minutes early to set lights and fog. Teams rotate through on schedule, in game uniforms.</p></div>
+   <div class="step"><div class="n">04</div><h3>Galleries</h3><p>Edited private galleries go out to families in about two weeks.</p></div>
+  </div>
+  <div class="lift"><b>What MVA does:</b> pick the date, send rosters and point teams to the court. <b>What we do:</b> everything else, including setup, posing, editing, galleries and parent questions.</div>
+ </div>
+</section>
+
+<section class="dark" id="photos">
+ <div class="wrap">
+  <span class="tag">Recent media days</span>
+  <h2>This is the look <span class="g">we'd bring to MVA</span></h2>
+  <p class="intro">From Legion Collegiate Academy's media day, lit in their blue and green. For MVA we'd swap in your purple and green.</p>
+  <div class="gal">
+   <figure class="wide"><img src="images/masters-volleyball/mva-g1.jpg" alt="Player #30 on the floor holding a ball out, lit in green smoke" loading="lazy" width="1400" height="933"><figcaption><b>Floor pose</b>Club-color smoke, full length</figcaption></figure>
+   <figure><img src="images/masters-volleyball/mva-g2.jpg" alt="Player in a cowboy hat posing in front of a green LED wall" loading="lazy" width="800" height="1200"><figcaption><b>Personality</b>LED wall station</figcaption></figure>
+   <figure><img src="images/masters-volleyball/mva-g3.jpg" alt="Two teammates standing back to back in the gym" loading="lazy" width="800" height="1200"><figcaption><b>Teammates</b>Back-to-back duo</figcaption></figure>
+   <figure><img src="images/masters-volleyball/mva-g4.jpg" alt="Five teammates stacked in a smiling pyramid on the gym floor" loading="lazy" width="800" height="1200"><figcaption><b>Fun shots</b>Five-girl pyramid</figcaption></figure>
+  </div>
+  <p class="galnote">All photos from Legion Collegiate Academy's media day. Tap any photo to see it larger.</p>
+ </div>
+</section>
+
+<section id="pricing">
+ <div class="wrap">
+  <span class="tag">Pricing</span>
+  <h2>One simple number, <span class="g">per player</span></h2>
+  <p class="intro">No packages to decode. One flat rate per player, and we confirm your total from the final roster.</p>
+  <div class="price-wrap">
+   <div class="price">
+    <div class="k" style="margin-bottom:14px">MVA Media Day</div>
+    <div class="amt"><sup>$</sup>50</div>
+    <div class="per">per player</div>
+    <ul>
+     <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>Full media day shoot with lights, fog and club colors</li>
+     <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>Several styled poses for every player</li>
+     <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>Edited private gallery for every player</li>
+     <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>Scheduling and all parent communication</li>
+    </ul>
+   </div>
+   <div class="side">
+    <div class="card"><div class="big">Your total</div><p>$50 &times; the number of players photographed. Send your final rosters and we'll confirm the exact number before media day.</p></div>
+    <div class="card"><div class="big">Prints &amp; keepsakes</div><p>Families can order prints and keepsakes from their gallery whenever they like. Every family gets 10% off plus free shipping.</p></div>
+   </div>
+  </div>
+ </div>
+</section>
+
+<div class="trust">
+ <div class="wrap">
+  <div class="row">
+   <div class="t"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>Background-checked team</div>
+   <div class="t"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 10h18"/></svg>$2M liability insured</div>
+   <div class="t"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="6"/><path d="M8.2 13.4L7 22l5-3 5 3-1.2-8.6"/></svg>Professional Photographers of America member</div>
+   <div class="t"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Local to Rock Hill &amp; Fort Mill</div>
+  </div>
+ </div>
+</div>
+
+<section id="faq">
+ <div class="wrap">
+  <span class="tag">Good questions</span>
+  <h2>Answered <span class="g">up front</span></h2>
+  <div class="faq">
+   <details open><summary>Can you really match MVA's colors?</summary><p>Yes. We gel the lights and color the smoke to the club. The Legion photos above show their blue and green. Yours would be MVA purple and green.</p></details>
+   <details><summary>What kind of gym works best?</summary><p>Any gym where we can turn down the house lights. Our lights and fog do the rest. A court like last year's at Rock Hill Sports &amp; Event Center works well.</p></details>
+   <details><summary>What should players wear?</summary><p>Game jerseys, spandex and court shoes. Hair and jersey ready to go, and a backup jersey is always smart.</p></details>
+   <details><summary>How long until families see photos?</summary><p>About two weeks. Every player gets her own private gallery link, sent straight to her family.</p></details>
+  </div>
+ </div>
+</section>
+
+<section class="cta" id="contact">
+ <div class="wrap">
+  <span class="tag" style="color:var(--gold);background:rgba(212,165,76,.12)">Let's do it</span>
+  <h2>Let's put MVA Media Day on the calendar</h2>
+  <p class="intro">Send a couple of dates once uniforms are in, or call and we'll walk through it in ten minutes.</p>
+  <div class="ctas">
+   <a class="btn btn-gold" href="tel:+17045586566">Call 704-558-6566</a>
+   <a class="btn btn-ghost" href="sms:+17045586566">Text Nathan</a>
+   <a class="btn btn-ghost" href="mailto:nathan@nathanbinglephotography.com?subject=MVA%20Media%20Day">Email Nathan</a>
+  </div>
+  <div class="sig"><b>Nathan Bingle</b><span>Founder, Nathan Bingle Photography</span><span><a href="mailto:nathan@nathanbinglephotography.com">nathan@nathanbinglephotography.com</a> &middot; <a href="https://www.nathanbinglephotography.com/">nathanbinglephotography.com</a></span></div>
+ </div>
+</section>
+
+</main>
+<footer>&copy; 2026 Nathan Bingle Photography &middot; Fort Mill, SC &middot; Proposal prepared for Masters Volleyball Academy Carolinas</footer>
+
+<div class="lb" id="lb" role="dialog" aria-label="Photo preview"><img alt=""></div>
+<script>
+(function(){var lb=document.getElementById('lb'),im=lb.querySelector('img');
+document.querySelectorAll('.gal figure').forEach(function(f){f.addEventListener('click',function(){var i=f.querySelector('img');im.src=i.currentSrc||i.src;im.alt=i.alt;lb.classList.add('on');});});
+lb.addEventListener('click',function(){lb.classList.remove('on');});
+document.addEventListener('keydown',function(e){if(e.key==='Escape')lb.classList.remove('on');});})();
+</script>
+</body>
+</html>
