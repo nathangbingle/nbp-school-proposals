@@ -30,8 +30,8 @@ section{padding:64px 0}
 .btns{display:grid;gap:10px}
 /* hero */
 .hero{position:relative;min-height:92svh;display:flex;align-items:flex-end;color:#fff;overflow:hidden;padding:0}
-.hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 25%}
-.hero:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.25) 0,rgba(0,0,0,0) 30%,rgba(0,0,0,.72) 75%,rgba(0,0,0,.85))}
+.hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:49% 35%}
+.hero:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.3) 0,rgba(0,0,0,0) 28%,rgba(0,0,0,.35) 50%,rgba(0,0,0,.78) 75%,rgba(0,0,0,.88))}
 .hero .wrap{position:relative;z-index:1;padding-bottom:40px;width:100%}
 .brand{position:absolute;top:18px;left:22px;z-index:2;font:600 11px/1 var(--sans);letter-spacing:.24em;text-transform:uppercase;color:#fff}
 .hero .eyebrow{color:#e9d3a8}
@@ -40,7 +40,7 @@ section{padding:64px 0}
 .deadline{display:inline-block;margin-top:16px;font-size:13px;border-top:1px solid rgba(255,255,255,.4);padding-top:10px;opacity:.9}
 /* explain */
 .explain{display:grid;gap:34px;align-items:center}
-.explain figure{margin:0;max-width:420px;justify-self:center;width:100%}
+.explain figure{margin:0;display:grid;grid-template-columns:1fr 1fr;gap:10px;width:100%}
 .explain figure img{width:100%;height:auto}
 .card-img{width:100%;height:auto;max-width:360px;margin:0 auto 18px}
 .lede{font-family:var(--serif);font-size:1.45rem;line-height:1.35}
@@ -77,7 +77,7 @@ footer .name{font:500 1.6rem var(--serif);color:var(--ink)}
  body{padding-bottom:0}.sticky{display:none}
  .btns{grid-template-columns:1fr 1fr;max-width:620px}
  .explain{grid-template-columns:1fr 1fr}
- .gallery{columns:3;column-gap:12px}.gallery figure{margin-bottom:12px}
+ .gallery{columns:4;column-gap:12px}.gallery figure{margin-bottom:12px}
  .cards{grid-template-columns:1fr 1fr}
  .two{display:grid;grid-template-columns:1fr 1fr;gap:48px}
  section{padding:96px 0}
@@ -87,7 +87,7 @@ footer .name{font:500 1.6rem var(--serif);color:var(--ink)}
 <body>
 <header class="hero">
   <span class="brand">Nathan Bingle Photography</span>
-  <img src="img/hero.jpg" alt="Senior portrait by Nathan Bingle Photography: a smiling young woman in a light blue dress" width="933" height="1400" fetchpriority="high">
+  <img src="img/hero.jpg" alt="Senior portrait by Nathan Bingle Photography: a young woman with wavy blonde hair in a white top, city skyline softly blurred behind her" width="2000" height="1125" fetchpriority="high">
   <div class="wrap">
     <p class="eyebrow">Cabarrus Virtual Academy</p>
     <h1>Picture Day<br><em>&amp; Senior Portraits</em></h1>
@@ -110,7 +110,7 @@ footer .name{font:500 1.6rem var(--serif);color:var(--ink)}
       <p>Traditionally, young women wear a soft fabric <strong>drape</strong> wrapped across the shoulders. young men wear a <strong>tuxedo-style</strong> top. The background is clean and plain, so the focus stays on your senior's face. It's the portrait many families frame, send with graduation announcements, and use in the yearbook.</p>
       <p>Each session is a relaxed 15 minutes. Nathan guides posture, chin and expression, and takes a few variations so there are good choices. <strong>We provide the drape.</strong></p>
     </div>
-    <figure class="trad"><img loading="lazy" src="img/tux.jpg" width="800" height="1000" alt="Traditional senior portrait by Nathan Bingle Photography: a young man in a black tuxedo and bow tie against a blue studio backdrop"></figure>
+    <figure class="trad"><img loading="lazy" src="img/drape.jpg" width="800" height="1000" alt="Traditional senior portrait by Nathan Bingle Photography: a young woman in a black off-the-shoulder drape and pearls against a blue studio backdrop"><img loading="lazy" src="img/tux.jpg" width="800" height="1000" alt="Traditional senior portrait by Nathan Bingle Photography: a young man in a black tuxedo and bow tie against a blue studio backdrop"></figure>
   </div>
 </section>
 
@@ -120,23 +120,14 @@ footer .name{font:500 1.6rem var(--serif);color:var(--ink)}
     <h2>Senior portraits by Nathan</h2>
     <p style="max-width:560px;opacity:.85;margin-bottom:28px">A few favorites from recent seniors: studio, cap &amp; gown, and on-location sessions. Picture day at CVA is the classic tux &amp; drape portrait.</p>
     <div class="gallery">
-      <figure><img loading="lazy" src="img/tux.jpg" width="800" height="1000" alt="Traditional senior portrait by Nathan Bingle Photography: a young man in a black tuxedo and bow tie against a blue studio backdrop"><figcaption>Tux portrait</figcaption></figure>
-      <figure><img loading="lazy" src="img/cg-4.jpg" width="800" height="1000" alt="Senior portrait of a young woman in a navy cap and gown with an orange tassel against a blue studio backdrop"><figcaption>Cap &amp; gown</figcaption></figure>
-      <figure><img loading="lazy" src="img/studio-1.jpg" width="750" height="1000" alt="Studio senior portrait of a young woman with long blonde hair against a light backdrop"><figcaption>Studio</figcaption></figure>
       <figure><img loading="lazy" src="img/cg-1.jpg" width="667" height="1000" alt="Graduate in a green cap and gown tossing her cap on a lawn"><figcaption>Cap &amp; gown</figcaption></figure>
-      <figure><img loading="lazy" src="img/g-06.jpg" width="667" height="1000" alt="Senior portrait of a young woman outdoors in soft spring light"></figure>
       <figure><img loading="lazy" src="img/cg-2.jpg" width="1000" height="667" alt="Graduate in a blue cap and gown smiling in front of a brick wall"><figcaption>Cap &amp; gown</figcaption></figure>
       <figure><img loading="lazy" src="img/g-10.jpg" width="667" height="1000" alt="Senior portrait of a young woman with long hair in front of a light wall"></figure>
-      <figure><img loading="lazy" src="img/studio-2.jpg" width="750" height="1000" alt="Studio senior portrait of a young woman in a sparkling blue top"><figcaption>Studio</figcaption></figure>
+      <figure><img loading="lazy" src="img/cg-4.jpg" width="800" height="1000" alt="Senior portrait of a young woman in a navy cap and gown with an orange tassel against a blue studio backdrop"><figcaption>Cap &amp; gown</figcaption></figure>
       <figure><img loading="lazy" src="img/g-02.jpg" width="1000" height="715" alt="Fort Mill senior portrait of a young woman in a green top beside a stone wall"></figure>
-      <figure><img loading="lazy" src="img/g-07.jpg" width="667" height="1000" alt="Senior portrait of a young woman in a sunflower field"></figure>
       <figure><img loading="lazy" src="img/cg-3.jpg" width="1000" height="667" alt="Black-and-white portrait of a graduate holding a cap in front of Clover High School"><figcaption>Cap &amp; gown</figcaption></figure>
-      <figure><img loading="lazy" src="img/g-04.jpg" width="750" height="1000" alt="Close-up senior portrait of a smiling young woman in a black wide-brim hat"></figure>
-      <figure><img loading="lazy" src="img/g-05.jpg" width="1000" height="1000" alt="Senior portrait of a smiling young woman in a denim jacket"></figure>
-      <figure><img loading="lazy" src="img/g-08.jpg" width="667" height="1000" alt="Senior portrait of a young woman standing in a golden field at sunset"></figure>
       <figure><img loading="lazy" src="img/g-03.jpg" width="1000" height="667" alt="Senior portrait of a young woman seated at an outdoor table among flowers"></figure>
       <figure><img loading="lazy" src="img/g-09.jpg" width="667" height="1000" alt="Senior portrait of a young woman with dark hair in a green setting"></figure>
-      <figure><img loading="lazy" src="img/g-01.jpg" width="1000" height="563" alt="Senior portrait of a young woman with a city skyline behind her"></figure>
     </div>
   </div>
 </section>
@@ -169,13 +160,14 @@ footer .name{font:500 1.6rem var(--serif);color:var(--ink)}
     <h2>Wednesday, October 21</h2>
     <div class="cards">
       <div class="card">
-        <img class="card-img" loading="lazy" src="img/tux.jpg" width="800" height="1000" alt="Traditional senior portrait by Nathan Bingle Photography: a young man in a black tuxedo and bow tie against a blue studio backdrop">
+        <img class="card-img" loading="lazy" src="img/tux-2.jpg" width="800" height="1000" alt="Traditional senior portrait by Nathan Bingle Photography: a red-haired young man in a black tuxedo and bow tie against a blue studio backdrop">
         <p class="eyebrow">Seniors</p>
         <div class="time">10:00 AM – 12:00 PM</div>
         <p>Traditional tux &amp; drape portraits. 15-minute sessions. $25 sitting fee paid at booking.</p>
         <a class="btn btn-dark" href="https://book.usesession.com/s/KTRq3lHXH9">Book a Senior Session</a>
       </div>
       <div class="card">
+        <img class="card-img" loading="lazy" src="img/underclass.jpg" width="667" height="1000" alt="School picture day portrait by Nathan Bingle Photography: a smiling student in a light gray T-shirt on a blue mottled backdrop">
         <p class="eyebrow">Underclass</p>
         <div class="time">12:30 – 2:00 PM</div>
         <p>Picture day for all non-senior students.</p>
