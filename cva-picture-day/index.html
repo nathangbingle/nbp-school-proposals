@@ -40,8 +40,9 @@ section{padding:64px 0}
 .deadline{display:inline-block;margin-top:16px;font-size:13px;border-top:1px solid rgba(255,255,255,.4);padding-top:10px;opacity:.9}
 /* explain */
 .explain{display:grid;gap:34px;align-items:center}
-.explain figure{margin:0;display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.explain figure img{aspect-ratio:3/4;object-fit:cover}
+.explain figure{margin:0;max-width:420px;justify-self:center;width:100%}
+.explain figure img{width:100%;height:auto}
+.card-img{width:100%;height:auto;max-width:360px;margin:0 auto 18px}
 .lede{font-family:var(--serif);font-size:1.45rem;line-height:1.35}
 .placeholder{display:flex;align-items:center;justify-content:center;text-align:center;aspect-ratio:3/4;border:2px dashed var(--gold);background:#efe7d8;color:#7a5c2b;font:600 12px/1.4 var(--sans);padding:14px;letter-spacing:.04em}
 .todo{background:#fff3cd;border:2px dashed #c99a2e;color:#5c4300;padding:12px 14px;font-weight:600;font-size:14px;margin:12px 0}
@@ -109,10 +110,7 @@ footer .name{font:500 1.6rem var(--serif);color:var(--ink)}
       <p>Traditionally, young women wear a soft fabric <strong>drape</strong> wrapped across the shoulders. young men wear a <strong>tuxedo-style</strong> top. The background is clean and plain, so the focus stays on your senior's face. It's the portrait many families frame, send with graduation announcements, and use in the yearbook.</p>
       <p>Each session is a relaxed 15 minutes. Nathan guides posture, chin and expression, and takes a few variations so there are good choices. <strong>We provide the drape.</strong></p>
     </div>
-    <figure>
-      <div class="placeholder">[PLACEHOLDER: real NBP drape example — not yet found]</div>
-      <div class="placeholder">[PLACEHOLDER: real NBP tux example — not yet found]</div>
-    </figure>
+    <figure class="trad"><img loading="lazy" src="img/tux.jpg" width="800" height="1000" alt="Traditional senior portrait by Nathan Bingle Photography: a young man in a black tuxedo and bow tie against a blue studio backdrop"></figure>
   </div>
 </section>
 
@@ -122,7 +120,8 @@ footer .name{font:500 1.6rem var(--serif);color:var(--ink)}
     <h2>Senior portraits by Nathan</h2>
     <p style="max-width:560px;opacity:.85;margin-bottom:28px">A few favorites from recent seniors: studio, cap &amp; gown, and on-location sessions. Picture day at CVA is the classic tux &amp; drape portrait.</p>
     <div class="gallery">
-      <figure><div class="placeholder">[PLACEHOLDER: tux/drape example]</div></figure>
+      <figure><img loading="lazy" src="img/tux.jpg" width="800" height="1000" alt="Traditional senior portrait by Nathan Bingle Photography: a young man in a black tuxedo and bow tie against a blue studio backdrop"><figcaption>Tux portrait</figcaption></figure>
+      <figure><img loading="lazy" src="img/cg-4.jpg" width="800" height="1000" alt="Senior portrait of a young woman in a navy cap and gown with an orange tassel against a blue studio backdrop"><figcaption>Cap &amp; gown</figcaption></figure>
       <figure><img loading="lazy" src="img/studio-1.jpg" width="750" height="1000" alt="Studio senior portrait of a young woman with long blonde hair against a light backdrop"><figcaption>Studio</figcaption></figure>
       <figure><img loading="lazy" src="img/cg-1.jpg" width="667" height="1000" alt="Graduate in a green cap and gown tossing her cap on a lawn"><figcaption>Cap &amp; gown</figcaption></figure>
       <figure><img loading="lazy" src="img/g-06.jpg" width="667" height="1000" alt="Senior portrait of a young woman outdoors in soft spring light"></figure>
@@ -170,6 +169,7 @@ footer .name{font:500 1.6rem var(--serif);color:var(--ink)}
     <h2>Wednesday, October 21</h2>
     <div class="cards">
       <div class="card">
+        <img class="card-img" loading="lazy" src="img/tux.jpg" width="800" height="1000" alt="Traditional senior portrait by Nathan Bingle Photography: a young man in a black tuxedo and bow tie against a blue studio backdrop">
         <p class="eyebrow">Seniors</p>
         <div class="time">10:00 AM – 12:00 PM</div>
         <p>Traditional tux &amp; drape portraits. 15-minute sessions. $25 sitting fee paid at booking.</p>
