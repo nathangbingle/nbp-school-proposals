@@ -143,6 +143,230 @@ CRITICAL RULES:
 
 If you cannot find anything new for a club, return all nulls. That's acceptable — better than fabricating."""
 
+# Prompt caching reads a prefix only when it is identical to a previous request.
+# Tools, then system text, are that prefix. School names and the other fields
+# that change per club stay in the user message, which is not cached. Club ids
+# are not sent to the model at all.
+#
+# There is no long reference document at this call site. The system text above
+# is the whole stable prefix, about 450 tokens. Claude Haiku 4.5 (the default
+# model) only caches a prefix of at least 4,096 tokens, and a shorter prefix is
+# accepted and then ignored. Stretching this prompt out to 4,096 tokens would
+# not cut the bill: reading that much from cache costs about the same as sending
+# the real short prompt the normal way. Do not add filler to clear the minimum.
+#
+# Do not switch this to top-level automatic caching. That puts the breakpoint
+# on the user message, which is different for every club, so nothing is shared.
+CACHE_CONTROL = {"type": "ephemeral"}
+MAX_CACHE_BREAKPOINTS = 4
+
+# Claude API minimum cached-prefix length, in tokens. Dated model ids
+# (claude-haiku-4-5-20251001) match the family name. Source:
+# https://platform.claude.com/docs/en/build-with-claude/prompt-caching
+_CACHE_MINIMUMS = {
+    "claude-haiku-4-5": 4096,
+    "claude-haiku-3-5": 2048,
+    "claude-3-5-haiku": 2048,
+    "claude-3-haiku": 2048,
+    "claude-haiku-5-5": 512,
+    "claude-opus-4-7": 2048,
+    "claude-opus-4-6": 4096,
+    "claude-opus-4-5": 4096,
+    "claude-opus-4-8": 1024,
+    "claude-opus-4-1": 1024,
+    "claude-opus-4": 1024,
+    "claude-opus-5-5": 512,
+    "claude-opus-5": 512,
+    "claude-sonnet-5-5": 512,
+    "claude-sonnet-5": 1024,
+    "claude-sonnet-4-6": 1024,
+    "claude-sonnet-4-5": 1024,
+    "claude-sonnet-4": 1024,
+    "claude-fable-5": 512,
+    "claude-mythos-5": 512,
+    "claude-mythos-preview": 2048,
+}
+
+
+def minimum_cache_tokens(model: str) -> int | None:
+    """Minimum tokens Anthropic will cache for this model, or None if unknown."""
+    name = (model or "").strip().lower()
+    best = None
+    best_len = -1
+    for prefix, minimum in _CACHE_MINIMUMS.items():
+        if name.startswith(prefix) and len(prefix) > best_len:
+            best = minimum
+            best_len = len(prefix)
+    return best
+
+
+def estimate_tokens(text: str) -> int:
+    """Rough English token count. The live usage fields are the real measurement."""
+    return max(1, len(text) // 4)
+
+
+def stable_tools() -> list:
+    """Tool list shared by every club. Breakpoint sits on the last tool."""
+    return [
+        {
+            "type": "web_search_20250305",
+            "name": "web_search",
+            "max_uses": 5,
+            "cache_control": dict(CACHE_CONTROL),
+        }
+    ]
+
+
+def stable_system_blocks() -> list:
+    """System text shared by every club. Breakpoint sits on the last block.
+
+    Append another stable block above the breakpoint if a long reference is
+    added later. Do not put dates, school names, or ids in these blocks.
+    """
+    blocks = [{"type": "text", "text": SYSTEM_PROMPT}]
+    blocks[-1] = {**blocks[-1], "cache_control": dict(CACHE_CONTROL)}
+    return blocks
+
+
+def build_user_message(club: dict, gaps: list) -> str:
+    """Per-club request. This text changes every call and is not cached."""
+    current = {
+        k: club.get(k)
+        for k in (
+            "name",
+            "school",
+            "district",
+            "zip",
+            "tier",
+            "school_type",
+            "fb",
+            "ig",
+            "email",
+            "ad",
+            "website",
+            "activity",
+        )
+    }
+    return (
+        "Find missing booster club info for this school.\n\n"
+        f"Current data:\n```json\n{json.dumps(current, indent=2)}\n```\n\n"
+        f"Missing fields: {', '.join(gaps)}\n\n"
+        "Search the web and return the JSON object as specified in your instructions. "
+        "Only fill fields you found new info for; leave others as null."
+    )
+
+
+def enrichment_request(club: dict, gaps: list) -> dict:
+    """Arguments for messages.create. The cached prefix is tools + system only."""
+    request = {
+        "model": MODEL,
+        "max_tokens": 1500,
+        "system": stable_system_blocks(),
+        "tools": stable_tools(),
+        "messages": [{"role": "user", "content": build_user_message(club, gaps)}],
+    }
+    breakpoints = cache_breakpoints(request)
+    if len(breakpoints) > MAX_CACHE_BREAKPOINTS:
+        raise ValueError(f"Claude allows {MAX_CACHE_BREAKPOINTS} cache breakpoints, found {len(breakpoints)}")
+    return request
+
+
+def cache_breakpoints(request: dict) -> list:
+    """Locations of cache_control markers, in prefix order (tools, system, messages)."""
+    found = []
+    for tool in request.get("tools") or []:
+        if isinstance(tool, dict) and tool.get("cache_control"):
+            found.append(("tool", tool.get("name")))
+    system = request.get("system")
+    if isinstance(system, list):
+        for index, block in enumerate(system):
+            if isinstance(block, dict) and block.get("cache_control"):
+                found.append(("system", index))
+    for index, message in enumerate(request.get("messages") or []):
+        content = message.get("content")
+        if isinstance(content, list):
+            for block_index, block in enumerate(content):
+                if isinstance(block, dict) and block.get("cache_control"):
+                    found.append(("message", index, block_index))
+        elif isinstance(content, dict) and content.get("cache_control"):
+            found.append(("message", index))
+    return found
+
+
+def estimate_stable_prefix_tokens() -> int:
+    """Estimate tokens in the identical prefix (tool schema + system text)."""
+    tool_text = json.dumps(stable_tools(), sort_keys=True)
+    system_text = "".join(block["text"] for block in stable_system_blocks())
+    return estimate_tokens(tool_text + system_text)
+
+
+def cache_prefix_status(model: str) -> str:
+    """One-line description of whether this model can cache the stable prefix."""
+    estimate = estimate_stable_prefix_tokens()
+    minimum = minimum_cache_tokens(model)
+    if minimum is None:
+        return (
+            f"Cache breakpoints are set on the shared tool and system text "
+            f"(about {estimate} tokens). The cache minimum for {model} is not "
+            f"in the local table; read cache_read_input_tokens to see if it hit."
+        )
+    if estimate < minimum:
+        return (
+            f"Cache breakpoints are set, but the shared tool and system text are "
+            f"about {estimate} tokens. {model} only caches a prefix of at least "
+            f"{minimum} tokens, so these calls will not read the cache. "
+            f"There is no long reference text to cache. School names stay in the "
+            f"user message, and club ids are not sent to the model."
+        )
+    return (
+        f"Cache breakpoints are set on about {estimate} tokens of shared tool and "
+        f"system text, which clears the {minimum}-token minimum for {model}."
+    )
+
+
+def usage_counts(resp) -> dict:
+    usage = getattr(resp, "usage", None)
+    if usage is None:
+        return {}
+    return {
+        "input_tokens": getattr(usage, "input_tokens", None),
+        "output_tokens": getattr(usage, "output_tokens", None),
+        "cache_creation_input_tokens": getattr(usage, "cache_creation_input_tokens", None),
+        "cache_read_input_tokens": getattr(usage, "cache_read_input_tokens", None),
+    }
+
+
+def log_cache_usage(club_id: str, resp) -> None:
+    counts = usage_counts(resp)
+    if not counts:
+        return
+    log.info(
+        "[%s] tokens in=%s out=%s cache_write=%s cache_read=%s",
+        club_id,
+        counts["input_tokens"],
+        counts["output_tokens"],
+        counts["cache_creation_input_tokens"],
+        counts["cache_read_input_tokens"],
+    )
+
+
+def probe_prompt_cache(client: anthropic.Anthropic) -> tuple:
+    """Two back-to-back calls with the same cached prefix and no model reply.
+
+    max_tokens=0 writes or reads the cache and returns before any web search.
+    The placeholder user text is outside the breakpoint, matching a real call.
+    """
+    kwargs = {
+        "model": MODEL,
+        "max_tokens": 0,
+        "system": stable_system_blocks(),
+        "tools": stable_tools(),
+        "messages": [{"role": "user", "content": "warmup"}],
+    }
+    first = client.messages.create(**kwargs)
+    second = client.messages.create(**kwargs)
+    return usage_counts(first), usage_counts(second)
+
 
 def enrich_club(client: anthropic.Anthropic, club: dict) -> dict | None:
     """Call Claude with web_search to find missing data for one club.
@@ -151,30 +375,16 @@ def enrich_club(client: anthropic.Anthropic, club: dict) -> dict | None:
     if not gaps:
         return None
 
-    current = {k: club.get(k) for k in ("name", "school", "district", "zip", "tier", "school_type", "fb", "ig", "email", "ad", "website", "activity")}
-
-    user_msg = (
-        f"Find missing booster club info for this school.\n\n"
-        f"Current data:\n```json\n{json.dumps(current, indent=2)}\n```\n\n"
-        f"Missing fields: {', '.join(gaps)}\n\n"
-        f"Search the web and return the JSON object as specified in your instructions. "
-        f"Only fill fields you found new info for; leave others as null."
-    )
-
     try:
-        resp = client.messages.create(
-            model=MODEL,
-            max_tokens=1500,
-            system=SYSTEM_PROMPT,
-            tools=[{"type": "web_search_20250305", "name": "web_search", "max_uses": 5}],
-            messages=[{"role": "user", "content": user_msg}],
-        )
+        resp = client.messages.create(**enrichment_request(club, gaps))
     except anthropic.APIError as e:
         log.warning("[%s] API error: %s", club["id"], e)
         return None
     except Exception as e:
         log.warning("[%s] Unexpected error: %s", club["id"], e)
         return None
+
+    log_cache_usage(club["id"], resp)
 
     # Extract the final text block (after any tool calls)
     text_blocks = [b.text for b in resp.content if hasattr(b, "text") and b.text]
@@ -296,6 +506,7 @@ def main():
     log.info("=== NBP Booster Enrichment Agent ===")
     log.info("Model: %s | Repo: %s | Cooldown: %dd | Max: %d | Dry: %s",
              MODEL, GITHUB_REPO, COOLDOWN_DAYS, MAX_CLUBS, DRY_RUN)
+    log.info("%s", cache_prefix_status(MODEL))
 
     data = fetch_data()
     clubs = data["clubs"]

@@ -22,6 +22,10 @@ Roughly **$1.50–2 per run**, so ~$8/month on a weekly cron:
 - ~5K input tokens × 30 + ~1K output × 30 = ~$0.50 on Haiku 4.5
 - Free Railway tier covers the compute (job runs <2 min)
 
+Each call marks the web-search tool and the system instructions with a prompt-cache breakpoint. The school name and the other fields that change per club stay in the user message, so the shared prefix is identical across the run. Club ids are not sent to the model.
+
+That prefix is only a few hundred tokens. Claude Haiku 4.5 does not cache anything under 4,096 tokens, and there is no long reference text in this request to close the gap. The breakpoint is in place for a longer prompt or a model with a lower minimum, and on today's default model it does not reduce the bill. Web search, which is most of the cost above, is unchanged either way. A run logs `cache_read` / `cache_write` token counts so you can see whether a given model actually hit.
+
 ## Deploy on Railway
 
 1. Create a new Railway service, source = GitHub
